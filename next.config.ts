@@ -1,5 +1,8 @@
 import type {NextConfig} from 'next';
 
+// @ts-nocheck
+// TODO taillwind dark不支持cssmodule 还没找到怎么解决
+
 const nextConfig: NextConfig = {
     /* config options here */
     webpack: config => {
