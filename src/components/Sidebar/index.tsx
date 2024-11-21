@@ -5,7 +5,7 @@
 
 'use client';
 
-import {useCallback, useMemo, memo} from 'react';
+import {useCallback, useMemo, memo, useState, useEffect} from 'react';
 import dynamic from 'next/dynamic';
 import useScrollTop from '@/hooks/useScrollTop';
 import classNames from 'classnames';
@@ -16,11 +16,16 @@ const ThemeSwitch = dynamic(() => import('@/components/ThemeSwitch'), {ssr: fals
 
 const Slider = memo(() => {
     const [scrollTop] = useScrollTop();
+    const [pageHeight, setPageHeight] = useState(0);
 
-    const pageHeight = useMemo(
-        () => document.body.clientHeight,
-        []
+    useEffect(
+        () => {
+            const h = document?.body?.clientHeight;
+            setPageHeight(h);
+        }
     );
+
+    console.log(pageHeight);
 
     const showTop = useMemo(
         () => {
