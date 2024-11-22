@@ -16,7 +16,7 @@ const Header: React.FC = () => {
     return (
         <header
             className={clsx(
-                'sticky top-0 z-30 h-14 w-full transition delay-50 contain-layout',
+                'delay-50 sticky top-0 z-30 h-14 w-full transition contain-layout',
                 top > 10 && 'top-0 bg-background/20 shadow-md backdrop-blur-md'
             )}
         >
