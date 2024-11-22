@@ -16,8 +16,8 @@ const Header: React.FC = () => {
     return (
         <header
             className={clsx(
-                'sticky top-0 z-30 h-14 w-full transition delay-200 contain-layout',
-                top > 10 && 'top-0 bg-background/70 shadow-md backdrop-blur-md'
+                'sticky top-0 z-30 h-14 w-full transition delay-50 contain-layout',
+                top > 10 && 'top-0 bg-background/20 shadow-md backdrop-blur-md'
             )}
         >
             <div className="container mx-auto grid h-full max-w-screen-xl grid-cols-2 items-center px-10 max-md:grid-cols-3">

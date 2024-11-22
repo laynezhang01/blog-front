@@ -4,7 +4,7 @@ import Banner from '@/components/Banner';
 
 const Main: React.FC = () => {
     return (
-        <>
+        <div className="-mt-14">
             <Banner />
             <div className="container mx-auto max-w-screen-xl px-20 max-md:px-10">
                 <p>sss</p>
@@ -45,7 +45,7 @@ const Main: React.FC = () => {
             </div>
 
             <Snow />
-        </>
+        </div>
     );
 };
 

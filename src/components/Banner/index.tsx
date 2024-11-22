@@ -14,9 +14,13 @@ const Banner: React.FC = () => {
             />
             <div className="absolute inset-0 bg-gray-950/20 dark:bg-gray-950/50" />
             <div className="absolute inset-0 flex items-center justify-center">
-                <div className="fade-in-up text-3xl font-medium">
-                    <span>大户卡很多科技大厦</span>
-                    <span className="typed-cursor">_</span>
+                <div className="flex flex-col gap-2">
+                    <h1 className="text-3xl font-medium text-center text-secondary-foreground">
+                        阿林的博客
+                    </h1>
+                    <span className="text-secondary-foreground font-medium">
+                        The shortest way to do many things is to only one thing at a time.
+                    </span>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 export const BASIC_CONFIG = {
-    avatar: 'https://f005.backblazeb2.com/file/uulinblog/avatar.jpg',
-    banner: 'https://f005.backblazeb2.com/file/uulinblog/banner.webp',
+    avatar: 'https://img.linzip.com/avatar.jpg',
+    banner: 'https://img.linzip.com/banner.webp',
     seo: {
         title: '阿林的博客',
         titleDes: '一个待业前端',

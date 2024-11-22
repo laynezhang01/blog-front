@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'f005.backblazeb2.com',
+                hostname: 'img.linzip.com',
                 pathname: '**'
             },
             {
