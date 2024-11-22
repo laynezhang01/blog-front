@@ -1,56 +1,20 @@
 /**
  * @file 全局右侧边栏
- * @constructor
  */
 
 'use client';
 
-import {useCallback, useMemo, memo, useState, useEffect} from 'react';
-import dynamic from 'next/dynamic';
-import useScrollTop from '@/hooks/useScrollTop';
-import classNames from 'classnames';
+import ScrollTop from '@/components/Sidebar/ScrollTop';
+import ThemeSwitch from '@/components/Sidebar/ThemeSwitch';
+import React from 'react';
 
-import cls from './index.module.css';
-
-const ThemeSwitch = dynamic(() => import('@/components/ThemeSwitch'), {ssr: false});
-
-const Slider = memo(() => {
-    const [scrollTop] = useScrollTop();
-    const [pageHeight, setPageHeight] = useState(0);
-
-    useEffect(
-        () => {
-            const h = document?.body?.clientHeight;
-            setPageHeight(h);
-        }
-    );
-
-    console.log(pageHeight);
-
-    const showTop = useMemo(
-        () => {
-            return scrollTop > Math.floor(pageHeight * 0.2);
-        },
-        [scrollTop, pageHeight]
-    )
-
-    const handleScrollTop = useCallback(
-        () => {
-            window.scroll(0, 0);
-        },
-        []
-    )
-
+const Slider: React.FC = () => {
     return (
-        <aside className={cls.slideBar}>
-            <div className={classNames(cls.item, {[cls.hidden]: !showTop})}>
-                <a onClick={handleScrollTop}>top</a>
-            </div>
-            <div className={cls.item}>
-                <ThemeSwitch />
-            </div>
+        <aside className="fixed right-[10px] top-3/4 flex flex-col gap-2">
+            <ThemeSwitch />
+            <ScrollTop />
         </aside>
     );
-});
+};
 
 export default Slider;

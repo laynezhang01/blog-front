@@ -7,6 +7,6 @@ const ThemeProvider: React.FC<PropsWithChildren> = ({children}) => {
             {children}
         </NextThemeProvider>
     );
-}
+};
 
 export default ThemeProvider;

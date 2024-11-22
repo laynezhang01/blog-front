@@ -1,30 +1,56 @@
-// import type {Metadata} from 'next';
-// import localFont from 'next/font/local';
 import React, {PropsWithChildren} from 'react';
-import ThemeProvider from './themeProvider';
+import {Metadata} from 'next';
+import ThemeProvider from '@/app/themeProvider';
+import ProgressBarProvider from '@/app/progressBarProvider';
+import Header from '@/components/Header';
 import Slider from '@/components/Sidebar';
+import {BASIC_CONFIG} from '@/config/basic';
 
 import '@/styles/globals.css';
 
+export const metadata: Metadata = {
+    metadataBase: BASIC_CONFIG.seo.url,
+    title: `${BASIC_CONFIG.seo.title} - ${BASIC_CONFIG.seo.titleDes}`,
+    description: BASIC_CONFIG.seo.description,
+    keywords: BASIC_CONFIG.seo.keywords,
+    openGraph: {
+        title: {
+            default: BASIC_CONFIG.seo.title,
+            template: `%s | ${BASIC_CONFIG.seo.title}`
+        },
+        description: BASIC_CONFIG.seo.description,
+        siteName: BASIC_CONFIG.seo.title,
+        locale: 'zh_CN',
+        type: 'website',
+        url: BASIC_CONFIG.seo.url
+    },
+    alternates: {
+        canonical: '/',
+        types: {
+            'application/rss+xml': [
+                {
+                    url: 'feed.xml',
+                    title: 'RSS 订阅'
+                }
+            ]
+        }
+    }
+};
 
 const RootLayout: React.FC<PropsWithChildren> = ({children}) => {
     return (
-        <html
-            lang="en"
-            className="scroll-smooth"
-            suppressHydrationWarning
-        >
-        {/*<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>*/}
-        <body className="bg-gray-50 dark:bg-gray-950/80">
+        <html lang="zh-CN" className="scroll-smooth" suppressHydrationWarning>
+            <body>
                 <ThemeProvider>
-                    <main>
-                        {children}
-                    </main>
-                    <Slider />
+                    <ProgressBarProvider>
+                        <Header />
+                        <main>{children}</main>
+                        <Slider />
+                    </ProgressBarProvider>
                 </ThemeProvider>
             </body>
         </html>
     );
-}
+};
 
 export default RootLayout;

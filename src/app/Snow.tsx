@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React from 'react';
 import dynamic from 'next/dynamic';
@@ -12,10 +12,10 @@ const Snow: React.FC = () => {
                 zIndex: -1,
                 width: '100vw',
                 height: '100vh',
-                position: 'fixed',
+                position: 'fixed'
             }}
         />
     );
-}
+};
 
 export default Snow;

@@ -1,5 +1,5 @@
 module.exports = {
-    extends: ['next/core-web-vitals', 'next/typescript', 'plugin:prettier/recommended'],
+    extends: ['next/core-web-vitals', 'next/typescript', 'prettier', 'plugin:prettier/recommended'],
     rules: {
         'no-unused-vars': 2,
         'no-alert': 0, //禁止使用alert confirm prompt
