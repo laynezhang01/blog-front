@@ -5,16 +5,17 @@ import LightIcon from '/assets/icons/lightMode.svg';
 import DarkIcon from '/assets/icons/darkMode.svg';
 
 const ThemeSwitch = () => {
-    const {theme, setTheme} = useTheme();
+    const {setTheme, resolvedTheme} = useTheme();
+
     const handleClick = useCallback(() => {
-        if (theme === 'dark') {
+        if (resolvedTheme === 'dark') {
             setTheme('light');
             return;
         }
         setTheme('dark');
-    }, [theme, setTheme]);
+    }, [setTheme, resolvedTheme]);
 
-    return <SideItem handleClick={handleClick} icon={theme === 'dark' ? <LightIcon /> : <DarkIcon />} />;
+    return <SideItem handleClick={handleClick} icon={resolvedTheme === 'dark' ? <LightIcon /> : <DarkIcon />} />;
 };
 
 export default ThemeSwitch;

@@ -1,23 +1,24 @@
 import React from 'react';
 import Image from 'next/image';
 import {BASIC_CONFIG} from '@/config/basic';
+import Avatar from '@/components/Header/Avatar';
 
 const Banner: React.FC = () => {
     return (
-        <div className="relative h-[400px]">
+        <div className="relative h-[400px] overflow-hidden rounded-xl max-md:-mx-20 max-md:rounded-[0]">
             <Image
                 className="absolute inset-0 object-cover object-center"
-                src={BASIC_CONFIG.banner}
+                src={BASIC_CONFIG.banner.url}
                 alt="banner"
                 fill
                 priority
             />
-            <div className="absolute inset-0 bg-gray-950/20 dark:bg-gray-950/50" />
+            <span className="absolute bg-gray-950/20 dark:bg-gray-950/50" />
             <div className="absolute inset-0 flex items-center justify-center">
-                <div className="flex flex-col gap-2">
-                    <h1 className="text-center text-3xl font-medium text-secondary-foreground">阿林的博客</h1>
-                    <span className="font-medium text-secondary-foreground">
-                        The shortest way to do many things is to only one thing at a time.
+                <div className="flex flex-col gap-6">
+                    <Avatar className="m-auto" />
+                    <span className="text-xl font-medium text-primary-foreground max-md:text-sm">
+                        {BASIC_CONFIG.banner.text}
                     </span>
                 </div>
             </div>

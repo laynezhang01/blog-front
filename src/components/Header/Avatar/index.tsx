@@ -1,18 +1,22 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import clsx from 'clsx';
 import {BASIC_CONFIG} from '@/config/basic';
 
-const Avatar: React.FC = () => {
+const Avatar: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({className, ...props}) => {
     return (
-        <div className="h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:ring-white/10">
-            <Link href="/" className="pointer-events-auto">
+        <div
+            {...props}
+            className={clsx('h-28 w-28 rounded-full bg-white p-0.5 shadow-lg ring-1 backdrop-blur', className)}
+        >
+            <Link href="/" className="pointer-events-auto inline-flex h-full w-full items-center justify-center">
                 <Image
                     src={BASIC_CONFIG.avatar}
                     alt="avatar"
-                    width="256"
-                    height="256"
-                    className="dark:bg-theme-root-dark h-9 w-9 rounded-full bg-zinc-100 object-cover"
+                    width="512"
+                    height="512"
+                    className="dark:bg-theme-root-dark h-[6.5rem] w-[6.5rem] rounded-full bg-zinc-100 object-cover"
                     priority
                 />
             </Link>
