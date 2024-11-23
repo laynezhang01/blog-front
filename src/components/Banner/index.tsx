@@ -5,9 +5,9 @@ import Avatar from '@/components/Header/Avatar';
 
 const Banner: React.FC = () => {
     return (
-        <div className="relative h-[400px] overflow-hidden rounded-xl max-md:-mx-20 max-md:rounded-[0]">
+        <div className="relative h-[400px] overflow-hidden rounded-xl max-md:-mx-10 max-md:rounded-[0]">
             <Image
-                className="absolute inset-0 object-cover object-center"
+                className="absolute inset-0 object-cover object-center -z-10"
                 src={BASIC_CONFIG.banner.url}
                 alt="banner"
                 fill
