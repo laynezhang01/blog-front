@@ -1,7 +1,7 @@
 import {NextRequest, NextResponse} from 'next/server';
 import {redis} from '@/db/redis';
 import {REDIS_KEYS} from '@/config/redisKeys';
-import {getVisitorInfo} from '@/libs/Visitor';
+import {getVisitorInfo} from '@/libs/visitor';
 
 const middleware = async (request: NextRequest) => {
     const {nextUrl} = request;
