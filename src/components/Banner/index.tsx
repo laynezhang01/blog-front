@@ -11,6 +11,7 @@ const Banner: React.FC = () => {
                 src={BASIC_CONFIG.banner.url.toString()}
                 alt="banner"
                 priority
+                fill
             />
             <span className="absolute bg-gray-950/20 dark:bg-gray-950/50" />
             <div className="absolute inset-0 flex items-center justify-center">
