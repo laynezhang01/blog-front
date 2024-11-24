@@ -28,7 +28,7 @@ export default async function LastVisitorInfo() {
             </span>
             <span className="font-medium">{lastVisitor?.flag}</span>
             <span className="font-medium">
-                {[lastVisitor.os, lastVisitor.osVersion, lastVisitor.browserName, lastVisitor.browserVersion]
+                {[lastVisitor.os, lastVisitor.browserName]
                     .filter(Boolean)
                     .join(', ')}
             </span>
