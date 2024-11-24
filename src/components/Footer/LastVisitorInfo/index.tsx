@@ -27,11 +27,7 @@ export default async function LastVisitorInfo() {
                 {[lastVisitor?.city, lastVisitor?.country].filter(Boolean).join(', ')}
             </span>
             <span className="font-medium">{lastVisitor?.flag}</span>
-            <span className="font-medium">
-                {[lastVisitor.os, lastVisitor.browserName]
-                    .filter(Boolean)
-                    .join(', ')}
-            </span>
+            <span className="font-medium">{[lastVisitor.os, lastVisitor.browserName].filter(Boolean).join(', ')}</span>
         </span>
     );
 }
