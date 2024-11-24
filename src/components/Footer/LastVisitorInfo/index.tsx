@@ -1,13 +1,7 @@
 import React from 'react';
 import {redis} from '@/db/redis';
 import {REDIS_KEYS} from '@/config/redisKeys';
-import {IUaInfo} from '@/libs/ua';
-
-interface IVisitorInfo extends IUaInfo {
-    country: string;
-    city?: string;
-    flag: string;
-}
+import {IVisitorInfo} from '@/libs/visitor';
 
 export default async function LastVisitorInfo() {
     let lastVisitor: IVisitorInfo | undefined;
