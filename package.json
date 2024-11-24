@@ -12,13 +12,18 @@
         "svgo": "svgo assets/*/*.svg"
     },
     "dependencies": {
+        "@upstash/ratelimit": "^2.0.4",
+        "@upstash/redis": "^1.34.3",
         "ahooks": "^3.8.1",
         "clsx": "^2.1.1",
+        "dayjs": "^1.11.13",
         "framer-motion": "^11.11.17",
         "next": "15.0.3",
         "next-mdx-remote": "^5.0.0",
         "next-nprogress-bar": "^2.3.15",
         "next-themes": "^0.4.3",
+        "normalize-url": "^8.0.1",
+        "plaiceholder": "^3.0.0",
         "react": "19.0.0-rc-66855b96-20241106",
         "react-dom": "19.0.0-rc-66855b96-20241106",
         "react-snowfall": "^2.1.1",

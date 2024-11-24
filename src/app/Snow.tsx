@@ -9,7 +9,7 @@ const Snow: React.FC = () => {
         <Snowfall
             snowflakeCount={60}
             style={{
-                zIndex: 1,
+                // zIndex: -1,
                 width: '100vw',
                 height: '100vh',
                 position: 'fixed'

@@ -13,10 +13,15 @@ const Header: React.FC = () => {
     const top = position?.top ?? 0;
 
     return (
-        <header className="sticky top-0 z-30 flex h-14 w-full justify-center pt-[10px] contain-layout">
+        <header
+            className={clsx(
+                'sticky top-0 z-30 flex h-14 w-full justify-center px-4 pt-[10px] contain-layout max-md:pt-0 md:mx-0',
+                'max-md:px-0'
+            )}
+        >
             <div
                 className={clsx(
-                    'mx-auto grid h-full w-full max-w-screen-2xl px-10 max-2xl:mx-4',
+                    'mx-auto grid h-full w-full max-w-screen-2xl px-10',
                     'grid-cols-2 items-center rounded-xl max-md:grid-cols-3',
                     top > 10 && 'bg-card shadow-md max-md:mx-0 max-md:rounded-[0]'
                 )}

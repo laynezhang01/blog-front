@@ -7,6 +7,7 @@ import Slider from '@/components/Sidebar';
 import {BASIC_CONFIG} from '@/config/basic';
 
 import '@/styles/globals.css';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
     metadataBase: BASIC_CONFIG.seo.url,
@@ -46,6 +47,7 @@ const RootLayout: React.FC<PropsWithChildren> = ({children}) => {
                         <Header />
                         <main className="container mx-auto max-w-screen-xl px-10 max-md:px-10">{children}</main>
                         <Slider />
+                        <Footer />
                     </ProgressBarProvider>
                 </ThemeProvider>
             </body>

@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
+import Image from '@/components/Image';
 import {BASIC_CONFIG} from '@/config/basic';
 import Avatar from '@/components/Header/Avatar';
 
@@ -8,9 +8,8 @@ const Banner: React.FC = () => {
         <div className="relative h-[400px] overflow-hidden rounded-xl max-md:-mx-10 max-md:rounded-[0]">
             <Image
                 className="absolute inset-0 object-cover object-center"
-                src={BASIC_CONFIG.banner.url}
+                src={BASIC_CONFIG.banner.url.toString()}
                 alt="banner"
-                fill
                 priority
             />
             <span className="absolute bg-gray-950/20 dark:bg-gray-950/50" />
