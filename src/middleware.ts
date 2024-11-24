@@ -10,7 +10,7 @@ const middleware = async (request: NextRequest) => {
     const isApi = pathname.startsWith('/api/');
 
     if (!isApi && process.env.NODE_ENV === 'production') {
-        await redis.set(REDIS_KEYS.CURRENT_VISITOR, getVisitorInfo(request));
+        await redis.set(REDIS_KEYS.CURRENT_VISITOR, await getVisitorInfo(request));
     }
 
     return NextResponse.next();

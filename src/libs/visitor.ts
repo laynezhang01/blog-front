@@ -1,5 +1,7 @@
 import {type NextRequest, userAgent} from 'next/server';
-import {geolocation} from '@vercel/functions';
+import {geolocation, ipAddress} from '@vercel/functions';
+import {BASIC_CONFIG} from '@/config/basic';
+import {IpInfoRes} from '@/app/api/ipv4/route';
 
 export interface IVisitorInfo {
     browserName?: string;
@@ -11,9 +13,27 @@ export interface IVisitorInfo {
     flag?: string;
 }
 
-export function getVisitorInfo(request: Request | NextRequest): IVisitorInfo | null {
+const fetchIpInfo = async (ip: string = ''): Promise<IpInfoRes> => {
+    const res = await fetch(`${BASIC_CONFIG.seo.url}/api/ipv4?ip=${ip}`, {method: 'GET'});
+    return res.json();
+};
+
+export async function getVisitorInfo(request: Request | NextRequest): Promise<IVisitorInfo> {
     const ua = userAgent(request);
     const location = geolocation(request);
+    const ip = ipAddress(request);
+    const ipInfo = await fetchIpInfo(ip);
+    if (ip) {
+        return {
+            browserName: ua.browser.name,
+            browserVersion: ua.browser.version,
+            os: ua.os.name,
+            osVersion: ua.os.version,
+            flag: ipInfo.flag,
+            city: ipInfo.city,
+            country: ipInfo.nation
+        };
+    }
 
     return {
         browserName: ua.browser.name,
