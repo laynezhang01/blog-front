@@ -51,10 +51,7 @@ const Header: React.FC = () => {
                                     {BASIC_CONFIG.seo.title}
                                 </span>
                                 <span
-                                    className={clsx(
-                                        'flex h-full w-full items-center',
-                                        top > 0 && 'max-md:justify-center'
-                                    )}
+                                    className="flex h-full w-full items-center max-md:justify-center"
                                 >
                                     <Image
                                         className="relative h-8 w-8 rounded-xl object-cover"
