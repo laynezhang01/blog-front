@@ -28,7 +28,7 @@ export async function GET(req: NextRequest): Promise<NextResponse<IpInfoRes | nu
         res = await c.json();
     } catch {}
 
-    if (!res) {
+    if (!res || res.status === 'fail') {
         return NextResponse.json(null);
     }
 
