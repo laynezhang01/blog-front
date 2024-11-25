@@ -1,0 +1,38 @@
+---
+title: 2024
+createdAt: 2024/11/25 08:16:04
+tags: 文章,测试,nextjs
+cover: https://img.linzip.com/banner.webp
+category: 随笔
+city: 深圳
+province: 广东
+country: 中国
+---
+
+# 2024
+
+恍恍惚惚
+
+```js
+var arr = [3, 4, 1, 2];
+function bubbleSort(arr) {
+    var max = arr.length - 1;
+    for (var j = 0; j < max; j++) {
+        // 声明一个变量，作为标志位
+        var done = true;
+        for (var i = 0; i < max - j; i++) {
+            if (arr[i] > arr[i + 1]) {
+                var temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+                done = false;
+            }
+        }
+        if (done) {
+            break;
+        }
+    }
+    return arr;
+}
+bubbleSort(arr);
+```

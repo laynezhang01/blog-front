@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import Avatar from '@/components/Header/Avatar';
+import Avatar from '@/components/Avatar';
 import {BASIC_CONFIG} from '@/config/basic';
 import ArrowDropDownIcon from '/assets/icons/arrowDropDown.svg';
 import XIcon from '/assets/icons/x.svg';
@@ -18,7 +18,10 @@ const BannerIcon: React.FC<IBannerIconProps> = props => {
 
     return (
         <a
-            className={clsx('flex h-10 w-10 items-center justify-center rounded-full bg-black', className)}
+            className={clsx(
+                'flex h-8 w-8 items-center justify-center rounded-full bg-black hover:scale-110',
+                className
+            )}
             href={href}
             target="_blank"
         >
@@ -36,7 +39,7 @@ const Banner: React.FC = () => {
                         Hi, 我是
                         <span className="relative font-bold">
                             <span className="-z-1 absolute left-0 top-[30%] h-[40%] w-full -rotate-3 bg-blue-300/30"></span>
-                            Layne
+                            阿林Layne
                         </span>
                         👋.
                         <br />

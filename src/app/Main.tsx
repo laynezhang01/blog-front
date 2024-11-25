@@ -1,7 +1,7 @@
 import React from 'react';
 import Snow from '@/app/Snow';
 import Banner from '@/components/Banner';
-import PostList from '@/components/PostList';
+import PostList from '@/components/Post/List';
 
 const Main: React.FC = () => {
     return (
