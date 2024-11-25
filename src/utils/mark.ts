@@ -1,11 +1,11 @@
 import React from 'react';
 import pinyin from 'tiny-pinyin';
 
-export interface IHeading {
-    level: number;
-    text: string;
-    slug: string;
-}
+// export interface IHeading {
+//     level: number;
+//     text: string;
+//     slug: string;
+// }
 
 /**
  * 生成slug 会转义中文特殊字符
@@ -44,17 +44,17 @@ export const slugify = (node: React.ReactNode): string => {
  * @param markdownText markdown内容
  * @param endLevel 取到几级标题
  */
-export const extractMarkdownHeaders = (markdownText: string, endLevel: number = 6): IHeading[] => {
-    const headersRegex = new RegExp(`^(#{1,${endLevel}})\\s(.+)$`, 'gm');
-    const headersMatches = [...markdownText.matchAll(headersRegex)];
-
-    return headersMatches.map(match => {
-        const level = match[1].length;
-        const text = match[2].trim();
-        return {
-            level,
-            text,
-            slug: slugify(text)
-        };
-    });
-};
+// export const extractMarkdownHeaders = (markdownText: string, endLevel: number = 6): IHeading[] => {
+//     const headersRegex = new RegExp(`^(#{1,${endLevel}})\\s(.+)$`, 'gm');
+//     const headersMatches = [...markdownText.matchAll(headersRegex)];
+//
+//     return headersMatches.map(match => {
+//         const level = match[1].length;
+//         const text = match[2].trim();
+//         return {
+//             level,
+//             text,
+//             slug: slugify(text)
+//         };
+//     });
+// };

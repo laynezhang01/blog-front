@@ -1,6 +1,7 @@
 import React from 'react';
 import Snow from '@/app/Snow';
 import Banner from '@/components/Banner';
+import PostList from '@/components/PostList';
 
 const Main: React.FC = () => {
     return (
@@ -11,43 +12,9 @@ const Main: React.FC = () => {
                     <div className="rounded bg-card p-4 shadow">小组件1</div>
                     <div className="sticky top-16 rounded bg-card p-4 shadow">小组件2</div>
                 </aside>
-                <article className="flex-auto">
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                    <p>sss</p>
-                </article>
+                <div className="flex-auto">
+                    <PostList />
+                </div>
             </div>
 
             <Snow />

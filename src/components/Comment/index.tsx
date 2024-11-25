@@ -1,33 +1,10 @@
-'use client';
+import React from 'react';
+import Waline from '@/components/Comment/Waline';
 
-import React, {useEffect, useRef} from 'react';
-import {type WalineInstance, type WalineInitOptions, init} from '@waline/client';
+const Comment: React.FC = () => {
+    const serverURL = process.env.WALINE_BACKEND_URL ?? '';
 
-import '@waline/client/meta';
-import '@waline/client/style';
-
-export type WalineOptions = Omit<WalineInitOptions, 'el'> & {path: string};
-
-export const Comment = (props: Omit<WalineOptions, 'path'>) => {
-    const walineInstanceRef = useRef<WalineInstance | null>(null);
-    const containerRef = React.createRef<HTMLDivElement>();
-
-    useEffect(() => {
-        walineInstanceRef.current = init({
-            ...props,
-            path: window.location.pathname.replace(/\/$/, ''),
-            el: containerRef.current,
-            dark: 'html[data-theme="dark"]'
-        });
-
-        return () => walineInstanceRef.current?.destroy();
-    }, []);
-
-    useEffect(() => {
-        walineInstanceRef.current?.update(props);
-    }, [props]);
-
-    return <div ref={containerRef} />;
+    return <Waline serverURL={serverURL} />;
 };
 
 export default Comment;

@@ -12,5 +12,5 @@ export const BASIC_CONFIG = {
         url: new URL(process.env.NODE_ENV === 'production' ? 'https://linzip.com' : 'http://localhost:3000'),
         keywords: '林的时光日记,阿林,博客,个人记录,独立博客,blog,技术博客,前端,个人生活,nextjs,node,code'
     },
-    createDate: '2022-11-20'
+    createDate: '2024-11-20'
 };

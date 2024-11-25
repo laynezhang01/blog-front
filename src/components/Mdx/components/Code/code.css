@@ -1,0 +1,25 @@
+pre {
+    @apply relative w-full overflow-hidden rounded-xl bg-zinc-200/60 pt-3 shadow-md dark:bg-[#13171b];
+}
+
+pre::before {
+    @apply mb-3 ml-3;
+    content: '';
+    display: block;
+    background-size: 40px;
+    border-radius: 50%;
+    background: #ff0800 no-repeat 10px 10px;
+    width: 12px;
+    height: 12px;
+    -webkit-box-shadow:
+        20px 0 #fdbc40,
+        40px 0 #35cd4b;
+    box-shadow:
+        20px 0 #fdbc40,
+        40px 0 #35cd4b;
+}
+
+pre code {
+    @apply block overflow-x-auto bg-zinc-50/80 p-5 dark:bg-[#151a1e]/70;
+    line-height: 1.5;
+}

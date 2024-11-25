@@ -24,10 +24,7 @@ export const getPreviewImage = async (url: string): Promise<IPreviewImage | null
                 return cache;
             }
         } catch (e) {
-            if (e instanceof Error) {
-                // eslint-disable-next-line no-console
-                console.warn(`redis error set ${cacheKey}`, e.message);
-            }
+            await Promise.reject(e);
         }
         const f = await fetch(url);
         const buffer = Buffer.from(await f.arrayBuffer());
@@ -43,8 +40,7 @@ export const getPreviewImage = async (url: string): Promise<IPreviewImage | null
             await redis.set(cacheKey, previewImage);
         } catch (e) {
             if (e instanceof Error) {
-                // eslint-disable-next-line no-console
-                console.warn(`redis error set ${cacheKey}`, e.message);
+                await Promise.reject(e);
             }
         }
 

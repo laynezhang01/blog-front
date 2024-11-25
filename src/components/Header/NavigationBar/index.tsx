@@ -4,7 +4,7 @@ import React, {PropsWithChildren} from 'react';
 import clsx from 'clsx';
 import {usePathname} from 'next/navigation';
 import Link from 'next/link';
-import {motion} from 'motion/react'
+import {motion} from 'motion/react';
 import {NAVIGATION_ITEMS} from '@/config/nav';
 
 interface INavItem {

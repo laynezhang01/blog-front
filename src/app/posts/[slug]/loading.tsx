@@ -1,4 +1,4 @@
-import UfoIcon from '/assets/icons.ufo.svg';
+import UfoIcon from '/assets/icons/ufo.svg';
 
 export default function PostSkeleton() {
     return (

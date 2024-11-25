@@ -50,6 +50,21 @@
         --chart-3: #274754;
         --chart-4: #e8c468;
         --chart-5: #f4a462;
+
+        --theme-mdx-links: #2dd4bf;
+        --theme-mdx-invert-underline: rgba(45, 212, 191, 0.3);
+        --theme-mdx-links-hover: #2dd4bf;
+        --theme-mdx-underline-hover: #2dd4bf;
+
+        --sh-class: #2d5e9d;
+        --sh-identifier: #354150;
+        --sh-sign: #8996a3;
+        --sh-property: #0550ae;
+        --sh-entity: #249a97;
+        --sh-jsxliterals: #6266d1;
+        --sh-string: #00a99a;
+        --sh-keyword: #f47067;
+        --sh-comment: #a19595;
     }
 
     .dark {
@@ -77,6 +92,11 @@
         --chart-3: #e88c30;
         --chart-4: #af57db;
         --chart-5: #e23670;
+
+        --sh-class: #4c97f8;
+        --sh-identifier: #fff;
+        --sh-keyword: #f47067;
+        --sh-string: #0fa295;
     }
 }
 
