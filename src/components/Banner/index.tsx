@@ -51,7 +51,7 @@ const Banner: React.FC = () => {
                     <div className="mt-16 flex items-center gap-6 text-xl text-white max-md:justify-center">
                         <BannerIcon icon={<GithubIcon />} href="https://github.com/laynezhang01" />
                         <BannerIcon icon={<XIcon />} href="" />
-                        <BannerIcon icon={<MainIcon />} href="" className="bg-red-400" />
+                        <BannerIcon icon={<MainIcon />} href="mailto:hi@linzip.com" className="bg-red-400" />
                     </div>
                 </div>
                 <div className="col-span-1 flex max-md:row-span-1">
