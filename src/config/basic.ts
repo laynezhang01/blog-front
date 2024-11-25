@@ -1,5 +1,5 @@
 export const BASIC_CONFIG = {
-    avatar: 'https://img.linzip.com/avatar.jpg',
+    avatar: 'https://img.linzip.com/avatar2024.jpg',
     banner: {
         url: 'https://img.linzip.com/banner.webp',
         text: '我不害怕明天，因為我經歷過昨天，也熱愛今天 '

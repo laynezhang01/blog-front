@@ -3,18 +3,36 @@ import clsx from 'clsx';
 import Avatar from '@/components/Header/Avatar';
 import {BASIC_CONFIG} from '@/config/basic';
 import ArrowDropDownIcon from '/assets/icons/arrowDropDown.svg';
+import XIcon from '/assets/icons/x.svg';
+import GithubIcon from '/assets/icons/github.svg';
+import MainIcon from '/assets/icons/mail.svg';
+
+interface IBannerIconProps {
+    icon: React.ReactNode;
+    href: string;
+    className?: string;
+}
+
+const BannerIcon: React.FC<IBannerIconProps> = props => {
+    const {icon, href, className} = props;
+
+    return (
+        <a
+            className={clsx('flex h-10 w-10 items-center justify-center rounded-full bg-black', className)}
+            href={href}
+            target="_blank"
+        >
+            {icon}
+        </a>
+    );
+};
 
 const Banner: React.FC = () => {
     return (
-        <div
-            className={clsx(
-                'relative min-h-[500px] overflow-hidden rounded-xl max-md:-mx-10',
-                'flex flex-col'
-            )}
-        >
-            <div className="grid flex-1 grid-cols-3 items-center px-10 max-md:grid-cols-1">
-                <div className="col-span-2">
-                    <h1 className="text-balance text-center text-3xl lg:text-left">
+        <div className={clsx('relative min-h-[500px] overflow-hidden rounded-xl max-md:-mx-10', 'flex flex-col')}>
+            <div className="grid flex-1 grid-cols-3 items-center px-10 max-md:grid-cols-1 max-md:grid-rows-3">
+                <div className="col-span-2 max-md:row-span-2">
+                    <h1 className="text-balance text-center text-3xl max-md:text-2xl lg:text-left">
                         Hi, 我是
                         <span className="relative font-bold">
                             <span className="-z-1 absolute left-0 top-[30%] h-[40%] w-full -rotate-3 bg-blue-300/30"></span>
@@ -22,13 +40,18 @@ const Banner: React.FC = () => {
                         </span>
                         👋.
                         <br />
-                        一位刚从北京裸辞来到深圳的待业FE
+                        刚从北京裸辞来到深圳的待业FE
                     </h1>
                     <div className="mt-3 text-center text-sm text-secondary-foreground lg:text-left">
                         业余摄影爱好者, 宅, 夜猫子.
                     </div>
+                    <div className="mt-16 flex items-center gap-6 text-xl text-white max-md:justify-center">
+                        <BannerIcon icon={<GithubIcon />} href="https://github.com/laynezhang01" />
+                        <BannerIcon icon={<XIcon />} href="" />
+                        <BannerIcon icon={<MainIcon />} href="" className="bg-red-400" />
+                    </div>
                 </div>
-                <div className="col-span-1 flex">
+                <div className="col-span-1 flex max-md:row-span-1">
                     <Avatar className="m-auto" />
                 </div>
             </div>
