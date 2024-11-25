@@ -22,8 +22,8 @@ export async function getVisitorInfo(request: Request | NextRequest): Promise<IV
     const ua = userAgent(request);
     const location = geolocation(request);
     const ip = ipAddress(request);
-    const ipInfo = await fetchIpInfo(ip);
-    if (ip) {
+    const ipInfo = await fetchIpInfo(ip).catch(() => {});
+    if (ip && ipInfo) {
         return {
             browserName: ua.browser.name,
             browserVersion: ua.browser.version,
@@ -31,7 +31,7 @@ export async function getVisitorInfo(request: Request | NextRequest): Promise<IV
             osVersion: ua.os.version,
             flag: ipInfo.flag,
             city: ipInfo.city,
-            country: ipInfo.nation
+            country: ipInfo.country
         };
     }
 
