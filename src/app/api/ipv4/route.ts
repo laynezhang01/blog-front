@@ -2,16 +2,15 @@ import {NextResponse, NextRequest} from 'next/server';
 import countryCodeToFlagEmoji from 'country-code-to-flag-emoji';
 
 export interface IGetIpRes {
-    query:       string;
-    status:      string;
-    country:     string;
+    query: string;
+    status: string;
+    country: string;
     countryCode: string;
-    regionName:  string;
-    city:        string;
-    isp:         string;
-    org:         string;
+    regionName: string;
+    city: string;
+    isp: string;
+    org: string;
 }
-
 
 export interface IpInfoRes extends IGetIpRes {
     flag: string;
@@ -27,8 +26,7 @@ export async function GET(req: NextRequest): Promise<NextResponse<IpInfoRes | nu
             {method: 'GET'}
         );
         res = await c.json();
-    }
-    catch {}
+    } catch {}
 
     if (!res) {
         return NextResponse.json(null);
