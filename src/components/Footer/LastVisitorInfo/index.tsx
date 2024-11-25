@@ -24,7 +24,7 @@ export default async function LastVisitorInfo() {
         <span className="flex items-center justify-center gap-1 md:justify-start">
             <span>
                 最近访客来自&nbsp;
-                {[lastVisitor?.city, lastVisitor?.country].filter(Boolean).join(', ')}
+                {lastVisitor?.city}
             </span>
             <span className="font-medium">{lastVisitor?.flag}</span>
             <span className="font-medium">{[lastVisitor.os, lastVisitor.browserName].filter(Boolean).join(', ')}</span>
