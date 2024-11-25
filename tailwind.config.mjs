@@ -55,13 +55,24 @@ export default {
                 sm: 'calc(var(--radius) - 4px)'
             },
             animation: {
-                cursor: 'cursor 1s ease-in-out infinite'
+                cursor: 'cursor 1s ease-in-out infinite',
+                bounce: 'bounce 1s infinite'
             },
             keyframes: {
                 cursor: {
                     '0%': {opacity: 0},
                     '50%': {opacity: 1},
                     '100%': {opacity: 0}
+                },
+                bounce: {
+                    '0%': {
+                        transform: 'translateY(-25%)',
+                        animationTimingFunction: 'cubic-bezier(.8, 0, 1, 1)'
+                    },
+                    '50%': {
+                        transform: 'none',
+                        animationTimingFunction: 'cubic-bezier(0, 0, .2, 1)'
+                    }
                 }
             }
         }

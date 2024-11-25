@@ -5,7 +5,7 @@ import PostList from '@/components/PostList';
 
 const Main: React.FC = () => {
     return (
-        <div className="flex flex-col gap-6">
+        <div className="">
             <Banner />
             <div className="flex gap-4 max-md:flex-col-reverse">
                 <aside className="flex w-[300px] flex-col gap-4 max-md:hidden">
