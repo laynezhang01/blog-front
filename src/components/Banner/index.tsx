@@ -8,7 +8,7 @@ const Banner: React.FC = () => {
     return (
         <div
             className={clsx(
-                'relative h-[calc(100vh-5.5rem)] min-h-[300px] overflow-hidden rounded-xl max-md:-mx-10',
+                'relative min-h-[500px] overflow-hidden rounded-xl max-md:-mx-10',
                 'flex flex-col'
             )}
         >
