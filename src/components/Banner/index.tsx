@@ -32,7 +32,7 @@ const BannerIcon: React.FC<IBannerIconProps> = props => {
 
 const Banner: React.FC = () => {
     return (
-        <div className={clsx('relative min-h-[500px] overflow-hidden rounded-xl max-md:-mx-10', 'flex flex-col')}>
+        <div className={clsx('relative min-h-[500px] overflow-hidden rounded-xl max-md:-mx-4', 'flex flex-col')}>
             <div className="grid flex-1 grid-cols-3 items-center px-10 max-md:grid-cols-1 max-md:grid-rows-3">
                 <div className="col-span-2 max-md:row-span-2">
                     <h1 className="text-balance text-center text-3xl max-md:text-2xl lg:text-left">
