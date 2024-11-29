@@ -27,7 +27,7 @@ const Header: React.FC = () => {
                 className={clsx(
                     'mx-auto grid h-14 w-full max-w-screen-2xl overflow-hidden px-10',
                     'grid-cols-7 items-center rounded-xl',
-                    top > 10 && 'bg-card shadow-md max-md:mx-0 max-md:rounded-[0]'
+                    top > 10 && 'border-card-border bg-card shadow-md max-md:mx-0 max-md:rounded-[0]'
                 )}
             >
                 <div className="col-span-1 hidden max-md:block">

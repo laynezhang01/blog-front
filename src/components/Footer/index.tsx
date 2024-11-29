@@ -16,7 +16,7 @@ async function Footer() {
         <footer>
             <div
                 className={clsx(
-                    'container mx-auto max-w-screen-xl px-10 text-xs text-muted-foreground max-md:px-10',
+                    'text-muted-foreground container mx-auto max-w-screen-xl px-10 text-xs max-md:px-10',
                     'container flex justify-between gap-4 p-6 max-md:flex-col'
                 )}
             >

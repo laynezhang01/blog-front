@@ -5,7 +5,7 @@
 import React, {useCallback, useMemo} from 'react';
 import {useScroll} from 'ahooks';
 import SideItem from '@/components/Sidebar/Item';
-import VerticalAlignTop from '/assets/icons/verticalAlignTop.svg';
+import RocketIcon from '/assets/icons/rocket.svg';
 
 const ScrollTop: React.FC = () => {
     const scroll = useScroll();
@@ -21,7 +21,7 @@ const ScrollTop: React.FC = () => {
         window.scroll(0, 0);
     }, []);
 
-    return <SideItem visible={showTop} handleClick={handleScrollTop} icon={<VerticalAlignTop />} />;
+    return <SideItem visible={showTop} handleClick={handleScrollTop} icon={<RocketIcon />} />;
 };
 
 export default ScrollTop;

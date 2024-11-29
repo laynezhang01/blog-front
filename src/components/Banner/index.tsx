@@ -45,7 +45,7 @@ const Banner: React.FC = () => {
                         <br />
                         刚从北京裸辞来到深圳的待业FE
                     </h1>
-                    <div className="mt-3 text-center text-sm text-secondary-foreground lg:text-left">
+                    <div className="text-secondary-foreground mt-3 text-center text-sm lg:text-left">
                         业余摄影爱好者, 宅, 夜猫子.
                     </div>
                     <div className="mt-16 flex items-center gap-6 text-xl text-white max-md:justify-center">
@@ -59,7 +59,7 @@ const Banner: React.FC = () => {
                 </div>
             </div>
             <div className="inset-x-0 bottom-0 mt-10 flex flex-col items-center lg:absolute lg:mt-0">
-                <p className="text-balance text-center text-xs text-secondary-foreground">{BASIC_CONFIG.banner.text}</p>
+                <p className="text-secondary-foreground text-balance text-center text-xs">{BASIC_CONFIG.banner.text}</p>
                 <div className="mt-7 animate-bounce text-xl">
                     <ArrowDropDownIcon />
                 </div>

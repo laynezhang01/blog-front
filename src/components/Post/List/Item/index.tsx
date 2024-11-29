@@ -21,19 +21,22 @@ const PostItem: React.FC<IPostItemProps> = props => {
         <li>
             <Link
                 className={clsx(
-                    'relative block h-full w-full cursor-pointer overflow-hidden rounded-xl border',
-                    'transition ease-linear hover:-translate-y-2 hover:opacity-90 hover:shadow-md'
+                    'relative block h-full w-full cursor-pointer rounded-xl border transition ease-linear',
+                    'border-card-border bg-card shadow-card-shadow hover:-translate-y-2 hover:opacity-90 hover:shadow-md'
                 )}
                 key={slug}
-                href={`/blog/${slug}`}
+                href={`/posts/${slug}`}
             >
-                <BlurImage className="absolute inset-x-0 top-0 h-44 object-cover object-center" src={cover} />
-                <div className="mt-44 flex flex-col gap-4 p-6">
+                <BlurImage
+                    className="absolute -top-[1px] h-40 rounded-t-xl object-cover object-center indent-0"
+                    src={cover}
+                />
+                <div className="mt-40 flex flex-col gap-4 p-6">
                     <div className="flex flex-col gap-4">
                         <h2 className="truncate text-center font-medium">{title}</h2>
-                        <p className="line-clamp-2 text-xs">{summary}</p>
+                        <p className="line-clamp-2 text-xs text-secondary">{summary}</p>
                     </div>
-                    <div className="flex justify-between text-xs">
+                    <div className="flex justify-between text-xs text-muted">
                         <IconText icon={<CalendarIcon />} text={dayjs(data.createdAt).format(DAYJS_FORMAT)} />
                         <IconText icon={<NearIcon />} text={data.location} />
                     </div>

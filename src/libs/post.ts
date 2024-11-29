@@ -157,7 +157,7 @@ export const getAllPosts = async (params: IGetAllPostsFilter = {}): Promise<IGet
  */
 export const getPostBySlug = async (slug: string): Promise<IGetPostBySlugRes> => {
     const allMdxFiles = await getAllPosts();
-    const file = allMdxFiles.list.find(cur => slugify(cur.slug === slug));
+    const file = allMdxFiles.list.find(cur => cur.slug === slug);
     if (!file) {
         throw new Error('post is not found');
     }

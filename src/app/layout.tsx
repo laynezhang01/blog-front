@@ -45,7 +45,9 @@ const RootLayout: React.FC<PropsWithChildren> = ({children}) => {
                 <ThemeProvider>
                     <ProgressBarProvider>
                         <Header />
-                        <main className="container mx-auto my-6 max-w-screen-xl px-10 max-md:px-10">{children}</main>
+                        <main className="container mx-auto mb-16 mt-6 max-w-screen-xl px-10 max-md:px-4">
+                            {children}
+                        </main>
                         <Slider />
                         <Footer />
                     </ProgressBarProvider>

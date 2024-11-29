@@ -1,5 +1,6 @@
 import React from 'react';
 import {IHeading} from '@/libs/post';
+import clsx from 'clsx';
 
 interface ITocProps {
     headings: IHeading[];
@@ -8,14 +9,14 @@ interface ITocProps {
 
 const Toc: React.FC<ITocProps> = ({headings, className}) => {
     return (
-        <nav className={className}>
+        <nav className={clsx('rounded-xl bg-card px-6 py-4 shadow-card-shadow', className)}>
             <ul>
                 {headings.map(heading => (
                     <li
                         key={heading.id}
-                        className={`ml-${(heading.depth - 2) * 4} list-none`} // 根据层级动态调整缩进
+                        className={clsx(`ml-[${(heading.depth - 2) * 4}px]`)} // 根据层级动态调整缩进
                     >
-                        <a href={`#${heading.id}`} className="text-blue-600 transition-colors hover:text-blue-800">
+                        <a href={`#${heading.id}`} className="text-secondary transition-colors hover:text-muted">
                             {heading.text}
                         </a>
                     </li>

@@ -17,14 +17,17 @@ const SideItem: React.FC<PropsWithChildren<ISideItem>> = props => {
     return (
         <div
             className={clsx(
-                'z-10 h-8 w-8 rounded bg-primary shadow-2xl',
-                'size-2 cursor-pointer text-2xl shadow-md transition delay-200 ease-in-out',
+                'z-10 h-8 w-8 rounded-full border-card-border bg-card shadow-2xl',
+                'size-2 cursor-pointer shadow-md transition delay-75 ease-in-out',
                 {invisible: !visible}
             )}
         >
             {icon && handleClick && (
                 <a
-                    className="hover:text-primary-foreground/70 relative flex h-full w-full items-center justify-center text-xl text-primary-foreground"
+                    className={clsx(
+                        'hover:text-primary-foreground/70 relative flex h-full w-full items-center justify-center',
+                        'text-xl text-secondary hover:text-accent-hover'
+                    )}
                     onClick={handleClick}
                 >
                     {icon}

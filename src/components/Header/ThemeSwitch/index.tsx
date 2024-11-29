@@ -27,8 +27,8 @@ const ThemeBtn: React.FC<IThemeBtnProps> = ({theme, icon, text}) => {
     return (
         <a
             className={clsx(
-                '-mx-2 flex w-28 cursor-pointer items-center gap-2 rounded-lg px-5 transition hover:bg-gray-300/20',
-                curTheme === theme && 'bg-gray-300/20 font-bold text-blue-500 dark:bg-gray-200/10 dark:text-blue-200'
+                '-mx-2 flex w-28 cursor-pointer items-center gap-2 rounded-lg px-5 transition hover:bg-gray-400/20',
+                curTheme === theme && 'bg-gray-400/20 font-bold text-primary backdrop-blur'
             )}
             onClick={handleSetTheme}
         >
@@ -64,7 +64,7 @@ const ThemeSwitch: React.FC = () => {
                 className={clsx(
                     'divide-y divide-white/5 rounded-xl bg-white/70 text-sm/6 shadow backdrop-blur transition',
                     'duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1',
-                    'relative z-30 data-[closed]:opacity-0 dark:bg-gray-800/70'
+                    'relative z-30 backdrop-blur data-[closed]:opacity-0 dark:bg-gray-800/70'
                 )}
             >
                 <div className="flex flex-col gap-2 p-2">

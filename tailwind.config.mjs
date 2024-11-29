@@ -9,45 +9,26 @@ export default {
         extend: {
             colors: {
                 background: 'var(--background)',
-                foreground: 'var(--foreground)',
                 card: {
                     DEFAULT: 'var(--card)',
-                    foreground: 'var(--card-foreground)'
-                },
-                popover: {
-                    DEFAULT: 'var(--popover)',
-                    foreground: 'var(--popover-foreground)'
+                    border: 'var(--card-border)',
+                    shadow: 'var(--card-shadow)',
+                    light: 'rgb(255, 255, 255)'
                 },
                 primary: {
-                    DEFAULT: 'var(--primary)',
-                    foreground: 'var(--primary-foreground)'
+                    DEFAULT: 'var(--primary)'
                 },
                 secondary: {
-                    DEFAULT: 'var(--secondary)',
-                    foreground: 'var(--secondary-foreground)'
+                    DEFAULT: 'var(--secondary)'
                 },
                 muted: {
-                    DEFAULT: 'var(--muted)',
-                    foreground: 'var(--muted-foreground)'
+                    DEFAULT: 'var(--muted)'
                 },
                 accent: {
                     DEFAULT: 'var(--accent)',
-                    foreground: 'var(--accent-foreground)'
+                    hover: 'var(--accent-hover)'
                 },
-                destructive: {
-                    DEFAULT: 'var(--destructive)',
-                    foreground: 'var(--destructive-foreground)'
-                },
-                border: 'var(--border)',
-                input: 'var(--input)',
-                ring: 'var(--ring)',
-                chart: {
-                    1: 'var(--chart-1)',
-                    2: 'var(--chart-2)',
-                    3: 'var(--chart-3)',
-                    4: 'var(--chart-4)',
-                    5: 'var(--chart-5)'
-                }
+                border: 'var(--border)'
             },
             borderRadius: {
                 lg: 'var(--radius)',
@@ -77,5 +58,5 @@ export default {
             }
         }
     },
-    plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')]
+    plugins: [require('tailwindcss-animate')]
 };
