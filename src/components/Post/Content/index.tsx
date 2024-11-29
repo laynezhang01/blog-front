@@ -1,7 +1,7 @@
 import React, {type ComponentProps} from 'react';
 import {timeFormat} from '@/utils/time';
 import MDXBody from '@/components/Mdx';
-import {ISlugPostData} from '@/libs/posts';
+import {IGetPostBySlugRes} from '@/libs/post';
 
 import VisibilityIcon from '/assets/icons/visibility.svg';
 import CalendarIcon from '/assets/icons/calendar.svg';
@@ -10,25 +10,13 @@ import ScheduleIcon from '/assets/icons/schedule.svg';
 import NearIcon from '/assets/icons/near.svg';
 // import ThumbIcon from '/assets/icons/thumb.svg';
 import {readingTime} from 'reading-time-estimator';
+import IconText from '@/components/IconText';
 
 export interface IPostContentProps {
-    data: ISlugPostData;
+    data: IGetPostBySlugRes;
     views?: number;
+    className: string;
 }
-
-interface IHeadItemProps {
-    icon?: React.ReactNode;
-    text: string;
-}
-
-const HeadItem: React.FC<IHeadItemProps> = ({icon, text}) => {
-    return (
-        <div className="flex items-center justify-center gap-2">
-            {icon && icon}
-            {text}
-        </div>
-    );
-};
 
 export default function PostContent(props: IPostContentProps & ComponentProps<'article'>) {
     const {data, views, ...rest} = props;
@@ -41,18 +29,18 @@ export default function PostContent(props: IPostContentProps & ComponentProps<'a
                     {data?.data.title}
                 </h1>
                 <div className="flex gap-6 text-sm text-zinc-800/80 dark:text-zinc-200/70">
-                    <HeadItem
+                    <IconText
                         icon={<CalendarIcon />}
                         text={`发布于：${data?.data.createdAt && timeFormat(data.data.createdAt)}`}
                     />
-                    {views && <HeadItem icon={<VisibilityIcon />} text={`发布于：${views}次阅读`} />}
+                    {views && <IconText icon={<VisibilityIcon />} text={`发布于：${views}次阅读`} />}
                     {/*<span>*/}
                     {/*    <ThumbIcon />*/}
                     {/*    没写呢*/}
                     {/*</span>*/}
-                    <HeadItem icon={<TextIcon />} text={`${readTime.words}字`} />
-                    <HeadItem icon={<ScheduleIcon />} text={readTime.text} />
-                    <HeadItem icon={<NearIcon />} text={`${data.data.province} . ${data.data.city}`} />
+                    <IconText icon={<TextIcon />} text={`${readTime.words}字`} />
+                    <IconText icon={<ScheduleIcon />} text={readTime.text} />
+                    <IconText icon={<NearIcon />} text={data?.data.location} />
                 </div>
             </div>
             <div className="text-zinc-900/90 dark:text-zinc-100/70">

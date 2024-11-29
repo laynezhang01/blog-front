@@ -21,8 +21,6 @@ const Avatar: React.FC<IAvatar> = ({className}) => {
             <BlurImage
                 src={BASIC_CONFIG.avatar}
                 alt="avatar"
-                width="512"
-                height="512"
                 className={clsx(
                     'dark:bg-theme-root-dark h-56 w-56 rounded-full bg-zinc-100 object-cover max-md:h-28 max-md:w-28',
                     'transition ease-linear hover:scale-110'

@@ -8,7 +8,8 @@ export default function createTitle(level: number) {
         const ele = createElement(
             `h${level}`,
             {
-                id: slug
+                id: slug,
+                className: 'scroll-mt-16'
             },
             [
                 createElement('a', {

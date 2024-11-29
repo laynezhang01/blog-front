@@ -4,10 +4,10 @@ import ThemeProvider from '@/app/themeProvider';
 import ProgressBarProvider from '@/app/progressBarProvider';
 import Header from '@/components/Header';
 import Slider from '@/components/Sidebar';
+import Footer from '@/components/Footer';
 import {BASIC_CONFIG} from '@/config/basic';
 
 import '@/styles/globals.css';
-import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
     metadataBase: BASIC_CONFIG.seo.url,

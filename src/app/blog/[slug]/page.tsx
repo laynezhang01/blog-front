@@ -1,8 +1,9 @@
 import NotFound from 'next/dist/client/components/not-found-error';
 import type {Metadata} from 'next';
-import {getBlogPostBySlug} from '@/libs/posts';
+import {getPostBySlug} from '@/libs/post';
 import PostContent from '@/components/Post/Content';
 import Comment from '@/components/Comment';
+import Toc from '@/components/Post/Toc';
 import {redis} from '@/db/redis';
 import {BASIC_CONFIG} from '@/config/basic';
 import {REDIS_KEYS} from '@/config/redisKeys';
@@ -11,19 +12,19 @@ type TParams = Promise<{slug: string}>;
 
 export async function generateMetadata(props: {params: TParams}): Promise<Metadata | undefined> {
     const {slug} = await props.params;
-    let article = getBlogPostBySlug(slug);
-    if (!article) {
+    let post = await getPostBySlug(slug);
+    if (!post) {
         return;
     }
     return {
-        title: `${article.data.title} - ${BASIC_CONFIG.seo.title}`,
-        keywords: article.data.tags ?? ''
+        title: `${post.data.title} - ${BASIC_CONFIG.seo.title}`,
+        keywords: post.data.tags ?? ''
     };
 }
 
 export default async function PostPage(props: {params: TParams}) {
     const {slug} = await props.params;
-    let article = await getBlogPostBySlug(slug);
+    let post = await getPostBySlug(slug);
 
     const views =
         process.env.NODE_ENV === 'production'
@@ -34,13 +35,18 @@ export default async function PostPage(props: {params: TParams}) {
 
     // console.log(await res.json());
 
-    if (!article) {
+    if (!post) {
         return NotFound();
     }
 
     return (
-        <div className="flex flex-col gap-20">
-            <PostContent data={article} views={views as number | undefined} />
+        <div className="gap-20">
+            <div className="flex gap-10">
+                <PostContent className="flex-1" data={post} views={views as number | undefined} />
+                <div>
+                    <Toc className="sticky top-16 w-[200px]" headings={post.headings} />
+                </div>
+            </div>
             <Comment />
         </div>
     );

@@ -9,6 +9,10 @@ export const NAVIGATION_ITEMS: INavItem[] = [
         title: '首页'
     },
     {
+        href: '/blog',
+        title: '文章'
+    },
+    {
         href: '/about',
         title: '关于'
     }

@@ -1,9 +1,8 @@
-import dayjs from 'dayjs';
+import dayjs from '@/utils/dayjs';
 import isYesterday from 'dayjs/plugin/isYesterday';
 import isBetween from 'dayjs/plugin/isBetween';
 dayjs.extend(isYesterday);
 dayjs.extend(isBetween);
-dayjs.locale('zh-cn');
 
 /**
  * 时间美化
