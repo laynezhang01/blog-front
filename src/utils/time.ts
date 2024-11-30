@@ -1,4 +1,4 @@
-import dayjs from '@/utils/dayjs';
+import dayjs from 'dayjs';
 import isYesterday from 'dayjs/plugin/isYesterday';
 import isBetween from 'dayjs/plugin/isBetween';
 dayjs.extend(isYesterday);
