@@ -142,7 +142,6 @@ export const getAllPosts = async (params: IGetAllPostsFilter = {}): Promise<IGet
     const sortPosts = posts.sort((a, b) => {
         const timeA = a.data.updatedAt || a.data.createdAt;
         const timeB = b.data.updatedAt || b.data.createdAt;
-        console.log(timeA, timeB);
         return timeB - timeA;
     });
 
