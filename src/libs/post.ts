@@ -5,7 +5,7 @@ import matter from 'gray-matter';
 import {visit} from 'unist-util-visit';
 import {remark} from 'remark';
 import {slugify} from '@/utils/mark';
-import dayjs from '@/utils/dayjs';
+import dayjs from 'dayjs';
 import {POST_DEFAULT_COVER_MAP} from '@/config/post';
 
 const POSTS_DIR = path.join(process.cwd(), 'posts');
@@ -122,8 +122,8 @@ const parseMDFile = async (filePath: string): Promise<IParseMDFile> => {
         data: {
             ...data,
             cover: cover,
-            createdAt: +dayjs(data.createdAt),
-            updatedAt: data.updatedAt ? +dayjs(data.updatedAt) : 0
+            createdAt: dayjs(data.createdAt).valueOf(),
+            updatedAt: data.updatedAt ? dayjs(data.updatedAt).valueOf() : 0
         },
         slug: slugify(path.basename(filePath, path.extname(filePath))),
         content: body
@@ -140,8 +140,9 @@ export const getAllPosts = async (params: IGetAllPostsFilter = {}): Promise<IGet
         })
     );
     const sortPosts = posts.sort((a, b) => {
-        const timeA = a.data.updatedAt ?? a.data.createdAt;
-        const timeB = b.data.updatedAt ?? b.data.createdAt;
+        const timeA = a.data.updatedAt || a.data.createdAt;
+        const timeB = b.data.updatedAt || b.data.createdAt;
+        console.log(timeA, timeB);
         return timeB - timeA;
     });
 

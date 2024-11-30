@@ -1,9 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
+import dayjs from 'dayjs';
 import BlurImage from '@/components/BlurImage';
 import IconText from '@/components/IconText';
-import dayjs, {DAYJS_FORMAT} from '@/utils/dayjs';
+import {DAYJS_FORMAT} from '@/utils/dayjs';
 import type {IParseMDFileMetaData} from '@/libs/post';
 import CalendarIcon from '/assets/icons/calendar.svg';
 import NearIcon from '/assets/icons/near.svg';
@@ -21,13 +22,16 @@ const PostItem: React.FC<IPostItemProps> = props => {
         <li>
             <Link
                 className={clsx(
-                    'relative block h-full w-full cursor-pointer rounded-xl border transition ease-linear',
+                    'group relative block h-full w-full cursor-pointer overflow-hidden rounded-xl border transition ease-linear',
                     'border-card-border bg-card shadow-card-shadow hover:-translate-y-2 hover:opacity-90 hover:shadow-md'
                 )}
                 key={slug}
                 href={`/posts/${slug}`}
             >
-                <BlurImage className="absolute top-0 h-40 rounded-t-xl" src={cover} />
+                <BlurImage
+                    className="absolute top-0 h-40 rounded-t-xl transition ease-linear group-hover:scale-110"
+                    src={cover}
+                />
                 <div className="mt-40 flex flex-col gap-4 p-6">
                     <div className="flex flex-col gap-4">
                         <h2 className="truncate text-center font-medium">{title}</h2>
