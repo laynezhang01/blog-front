@@ -25,7 +25,7 @@ export default function PostContent(props: IPostContentProps & ComponentProps<'a
     return (
         <article id="post" {...rest}>
             <div className="mb-6 flex flex-col gap-6 pb-6 shadow-sm">
-                <h1 className="mt-6 text-3xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
+                <h1 className="mt-6 text-xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
                     {data?.data.title}
                 </h1>
                 <div className="flex gap-6 text-sm text-zinc-800/80 dark:text-zinc-200/70">

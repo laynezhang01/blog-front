@@ -40,12 +40,14 @@ export default async function PostPage(props: {params: TParams}) {
     }
 
     return (
-        <div className="gap-20">
-            <div className="flex gap-10">
+        <div className="container mx-auto max-w-screen-xl">
+            <div className="flex flex-row gap-10 max-md:gap-0">
                 <PostContent className="flex-1" data={post} views={views as number | undefined} />
-                <div>
-                    <Toc className="sticky top-20 w-[260px] max-md:hidden" headings={post.headings} />
-                </div>
+                {post.headings.length > 0 && (
+                    <div>
+                        <Toc className="sticky top-20 w-[260px] max-md:hidden" headings={post.headings} />
+                    </div>
+                )}
             </div>
             <Comment />
         </div>

@@ -15,11 +15,12 @@ async function BlurImage(props: IBlurImageProps) {
 
     return (
         <NextImage
-            className="max-w-full rounded-xl"
+            className="h-full w-full rounded-xl"
             placeholder="blur"
             blurDataURL={previewImage?.dataURIBase64 ?? ''}
             width={previewImage?.originalWidth}
             height={previewImage?.originalHeight}
+            style={{objectFit: 'cover', objectPosition: 'center'}}
             src={src}
             alt={alt}
             {...props}

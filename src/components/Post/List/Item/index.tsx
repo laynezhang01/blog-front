@@ -27,10 +27,7 @@ const PostItem: React.FC<IPostItemProps> = props => {
                 key={slug}
                 href={`/posts/${slug}`}
             >
-                <BlurImage
-                    className="absolute -top-[1px] h-40 rounded-t-xl object-cover object-center indent-0"
-                    src={cover}
-                />
+                <BlurImage className="absolute top-0 h-40 rounded-t-xl" src={cover} />
                 <div className="mt-40 flex flex-col gap-4 p-6">
                     <div className="flex flex-col gap-4">
                         <h2 className="truncate text-center font-medium">{title}</h2>
