@@ -21,14 +21,25 @@ const nextConfig: NextConfig = {
                 protocol: 'https',
                 hostname: 'cdn.jsdelivr.net',
                 pathname: '**'
-            },
-            {
-                protocol: 'https',
-                hostname: 'via.placeholder.com',
-                pathname: '**/*'
             }
         ],
         formats: ['image/avif', 'image/webp']
+    },
+    async rewrites() {
+        return [
+            {
+                source: '/feed',
+                destination: '/feed.xml'
+            },
+            {
+                source: '/rss',
+                destination: '/feed.xml'
+            },
+            {
+                source: '/rss.xml',
+                destination: '/feed.xml'
+            }
+        ];
     }
 };
 

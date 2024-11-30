@@ -1,4 +1,3 @@
-import fs from 'fs';
 import {readdir, readFile} from 'node:fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
@@ -56,11 +55,6 @@ export interface IHeading {
     id: string;
     depth: number;
 }
-
-export const readMDXFile = (filePath: string): IMatter => {
-    let rawContent = fs.readFileSync(filePath, 'utf8');
-    return matter(rawContent) as IMatter;
-};
 
 /**
  * 递归获取传入dir的所有md文件路径
