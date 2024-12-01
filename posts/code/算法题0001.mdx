@@ -278,3 +278,60 @@ const foo = str => {
 
 console.log(foo('pwwkew')); // { maxLen: 3, text: 'wke' }
 ```
+
+### 两数相加
+[两数相加](https://leetcode.cn/problems/add-two-numbers/)
+本地执行没问题，到leetcode里面会报错 暂时只想到这样
+
+```javascript
+var addTwoNumbers = function(l1, l2) {
+    const maxLen = Math.max(l1.length, l2.length);
+    let res = 0;
+
+    for (let i = maxLen - 1; i >= 0; i--) {
+        const n1 = parseInt(l1[i] ?? 0);
+        const n2 = parseInt(l2[i] ?? 0);
+        if (i !== 0) {
+            const unit = Number('1' + '0'.repeat(i));
+            res += n1 * unit + n2 * unit;
+            continue;
+        }
+        res += n1 + n2;
+    }
+    return res.toString().split('').map(Number).reverse();
+};
+
+console.log(addTwoNumbers([9,9,9,9,9,9,9], [9,9,9,9])); // [8, 9, 9, 9, 0, 0, 0, 1]
+```
+
+### 回文数
+[回文数](https://leetcode.cn/problems/palindrome-number/description/)
+ 常规字符串方法
+```javascript
+var isPalindrome = function (x) {
+    const str = x.toString();
+    const strReversed = str.split('').reverse().join('');
+    return str === strReversed;
+};
+```
+不用字符串
+```javascript
+var isPalindrome = function (x) {
+    // 负数不是回文数 0结尾的数字肯定不是回文数字
+    if (x < 0 || (x % 10 === 0 && x !==0)) {
+        return false;
+    }
+    // 定义翻转值
+    let reversed = 0;
+    // 只取到一半的时候 就可以
+    while (x > reversed) {
+        // reversed * 10是进位， x % 10是剩余数字，依次填入翻转值里
+        reversed = reversed * 10 + (x % 10);
+        // 添加后就要改变x的值了 每次除以10取整
+        x = Math.floor(x / 10);
+    }
+    // 奇数个数字的时候 中间数字并不影响 所以翻转过来的数字最后一个就是那个中间数字 这里就干掉他
+    return x === reversed || x === Math.floor(reversed / 10);
+};
+```
+
