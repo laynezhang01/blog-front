@@ -1,6 +1,6 @@
 import pinyin from 'tiny-pinyin';
 
-export const cnToPinyin = (str: string) => {
+export const cnToSlug = (str: string) => {
     const chineseReg = /[\u4e00-\u9fa5]/g;
     return (
         str

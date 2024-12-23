@@ -2,9 +2,8 @@ import React from 'react';
 import {MDXRemote} from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import {mdxComponents} from '@/components/Mdx/components';
-import {MDXComponents} from 'mdx/types';
-
 import './mdx.css';
+import {MDXRemoteProps} from 'next-mdx-remote';
 
 export interface IMDXBodyProps {
     source: string;
@@ -20,7 +19,7 @@ const MDXBody: React.FC<IMDXBodyProps> = props => {
                     }
                 }}
                 {...props}
-                components={mdxComponents as MDXComponents}
+                components={mdxComponents}
             />
         </div>
     );

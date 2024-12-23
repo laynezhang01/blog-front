@@ -1,7 +1,8 @@
+import React from 'react';
 import NextImage, {ImageProps} from 'next/image';
 import {getPreviewImage} from '@/libs/previewImage';
 
-export default async function Image(props: ImageProps) {
+const Image: React.FC<ImageProps> = async props => {
     const previewImage = await getPreviewImage((props.src as string) ?? '');
 
     return (
@@ -16,4 +17,6 @@ export default async function Image(props: ImageProps) {
             blurDataURL={previewImage?.dataURIBase64 ?? ''}
         />
     );
-}
+};
+
+export default Image;

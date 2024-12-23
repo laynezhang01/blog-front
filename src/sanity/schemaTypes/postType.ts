@@ -1,6 +1,6 @@
 import {DocumentTextIcon} from '@sanity/icons';
 import {defineArrayMember, defineField, defineType} from 'sanity';
-import {cnToPinyin} from '@/utils/text';
+import {cnToSlug} from '@/utils/text';
 
 export const postType = defineType({
     name: 'post',
@@ -21,7 +21,7 @@ export const postType = defineType({
                 source: 'title',
                 maxLength: 96,
                 slugify: input => {
-                    return cnToPinyin(input);
+                    return cnToSlug(input);
                 }
             }
         }),

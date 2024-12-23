@@ -1,9 +1,13 @@
-import {DetailedHTMLProps, HTMLAttributes} from 'react';
+import React, {DetailedHTMLProps, HTMLAttributes, PropsWithChildren} from 'react';
 import {highlight} from 'sugar-high';
 
 import './code.css';
 
-export default function Code({children, ...props}: DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>) {
+type TCodeProps = PropsWithChildren<DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>>;
+
+const Code: React.FC<TCodeProps> = ({children, ...props}) => {
     let codeHTML = highlight(children as string);
     return <code dangerouslySetInnerHTML={{__html: codeHTML}} {...props} />;
-}
+};
+
+export default Code;
