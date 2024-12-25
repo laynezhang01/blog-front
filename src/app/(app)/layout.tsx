@@ -1,7 +1,7 @@
 import React, {PropsWithChildren} from 'react';
 import {Metadata} from 'next';
-import ThemeProvider from '@/app/themeProvider';
-import ProgressBarProvider from '@/app/progressBarProvider';
+import ThemeProvider from '@/app/(app)/themeProvider';
+import ProgressBarProvider from '@/app/(app)/progressBarProvider';
 import Header from '@/components/Header';
 import Slider from '@/components/Sidebar';
 import Footer from '@/components/Footer';
@@ -39,6 +39,13 @@ export const metadata: Metadata = {
 };
 
 const RootLayout: React.FC<PropsWithChildren> = ({children}) => {
+    // const isOutStatic = typeof window !== undefined && window.location.pathname.startsWith('/outstatic');
+    // if (isOutStatic) {
+    //     return <>{children}</>;
+    // }
+
+    // return <>{children}</>;
+
     return (
         <html lang="zh-CN" className="scroll-smooth" suppressHydrationWarning>
             <body>

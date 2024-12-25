@@ -109,7 +109,7 @@ package的版本是由`major.minor.patch`组成
 
 package中的版本有可能存在一些符号，我们常见的就是`~`和`^`
 
--   **^表示大版本不变，小版本和补丁会安装最新的**
+- **^表示大版本不变，小版本和补丁会安装最新的**
 
 `"axios":  "^1.22.11"`表示版本包括`>=1.22.11`且`<2.0.0`。
 
@@ -117,13 +117,13 @@ package中的版本有可能存在一些符号，我们常见的就是`~`和`^`
 
 `"axios": "^0.21.1"`表示版本包括`">=0.21.1`且`<0.22.0`
 
--   **～表示大版本和小版本不变，补丁版本会安装最新的**
+- **～表示大版本和小版本不变，补丁版本会安装最新的**
 
 `"axios": "~1.21.1"`表示版本包括`>=1.21.1`且`<1.21.0`
 
 `"axios": "~2.2.6"`表示版本包括`>=2.2.6`且`<2.3.0`
 
--   指定版本，即无特殊符号
+- 指定版本，即无特殊符号
 
 `"moment": "2.29.1"`，只会安装2.29.1版本
 
@@ -280,11 +280,12 @@ console.log(foo('pwwkew')); // { maxLen: 3, text: 'wke' }
 ```
 
 ### 两数相加
+
 [两数相加](https://leetcode.cn/problems/add-two-numbers/)
 本地执行没问题，到leetcode里面会报错 暂时只想到这样
 
 ```javascript
-var addTwoNumbers = function(l1, l2) {
+var addTwoNumbers = function (l1, l2) {
     const maxLen = Math.max(l1.length, l2.length);
     let res = 0;
 
@@ -301,12 +302,14 @@ var addTwoNumbers = function(l1, l2) {
     return res.toString().split('').map(Number).reverse();
 };
 
-console.log(addTwoNumbers([9,9,9,9,9,9,9], [9,9,9,9])); // [8, 9, 9, 9, 0, 0, 0, 1]
+console.log(addTwoNumbers([9, 9, 9, 9, 9, 9, 9], [9, 9, 9, 9])); // [8, 9, 9, 9, 0, 0, 0, 1]
 ```
 
 ### 回文数
+
 [回文数](https://leetcode.cn/problems/palindrome-number/description/)
- 常规字符串方法
+常规字符串方法
+
 ```javascript
 var isPalindrome = function (x) {
     const str = x.toString();
@@ -314,11 +317,13 @@ var isPalindrome = function (x) {
     return str === strReversed;
 };
 ```
+
 不用字符串
+
 ```javascript
 var isPalindrome = function (x) {
     // 负数不是回文数 0结尾的数字肯定不是回文数字
-    if (x < 0 || (x % 10 === 0 && x !==0)) {
+    if (x < 0 || (x % 10 === 0 && x !== 0)) {
         return false;
     }
     // 定义翻转值
@@ -334,4 +339,3 @@ var isPalindrome = function (x) {
     return x === reversed || x === Math.floor(reversed / 10);
 };
 ```
-

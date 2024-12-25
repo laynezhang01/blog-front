@@ -48,27 +48,27 @@ JWT是token的一种实现方式，服务端芝士，具体就不过多了解了
 
 #### crsf和xss
 
-+ XSS 跨站脚本攻击
+- XSS 跨站脚本攻击
 
 反射型、存储型、DOM Based型。总的说都是通过script脚本注入恶意代码实现攻击，攻击可能获取用户信息等操作。所以一般可以将cookie标记为`http-only`，避免恶意脚本获取cookie。同时对于一些可执行地方做好转义处理。react基本上不需要考虑xss问题，但是需要注意`dangerouslySetInnerHTML`这个方法的使用，可能会带来XSS问题。
 
-+ CSRF跨站请求伪造
+- CSRF跨站请求伪造
 
 实现过程就是用户在未登出网站A的情况下，访问B网站，而B网站中包含有一些恶意代码，总之是会向A网站发送一个HTTP请求，而请求中包含了A网站的cookie信息。从而达到目的。
 
-+ 避免GET请求做一些关键操作，因为get请求一般是无感的
-+ 检查Referrer，这依赖于浏览器的安全性
-+ 使用CSRF TOKEN
-+ 浏览器本身防护 SameSite cookies，限制cookie只能在自己网站使用
+- 避免GET请求做一些关键操作，因为get请求一般是无感的
+- 检查Referrer，这依赖于浏览器的安全性
+- 使用CSRF TOKEN
+- 浏览器本身防护 SameSite cookies，限制cookie只能在自己网站使用
 
 ### 回到单点登录
 
-+ cookie + session
+- cookie + session
 
 我们知道cookie存储有限制，且不适宜存储一些敏感信息，所以一般都是采用cookie和session来做登录。这种情况下，如果是同域名，包含子域名的情况下，我们可以对主域名`linzip.com`做domain父域，然后其cookie就可以做到其他子域名`blog.linzip.com`、`xxx.linzip.com`的跨域处理。如果在子域名登录，校验未登录可以跳转到主域名进行登录。但是这种方式由于没有sso中心，所以需要主域名去处理登录后的重定向问题。
 
 通过SSO系统登录。与上面一致，区别是全部服务都是通过SSO登录系统进行登录。登录后SSO会通过携带参数对相关域名进行cookie设置，再或者是共享父域cookie。最终实现单点登录。但是问题也是不可以跨站点。当然，如果通过一些比如ifram、postmassage之类的操作，也可以实现跨站点的cookie提取，但是一般cookie的的安全配置是不允许这样做的，而且也不安全。也可以通过后端接口的一些操作进行处理，但是这不属于纯前端范畴了。
 
-+ token
+- token
 
 token的方式也是需要通过SSO系统，其实原理上就是登录某个系统后，先跳转到SSO系统，然后获取token，如果没有获取到就跳转到登录页，如果登录了就携带参数重定向回到原页面，由于token是加密信息，前端可以任意处置，不管是是在cookie里还是存在storage里都可以，最终放到请求header的字段中还是cookie里后端都可以提取。同时跨域也很友好。另外，SSO服务不一定是显式的，也有可能是页面里的一个ifram，通过postmessage进行传递。这样体验上更好一些。
