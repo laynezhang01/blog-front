@@ -6,6 +6,6 @@ const RootLayout: React.FC<PropsWithChildren> = ({children}) => {
             <body>{children}</body>
         </html>
     );
-}
+};
 
 export default RootLayout;
