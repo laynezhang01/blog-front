@@ -1,0 +1,31 @@
+{
+    "commit": "4c3b15f669e51054c8e9526cada2438da71e9bec",
+    "generated": "2024-12-26T14:14:07.864Z",
+    "metadata": [
+        {
+            "__outstatic": {
+                "commit": "4c3b15f669e51054c8e9526cada2438da71e9bec",
+                "hash": "3231954154",
+                "path": "outstatic/content/posts/2024.md"
+            },
+            "author": {
+                "name": "Layne",
+                "picture": "https://avatars.githubusercontent.com/u/52080234?v=4"
+            },
+            "collection": "posts",
+            "coverImage": "",
+            "description": "文章回顾了作者从2016年毕业后至今的人生经历。从最初在销售行业的挣扎，到因经济压力回到北京转型为前端开发，再到因爱情迁居深圳，作者经历了从迷茫到适应的成长过程。文章不仅记录了职业转型的挑战、生活中的疲倦与遗憾，也展现了爱情带来的改变与新生活中的落差。最终，作者以平和的心态接受现状，对未来充满希望。",
+            "disabledComments": "",
+            "publishedAt": "2024-12-26T11:37:14.883Z",
+            "slug": "2024",
+            "status": "published",
+            "tags": [
+                {
+                    "label": "随笔",
+                    "value": "essays"
+                }
+            ],
+            "title": "2024"
+        }
+    ]
+}
