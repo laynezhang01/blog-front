@@ -10,10 +10,17 @@
       "title": "Tags",
       "values": [
         {
-          "label":"随笔",
-          "value":"essays"
+          "label": "随笔",
+          "value": "essays"
         }
       ]
+    },
+    "disabledComments": {
+      "required": false,
+      "description": "",
+      "fieldType": "Boolean",
+      "dataType": "boolean",
+      "title": "DisabledComments"
     }
   }
 }
