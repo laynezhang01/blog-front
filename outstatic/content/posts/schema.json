@@ -8,7 +8,12 @@
       "fieldType": "Tags",
       "dataType": "array",
       "title": "Tags",
-      "values": []
+      "values": [
+        {
+          "label":"随笔",
+          "value":"essays"
+        }
+      ]
     }
   }
 }
