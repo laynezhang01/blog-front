@@ -1,19 +1,19 @@
 import React, {type ComponentProps} from 'react';
 import {timeFormat} from '@/utils/time';
 import MDXBody from '@/components/Mdx';
-import {IGetPostBySlugRes} from '@/libs/post';
+import {TPost} from '@/libs/post/type';
 
 import VisibilityIcon from '/assets/icons/visibility.svg';
 import CalendarIcon from '/assets/icons/calendar.svg';
 import TextIcon from '/assets/icons/text.svg';
 import ScheduleIcon from '/assets/icons/schedule.svg';
-import NearIcon from '/assets/icons/near.svg';
+// import NearIcon from '/assets/icons/near.svg';
 // import ThumbIcon from '/assets/icons/thumb.svg';
 import {readingTime} from 'reading-time-estimator';
 import IconText from '@/components/IconText';
 
 export interface IPostContentProps {
-    data: IGetPostBySlugRes;
+    data: TPost;
     views?: number;
     className: string;
 }
@@ -31,7 +31,7 @@ export default function PostContent(props: IPostContentProps & ComponentProps<'a
                 <div className="flex gap-6 text-sm text-zinc-800/80 dark:text-zinc-200/70">
                     <IconText
                         icon={<CalendarIcon />}
-                        text={`发布于：${data?.data.createdAt && timeFormat(data.data.createdAt)}`}
+                        text={`发布于：${data?.data.publishedAt && timeFormat(data.data.publishedAt)}`}
                     />
                     {views && <IconText icon={<VisibilityIcon />} text={`发布于：${views}次阅读`} />}
                     {/*<span>*/}
@@ -40,7 +40,7 @@ export default function PostContent(props: IPostContentProps & ComponentProps<'a
                     {/*</span>*/}
                     <IconText icon={<TextIcon />} text={`${readTime.words}字`} />
                     <IconText icon={<ScheduleIcon />} text={readTime.text} />
-                    <IconText icon={<NearIcon />} text={data?.data.location} />
+                    {/*<IconText icon={<NearIcon />} text={data?.data.location} />*/}
                 </div>
             </div>
             <div className="text-zinc-900/90 dark:text-zinc-100/70">

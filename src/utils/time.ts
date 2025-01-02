@@ -8,7 +8,7 @@ dayjs.extend(isBetween);
  * 时间美化
  * @param time 时间戳或者字符串
  */
-export const timeFormat = (time: number | string) => {
+export const timeFormat = (time: number | string | Date) => {
     const timeForDayjs = dayjs(time);
     const now = dayjs();
 

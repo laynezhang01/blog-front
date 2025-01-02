@@ -2,7 +2,7 @@ import NotFound from 'next/dist/client/components/not-found-error';
 import type {Metadata} from 'next';
 import {getPostBySlug} from '@/libs/post';
 import PostContent from '@/components/Post/Content';
-import Comment from '@/components/Comment';
+// import Comment from '@/components/Comment';
 import Toc from '@/components/Post/Toc';
 import {redis} from '@/db/redis';
 import {BASIC_CONFIG} from '@/config/basic';
@@ -12,19 +12,19 @@ type TParams = Promise<{slug: string}>;
 
 export async function generateMetadata(props: {params: TParams}): Promise<Metadata | undefined> {
     const {slug} = await props.params;
-    let post = await getPostBySlug(slug);
+    let post = await getPostBySlug('posts', slug);
     if (!post) {
         return;
     }
     return {
         title: `${post.data.title} - ${BASIC_CONFIG.seo.title}`,
-        keywords: post.data.tags ?? ''
+        keywords: post.data.tags.map(item => item.label) ?? ''
     };
 }
 
 export default async function PostPage(props: {params: TParams}) {
     const {slug} = await props.params;
-    let post = await getPostBySlug(slug);
+    let post = await getPostBySlug('posts', slug);
 
     const views =
         process.env.NODE_ENV === 'production'
@@ -49,7 +49,7 @@ export default async function PostPage(props: {params: TParams}) {
                     </div>
                 )}
             </div>
-            <Comment />
+            {/*<Comment />*/}
         </div>
     );
 }

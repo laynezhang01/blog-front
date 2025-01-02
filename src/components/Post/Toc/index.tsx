@@ -1,5 +1,5 @@
 import React from 'react';
-import {IHeading} from '@/libs/post';
+import {IHeading} from '@/libs/post/type';
 import clsx from 'clsx';
 
 interface ITocProps {
@@ -8,6 +8,7 @@ interface ITocProps {
 }
 
 const Toc: React.FC<ITocProps> = ({headings, className}) => {
+    // console.log(headings);
     return (
         <nav className={clsx('rounded-xl bg-card px-6 py-4 shadow-card-shadow', className)}>
             <ul>

@@ -20,20 +20,20 @@ export async function GET() {
         generator: 'NodeJS'
     });
 
-    const data = await getAllPosts();
+    const data = await getAllPosts({dir: 'posts'});
     if (!data) {
         return new Response('Not found', {status: 404});
     }
 
-    data.list.forEach(({data, slug}) => {
+    data.list.forEach(({data}) => {
         feed.item({
             title: data.title,
-            guid: slug,
-            url: `${seo.url.href}posts/${slug}`,
-            description: data.summary,
-            date: new Date(data.createdAt),
+            guid: data.slug,
+            url: `${seo.url.href}posts/${data.slug}`,
+            description: data.description,
+            date: new Date(data.publishedAt),
             enclosure: {
-                url: data.cover ?? ''
+                url: data.coverImage ?? ''
             }
         } as ItemOptions);
     });

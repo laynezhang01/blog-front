@@ -10,25 +10,25 @@ export const slugify = (node: React.ReactNode): string => {
     return (
         node!
             .toString()
-            // 拆分中文增加分割 不考虑加几个分割 下面会处理
+            // 将中文转换为拼音并添加分隔符
             .replace(chineseReg, (match, idx, str) => {
-                const isFirst = idx === 0;
-                const isLast = idx === str.length - 1;
-                const pinStr = pinyin.convertToPinyin(match);
-                const nextStr = str[idx + 1];
-                if (isFirst) {
-                    return nextStr ? `${pinStr}-` : pinStr;
-                } else if (isLast) {
-                    return `-${pinStr}`;
-                }
-                return `-${pinStr}-`;
-            }) // 中文转拼音
-            .toLowerCase()
+                const pinStr = pinyin.convertToPinyin(match); // 中文转拼音
+                const prevChar = str[idx - 1];
+                const nextChar = str[idx + 1];
+
+                // 如果前一个字符是分隔符或不存在，则直接添加拼音
+                const prefix = !prevChar || /[-\s]/.test(prevChar) ? '' : '-';
+                // 如果后一个字符是分隔符或不存在，则直接结束
+                const suffix = !nextChar || /[-\s]/.test(nextChar) ? '' : '-';
+
+                return `${prefix}${pinStr}${suffix}`;
+            })
+            .toLowerCase() // 转为小写
             .trim() // 去掉首尾空格
             .replace(/\s+/g, '-') // 空格替换为 -
             .replace(/&/g, '-and-') // 替换 & 为 'and'
-            .replace(/[^\w\-]+/g, '') // Remove all non-word characters except for -
-            // 多分割会转为单分割
-            .replace(/\-\-+/g, '-')
-    ); // Replace multiple - with single -
+            .replace(/[^\w\-]+/g, '') // 移除所有非单词字符（保留 -）
+            .replace(/^-+|-+$/g, '') // 去掉开头和结尾的多余分隔符
+            .replace(/--+/g, '-') // 合并连续的分隔符为单个 -
+    );
 };

@@ -5,6 +5,8 @@ import ProgressBarProvider from '@/app/(app)/progressBarProvider';
 import Header from '@/components/Header';
 import Slider from '@/components/Sidebar';
 import Footer from '@/components/Footer';
+import Background from '@/components/Background';
+
 import {BASIC_CONFIG} from '@/config/basic';
 
 import '@/styles/globals.css';
@@ -39,20 +41,14 @@ export const metadata: Metadata = {
 };
 
 const RootLayout: React.FC<PropsWithChildren> = ({children}) => {
-    // const isOutStatic = typeof window !== undefined && window.location.pathname.startsWith('/outstatic');
-    // if (isOutStatic) {
-    //     return <>{children}</>;
-    // }
-
-    // return <>{children}</>;
-
     return (
         <html lang="zh-CN" className="scroll-smooth" suppressHydrationWarning>
             <body>
                 <ThemeProvider>
                     <ProgressBarProvider>
                         <Header />
-                        <main className="container mx-auto mb-16 mt-6 max-w-screen-xl px-10 max-md:px-4">
+                        <main>
+                            <Background />
                             {children}
                         </main>
                         <Slider />
