@@ -2,12 +2,12 @@
     border-radius: 50%;
     -webkit-filter: blur(150px);
     filter: blur(150px);
-    height: 1140px;
+    height: 800px;
     overflow: hidden;
     position: absolute;
     right: 0;
     top: -360px;
-    width: 1140px;
+    width: 800px;
     z-index: -2;
     --conic-rotate: 45deg;
 

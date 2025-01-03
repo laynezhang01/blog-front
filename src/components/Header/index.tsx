@@ -44,7 +44,7 @@ const Header: React.FC = () => {
                             >
                                 <span
                                     className={clsx(
-                                        "flex h-full items-center gap-2 after:h-4 after:w-[2px] after:content-['']",
+                                        'flex h-full items-center gap-2 after:h-4 after:w-[2px] after:content-[""]',
                                         'after:animate-cursor after:bg-red-500'
                                     )}
                                 >

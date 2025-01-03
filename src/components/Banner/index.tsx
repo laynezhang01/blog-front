@@ -39,11 +39,11 @@ const Banner: React.FC = () => {
                         Hi, 我是
                         <span className="relative font-bold">
                             <span className="-z-1 absolute left-0 top-[30%] h-[40%] w-full -rotate-3 bg-blue-300/30"></span>
-                            阿林Layne
+                            Layne
                         </span>
                         👋.
                         <br />
-                        刚从北京裸辞来到深圳的待业FE
+                        从北跑到南的外包切图仔
                     </h1>
                     <div className="text-secondary-foreground mt-3 text-center text-sm lg:text-left">
                         业余摄影爱好者, 宅, 夜猫子.

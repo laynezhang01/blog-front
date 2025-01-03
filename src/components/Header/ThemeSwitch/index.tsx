@@ -23,7 +23,7 @@ const ThemeBtn: React.FC<IThemeBtnProps> = ({theme, icon, text, onClose}) => {
     const handleSetTheme = useCallback(() => {
         setTheme(theme);
         onClose();
-    }, [theme, close, setTheme, onClose]);
+    }, [theme, setTheme, onClose]);
 
     return (
         <a

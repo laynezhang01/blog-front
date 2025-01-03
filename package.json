@@ -63,5 +63,9 @@
         "typescript": "^5"
     },
     "packageManager": "yarn@1.22.22",
-    "browserslist": [">0.3%", "not dead", "not op_mini all"]
+    "browserslist": [
+        ">0.3%",
+        "not dead",
+        "not op_mini all"
+    ]
 }
