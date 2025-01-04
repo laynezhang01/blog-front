@@ -10,7 +10,7 @@ export interface IMDXBodyProps {
     source: string;
 }
 
-const MDXBody: React.FC<IMDXBodyProps> = props => {
+export const MDXBody: React.FC<IMDXBodyProps> = props => {
     return (
         <div className="prose">
             <MDXRemote
@@ -25,5 +25,3 @@ const MDXBody: React.FC<IMDXBodyProps> = props => {
         </div>
     );
 };
-
-export default MDXBody;

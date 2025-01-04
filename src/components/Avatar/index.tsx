@@ -1,14 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
-import BlurImage from '@/components/BlurImage';
+import LazyImage from '@/components/LazyImage';
 import {BASIC_CONFIG} from '@/config/basic';
 
 export interface IAvatar {
     className?: string;
 }
 
-const Avatar: React.FC<IAvatar> = ({className}) => {
+export const Avatar: React.FC<IAvatar> = ({className}) => {
     return (
         <Link
             href="/"
@@ -18,7 +18,7 @@ const Avatar: React.FC<IAvatar> = ({className}) => {
                 className
             )}
         >
-            <BlurImage
+            <LazyImage
                 src={BASIC_CONFIG.avatar}
                 alt="avatar"
                 width={224}
@@ -31,5 +31,3 @@ const Avatar: React.FC<IAvatar> = ({className}) => {
         </Link>
     );
 };
-
-export default Avatar;

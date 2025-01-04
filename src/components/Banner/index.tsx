@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import Avatar from '@/components/Avatar';
+import {Avatar} from '@/components/Avatar';
 import {BASIC_CONFIG} from '@/config/basic';
 import ArrowDropDownIcon from '/assets/icons/arrowDropDown.svg';
 import XIcon from '/assets/icons/x.svg';
@@ -30,7 +30,7 @@ const BannerIcon: React.FC<IBannerIconProps> = props => {
     );
 };
 
-const Banner: React.FC = () => {
+export const Banner: React.FC = () => {
     return (
         <div className={clsx('relative min-h-[500px] overflow-hidden rounded-xl max-md:-mx-4', 'flex flex-col')}>
             <div className="grid flex-1 grid-cols-3 items-center px-10 max-md:grid-cols-1 max-md:grid-rows-3">
@@ -67,5 +67,3 @@ const Banner: React.FC = () => {
         </div>
     );
 };
-
-export default Banner;

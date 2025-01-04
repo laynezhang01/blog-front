@@ -7,7 +7,7 @@ interface IconTextProps {
     className?: string;
 }
 
-const IconText: React.FC<IconTextProps> = ({icon, text, className}) => {
+export const IconText: React.FC<IconTextProps> = ({icon, text, className}) => {
     if (!text) {
         return null;
     }
@@ -19,5 +19,3 @@ const IconText: React.FC<IconTextProps> = ({icon, text, className}) => {
         </div>
     );
 };
-
-export default IconText;

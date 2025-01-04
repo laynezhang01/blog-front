@@ -12,7 +12,7 @@ import MenuIcon from '/assets/icons/menu.svg';
 
 const ThemeSwitch = dynamic(() => import('@/components/Header/ThemeSwitch'), {ssr: false});
 
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
     const position = useScroll();
     const top = position?.top ?? 0;
 
@@ -73,5 +73,3 @@ const Header: React.FC = () => {
         </header>
     );
 };
-
-export default Header;

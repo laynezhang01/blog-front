@@ -6,7 +6,7 @@ interface ITagProps {
     value: string;
 }
 
-const Tag: React.FC<ITagProps> = props => {
+export const Tag: React.FC<ITagProps> = props => {
     const {value} = props;
     const tagData = TAGS_MAP.get(value);
 
@@ -24,5 +24,3 @@ const Tag: React.FC<ITagProps> = props => {
         </Link>
     );
 };
-
-export default Tag;

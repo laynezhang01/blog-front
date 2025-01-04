@@ -6,7 +6,7 @@ import {BASIC_CONFIG} from '@/config/basic';
 import TotalPageViews from '@/components/Footer/TotalPageViews';
 import LastVisitorInfo from '@/components/Footer/LastVisitorInfo';
 
-async function Footer() {
+export async function Footer() {
     let dateStr: string | number;
     const now = dayjs().year();
     const createDate = dayjs(BASIC_CONFIG.createDate).year();
@@ -39,5 +39,3 @@ async function Footer() {
         </footer>
     );
 }
-
-export default Footer;

@@ -1,18 +1,27 @@
 import React from 'react';
-import Banner from '@/components/Banner';
-import PostsList from '@/components/home/post/List';
-import {getAllPosts} from '@/libs/post';
 import {NextPage} from 'next';
+import {Banner} from '@/components/Banner';
+import {PostList} from '@/components/Post';
+import {getAllPosts} from '@/libs/post';
+import {CommonWrapper} from '@/components/CommonWrapper';
 
 const HomePage: NextPage = () => {
     const posts = getAllPosts({dir: 'posts'});
     return (
-        <div className="m-auto max-w-[1140px]">
+        <CommonWrapper>
             <div className="flex flex-col gap-8">
                 <Banner />
-                <PostsList posts={posts.list} />
+                <div className="flex h-[1000px] gap-8">
+                    <div className="flex-1">
+                        <PostList posts={posts.list} />
+                    </div>
+                    <div className="flex w-[300px] flex-col gap-8 max-lg:hidden">
+                        <div className="rounded-[8px] bg-card p-8 shadow-xl">小组件1</div>
+                        <div className="rounded-[8px] bg-card p-8 shadow-xl">小组件2</div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </CommonWrapper>
     );
 };
 

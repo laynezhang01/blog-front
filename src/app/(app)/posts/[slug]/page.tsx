@@ -1,9 +1,10 @@
 import NotFound from 'next/dist/client/components/not-found-error';
 import type {Metadata} from 'next';
 import {getPostBySlug} from '@/libs/post';
-import PostContent from '@/components/Post/Content';
-// import Comment from '@/components/Comment';
-import Toc from '@/components/Post/Toc';
+import {PostContent} from '@/components/Post';
+import {CommonWrapper} from '@/components/CommonWrapper';
+// import {Comment} from '@/components/Comment';
+import {Toc} from '@/components/Post/Toc';
 import {redis} from '@/db/redis';
 import {BASIC_CONFIG} from '@/config/basic';
 import {REDIS_KEYS} from '@/config/redisKeys';
@@ -40,16 +41,16 @@ export default async function PostPage(props: {params: TParams}) {
     }
 
     return (
-        <div className="container mx-auto max-w-screen-xl">
-            <div className="flex flex-row gap-10 max-md:gap-0">
-                <PostContent className="flex-1" data={post} views={views as number | undefined} />
-                {post.headings.length > 0 && (
-                    <div>
-                        <Toc className="sticky top-20 w-[260px] max-md:hidden" headings={post.headings} />
-                    </div>
-                )}
+        <CommonWrapper>
+            <div className="flex flex-row gap-20">
+                <div className="w-[300px] max-lg:hidden">
+                    <Toc className="sticky top-20 max-md:hidden" headings={post.headings} />
+                </div>
+                <div className="flex-1">
+                    <PostContent data={post} views={views as number | undefined} />
+                    {/*<Comment />*/}
+                </div>
             </div>
-            {/*<Comment />*/}
-        </div>
+        </CommonWrapper>
     );
 }
