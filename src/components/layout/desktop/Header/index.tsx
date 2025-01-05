@@ -7,6 +7,7 @@ import {useScroll} from 'ahooks';
 import {DesktopNavbar} from '@/components/layout';
 import Logo from '/public/svg/logo.svg';
 import MenuIcon from '/assets/icons/menu.svg';
+import {BASIC_CONFIG} from '@/config/basic';
 
 export const DesktopHeader: React.FC = () => {
     const [isHidden, setIsHidden] = useState(false);
@@ -51,17 +52,20 @@ export const DesktopHeader: React.FC = () => {
                 </div>
                 <div className="col-span-3 flex h-full max-md:col-span-5 max-md:justify-center">
                     <Link href="/">
-                        <h1 className="flex items-center gap-2 text-xl font-bold">
+                        <h1 className="text-md flex items-center gap-2 font-bold">
                             <span className="text-[50px]">
                                 <Logo />
                             </span>
-                            <span className="max-md:hidden">ZLin 拾光之旅</span>
+                            <span className="max-md:hidden">{BASIC_CONFIG.seo.title}</span>
                         </h1>
                     </Link>
                 </div>
                 <div className="col-span col-span-3 flex justify-end max-md:hidden">
                     <DesktopNavbar />
                 </div>
+                {/*<div className="col-span-1 flex justify-end">*/}
+                {/*    <ThemeSwitch />*/}
+                {/*</div>*/}
             </div>
         </header>
     );

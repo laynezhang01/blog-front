@@ -1,22 +1,22 @@
 'use client';
 
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 import clsx from 'clsx';
-import {motion, AnimatePresence} from 'motion/react';
-import {NAVIGATION_ITEMS} from '@/config/nav';
-// import {usePathname} from 'next/navigation';
 import Link from 'next/link';
+import {motion, AnimatePresence} from 'motion/react';
+import {usePathname} from 'next/navigation';
 
-// const navs = ['首页', '笔记', '碎碎念', '相簿', '读书', '观影', '关于', '留言'];
+import {NAVIGATION_ITEMS} from '@/config/nav';
 
 interface INavRect {
     left: number;
     width: number;
+    path: string;
 }
 
 export const DesktopNavbar: React.FC = () => {
-    const [hoverIdx, setHoverIdx] = useState<number | null>(1);
-    // const activePath = usePathname();
+    const [hoverPath, setHoverPath] = useState<string | null>(null);
+    const activePath = usePathname();
     const [positions, setPositions] = useState<INavRect[]>([]);
 
     const navRef = useRef<HTMLUListElement | null>(null);
@@ -31,14 +31,25 @@ export const DesktopNavbar: React.FC = () => {
         const items = Array.from(ulElement.children);
         const newPositions: INavRect[] = items.map(item => {
             const rect = (item as HTMLElement).getBoundingClientRect();
+            const linEle = (item as HTMLElement).querySelector('a');
+            const path = linEle?.href ? new URL(linEle.href).pathname : '';
             return {
-                left: rect.left - ulRect.left, // 考虑 paddingLeft
-                width: rect.width
+                left: rect.left - ulRect.left,
+                width: rect.width,
+                path
             };
         });
 
         setPositions(newPositions);
     }, []);
+
+    const activePosition = useMemo(() => {
+        return positions.find(item => item.path === activePath);
+    }, [positions, activePath]);
+
+    const hoverPosition = useMemo(() => {
+        return positions.find(item => item.path === hoverPath);
+    }, [positions, hoverPath]);
 
     return (
         <nav
@@ -49,29 +60,29 @@ export const DesktopNavbar: React.FC = () => {
             )}
         >
             <ul className={clsx('relative flex h-[40px] items-center gap-4 overflow-hidden px-4')} ref={navRef}>
-                {NAVIGATION_ITEMS.map((nav, idx) => (
+                {NAVIGATION_ITEMS.map(nav => (
                     <li
-                        key={nav.href}
-                        onMouseEnter={() => setHoverIdx(idx)}
-                        onMouseLeave={() => setHoverIdx(null)}
+                        key={nav.path}
+                        onMouseEnter={() => setHoverPath(nav.path)}
+                        onMouseLeave={() => setHoverPath(null)}
                         className="group relative cursor-pointer"
                     >
-                        <Link id="header-id" className="relative text-primary" href={nav.href}>
+                        <Link className="relative text-primary" href={nav.path}>
                             {nav.title}
                         </Link>
                     </li>
                 ))}
 
                 <AnimatePresence>
-                    {hoverIdx !== null && positions[hoverIdx] && (
+                    {hoverPosition && (
                         <motion.span
                             className="pointer-events-none absolute top-0 h-full rounded-lg bg-gradient-to-br from-orange-50 via-orange-100 to-orange opacity-50 blur-md"
                             layoutId="hoverBackground"
                             initial={{opacity: 0}}
                             animate={{
                                 opacity: 0.5,
-                                left: positions[hoverIdx].left,
-                                width: positions[hoverIdx].width
+                                left: hoverPosition.left,
+                                width: hoverPosition.width
                             }}
                             exit={{opacity: 0}}
                             transition={{
@@ -82,22 +93,21 @@ export const DesktopNavbar: React.FC = () => {
                     )}
                 </AnimatePresence>
 
-                {/* Active underline */}
-                {/*{positions[activePath] && (*/}
-                {/*    <motion.div*/}
-                {/*        className="absolute bottom-0 h-[2px] bg-blue-500"*/}
-                {/*        layoutId="activeUnderline"*/}
-                {/*        initial={false}*/}
-                {/*        animate={{*/}
-                {/*            left: positions[activePath].left,*/}
-                {/*            width: positions[activePath].width,*/}
-                {/*        }}*/}
-                {/*        transition={{*/}
-                {/*            duration: 0.4,*/}
-                {/*            ease: "easeInOut",*/}
-                {/*        }}*/}
-                {/*    />*/}
-                {/*)}*/}
+                {activePosition && (
+                    <motion.div
+                        className="absolute inset-x-1 bottom-[2px] h-[2px] bg-gradient-to-r from-transparent via-orange-400/70 to-transparent"
+                        layoutId="activeUnderline"
+                        initial={false}
+                        animate={{
+                            left: activePosition.left,
+                            width: activePosition.width
+                        }}
+                        transition={{
+                            duration: 0.4,
+                            ease: 'easeInOut'
+                        }}
+                    />
+                )}
             </ul>
         </nav>
     );

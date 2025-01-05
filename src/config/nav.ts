@@ -1,19 +1,21 @@
 export interface INavItem {
-    href: string;
+    path: string;
     title: string;
 }
 
+// const navs = ['首页', '笔记', '碎碎念', '相簿', '读书', '观影', '关于', '留言'];
+
 export const NAVIGATION_ITEMS: INavItem[] = [
     {
-        href: '/',
+        path: '/',
         title: '首页'
     },
     {
-        href: '/blog',
+        path: '/posts',
         title: '文章'
     },
     {
-        href: '/about',
+        path: '/about',
         title: '关于'
     }
 ];
