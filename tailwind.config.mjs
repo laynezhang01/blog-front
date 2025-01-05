@@ -18,6 +18,12 @@ export default {
                 primary: {
                     DEFAULT: 'var(--primary)'
                 },
+                line1: {
+                    DEFAULT: 'var(--line1)'
+                },
+                orange: {
+                    DEFAULT: 'var(--orange)'
+                },
                 secondary: {
                     DEFAULT: 'var(--secondary)'
                 },

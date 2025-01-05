@@ -15,67 +15,69 @@
     background-color: #f15b6c;
 }
 
+:root {
+    --background: #f9fafb;
+    --primary: #343434;
+    --line1: #d5d3d4;
+    --orange: #e3881d;
+    --card: #fff;
+    --card-border: #e5e7eb;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --secondary: #4b5563;
+    --muted: #6b7280;
+    --accent: #3b52f6;
+    --accent-hover: #2563eb;
+    --border: #e5e7eb;
+    --color-pink: #ff6f91;
+    --color-orange: #ff9671;
+    --color-blue: #5bc5fa;
+    --color-purple: #845ec2;
+
+    --sh-background: #f9fafb; /* 背景 */
+    --sh-text: #111827; /* 默认文字颜色 */
+    --sh-class: #3b82f6; /* 类名 */
+    --sh-identifier: #374151; /* 标识符 */
+    --sh-keyword: #f47067; /* 关键字 */
+    --sh-string: #0ea5e9; /* 字符串 */
+    --sh-comment: #9ca3af; /* 注释 */
+    --sh-property: #9333ea; /* 对象属性 */
+    --sh-entity: #16a34a; /* 实体名 */
+    --sh-sign: #dc2626; /* 运算符或符号 */
+    --sh-jsxliterals: #c084fc; /* JSX 字面量 */
+    --sh-number: #f59e0b; /* 数字 */
+    --sh-function: #2563eb; /* 函数 */
+
+    --prose-headings: #111827; /* 标题 */
+    --prose-text: #4b5563; /* 正文 */
+    --prose-links: #2563eb; /* 链接 */
+    --prose-links-hover: #1d4ed8; /* 链接悬停 */
+    --prose-code: #9333ea; /* 行内代码 */
+    --prose-code-bg: #f3f4f6; /* 行内代码背景 */
+    --prose-code-block: #1f2937; /* 代码块背景 */
+    --prose-code-border: #e5e7eb; /* 代码块边框 */
+    --prose-code-text: #f3f4f6; /* 代码块文字 */
+    --prose-quote: #6b7280; /* 引用文字 */
+    --prose-quote-border: #d1d5db; /* 引用左侧边框 */
+    --prose-hr: #e5e7eb; /* 分割线 */
+    --prose-list: #4b5563; /* 列表项 */
+    --prose-table-border: #e5e7eb; /* 表格边框 */
+    --prose-table-bg: #ffffff; /* 表格背景 */
+    --prose-th: #111827; /* 表头文字 */
+    --prose-td: #4b5563; /* 表格单元格文字 */
+}
 ::-webkit-scrollbar-track {
     border-radius: 3px;
     background: transparent;
 }
 
 @layer base {
-    :root {
-        --background: #f9fafb;
-        --card: #fff;
-        --card-border: #e5e7eb;
-        --card-shadow: rgba(0, 0, 0, 0.1);
-        --primary: #111827;
-        --secondary: #4b5563;
-        --muted: #6b7280;
-        --accent: #3b52f6;
-        --accent-hover: #2563eb;
-        --border: #e5e7eb;
-        --color-pink: #ff6f91;
-        --color-orange: #ff9671;
-        --color-blue: #5bc5fa;
-        --color-purple: #845ec2;
-
-        --sh-background: #f9fafb; /* 背景 */
-        --sh-text: #111827; /* 默认文字颜色 */
-        --sh-class: #3b82f6; /* 类名 */
-        --sh-identifier: #374151; /* 标识符 */
-        --sh-keyword: #f47067; /* 关键字 */
-        --sh-string: #0ea5e9; /* 字符串 */
-        --sh-comment: #9ca3af; /* 注释 */
-        --sh-property: #9333ea; /* 对象属性 */
-        --sh-entity: #16a34a; /* 实体名 */
-        --sh-sign: #dc2626; /* 运算符或符号 */
-        --sh-jsxliterals: #c084fc; /* JSX 字面量 */
-        --sh-number: #f59e0b; /* 数字 */
-        --sh-function: #2563eb; /* 函数 */
-
-        --prose-headings: #111827; /* 标题 */
-        --prose-text: #4b5563; /* 正文 */
-        --prose-links: #2563eb; /* 链接 */
-        --prose-links-hover: #1d4ed8; /* 链接悬停 */
-        --prose-code: #9333ea; /* 行内代码 */
-        --prose-code-bg: #f3f4f6; /* 行内代码背景 */
-        --prose-code-block: #1f2937; /* 代码块背景 */
-        --prose-code-border: #e5e7eb; /* 代码块边框 */
-        --prose-code-text: #f3f4f6; /* 代码块文字 */
-        --prose-quote: #6b7280; /* 引用文字 */
-        --prose-quote-border: #d1d5db; /* 引用左侧边框 */
-        --prose-hr: #e5e7eb; /* 分割线 */
-        --prose-list: #4b5563; /* 列表项 */
-        --prose-table-border: #e5e7eb; /* 表格边框 */
-        --prose-table-bg: #ffffff; /* 表格背景 */
-        --prose-th: #111827; /* 表头文字 */
-        --prose-td: #4b5563; /* 表格单元格文字 */
-    }
-
     .dark {
-        --background: #1f2937;
+        --background: #0f0f0f;
+        --primary: #f9f9f9;
+        --line1: #d5d3d4;
         --card: #374151;
         --card-border: #4b5563;
         --card-shadow: rgba(0, 0, 0, 0.7);
-        --primary: #f3f4f6;
         --secondary: #d1d5db;
         --muted: #9ca3af;
         --accent: #3b52f6;

@@ -19,7 +19,7 @@ export const Header: React.FC = () => {
     return (
         <header
             className={clsx(
-                'sticky top-0 z-30 flex w-full justify-center px-4 pt-2 contain-layout max-md:pt-0 md:mx-0',
+                'sticky top-10 z-30 flex w-full justify-center px-4 pt-2 contain-layout max-md:pt-0 md:mx-0',
                 'max-md:px-0'
             )}
         >

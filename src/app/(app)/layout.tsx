@@ -2,10 +2,10 @@ import React, {PropsWithChildren} from 'react';
 import {Metadata} from 'next';
 import ThemeProvider from '@/app/(app)/themeProvider';
 import ProgressBarProvider from '@/app/(app)/progressBarProvider';
-import {Header} from '@/components/Header';
 import {Slider} from '@/components/Sidebar';
 import {Footer} from '@/components/Footer';
 import {Background} from '@/components/Background';
+import {DesktopHeader} from '@/components/layout';
 
 import {BASIC_CONFIG} from '@/config/basic';
 
@@ -46,7 +46,7 @@ const RootLayout: React.FC<PropsWithChildren> = ({children}) => {
             <body>
                 <ThemeProvider>
                     <ProgressBarProvider>
-                        <Header />
+                        <DesktopHeader />
                         <main>
                             <Background />
                             {children}
