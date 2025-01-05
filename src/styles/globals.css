@@ -123,6 +123,10 @@
         @apply border-border focus-visible:outline-0;
     }
 
+    html, body {
+        overscroll-behavior-y: contain;
+    }
+
     body {
         @apply bg-background text-secondary transition-[background] delay-75 ease-linear;
     }

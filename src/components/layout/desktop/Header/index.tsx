@@ -37,7 +37,7 @@ export const DesktopHeader: React.FC = () => {
             className={clsx(
                 'sticky top-0 z-30 transition-all duration-300 max-md:px-0 max-md:pt-0 md:mx-0',
                 isHidden && '-translate-y-full',
-                prevScrollTop > 10 && !isHidden ? 'h-[50px] translate-y-[10px]' : 'h-[64px]'
+                prevScrollTop > 10 && !isHidden ? 'h-[50px] translate-y-[10px] max-md:translate-y-0' : 'h-[64px]'
             )}
         >
             <div
