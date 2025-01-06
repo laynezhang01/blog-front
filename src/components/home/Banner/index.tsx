@@ -24,7 +24,7 @@ export const Banner: React.FC = () => {
                                     'before:top-[30%] before:h-[40%] before:w-full before:-rotate-3 before:bg-orange-300/30'
                                 )}
                             >
-                                {` Layne `}
+                                阿林
                             </span>
                             👋.
                             <br />
@@ -51,7 +51,9 @@ export const Banner: React.FC = () => {
                 </AnimatedSession>
             </div>
             <div className="inset-x-0 bottom-0 mt-10 flex flex-col items-center lg:absolute lg:mt-0">
-                <p className="text-secondary-foreground text-balance text-center text-xs">{BASIC_CONFIG.banner.text}</p>
+                <AnimatedSession>
+                    <p className="text-secondary-foreground text-balance text-center text-xs">{BASIC_CONFIG.banner.text}</p>
+                </AnimatedSession>
                 <div className="mt-7 animate-bounce text-xl">
                     <ArrowDropDownIcon />
                 </div>
