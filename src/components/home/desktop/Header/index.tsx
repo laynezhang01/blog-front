@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React, {useEffect, useState} from 'react';
 import clsx from 'clsx';
 import {useScroll} from 'ahooks';
-import {DesktopNavbar} from '@/components/layout';
+import {DesktopNavbar} from '@/components/home';
 import Logo from '/public/svg/logo.svg';
 import MenuIcon from '/assets/icons/menu.svg';
 import {BASIC_CONFIG} from '@/config/basic';
@@ -52,8 +52,8 @@ export const DesktopHeader: React.FC = () => {
                 </div>
                 <div className="col-span-3 flex h-full max-md:col-span-5 max-md:justify-center">
                     <Link href="/">
-                        <h1 className="text-md flex items-center gap-2 font-bold">
-                            <span className="text-[50px]">
+                        <h1 className="text-md flex h-full items-center gap-2 font-bold">
+                            <span className="text-[50px] max-md:text-[30px]">
                                 <Logo />
                             </span>
                             <span className="max-md:hidden">{BASIC_CONFIG.seo.title}</span>

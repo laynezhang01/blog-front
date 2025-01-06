@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
-import LazyImage from '@/components/LazyImage';
+import NextImage from 'next/image';
 import {BASIC_CONFIG} from '@/config/basic';
 
 export interface IAvatar {
@@ -18,7 +18,7 @@ export const Avatar: React.FC<IAvatar> = ({className}) => {
                 className
             )}
         >
-            <LazyImage
+            <NextImage
                 src={BASIC_CONFIG.avatar}
                 alt="avatar"
                 width={224}

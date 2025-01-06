@@ -1,2 +1,2 @@
-export * from '@/components/layout/desktop/Header';
-export * from '@/components/layout/desktop/Navbar';
+export * from '@/components/layout/AnimatedSession';
+export * from '@/components/layout/Background';

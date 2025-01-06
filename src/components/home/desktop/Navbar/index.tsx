@@ -56,10 +56,10 @@ export const DesktopNavbar: React.FC = () => {
             className={clsx(
                 'relative',
                 'after:absolute after:inset-0 after:shadow-[0_0px_10px_1px_rgba(0,0,0,.25)] after:content-[""]',
-                'after:-z-10 after:rounded-[10px] after:border after:border-line1 after:opacity-50'
+                'after:-z-10 after:rounded-full after:border after:border-line1 after:opacity-50'
             )}
         >
-            <ul className={clsx('relative flex h-[40px] items-center gap-4 overflow-hidden px-4')} ref={navRef}>
+            <ul className={clsx('relative flex h-[40px] items-center gap-4 overflow-hidden px-8')} ref={navRef}>
                 {NAVIGATION_ITEMS.map(nav => (
                     <li
                         key={nav.path}
@@ -67,7 +67,10 @@ export const DesktopNavbar: React.FC = () => {
                         onMouseLeave={() => setHoverPath(null)}
                         className="group relative cursor-pointer"
                     >
-                        <Link className="relative text-primary" href={nav.path}>
+                        <Link
+                            className={clsx('relative text-sm text-primary', nav.path === activePath && 'text-orange')}
+                            href={nav.path}
+                        >
                             {nav.title}
                         </Link>
                     </li>
@@ -95,7 +98,7 @@ export const DesktopNavbar: React.FC = () => {
 
                 {activePosition && (
                     <motion.div
-                        className="absolute inset-x-1 bottom-[2px] h-[2px] bg-gradient-to-r from-transparent via-orange-400/70 to-transparent"
+                        className="absolute inset-x-1 bottom-1 h-[2px] bg-gradient-to-r from-transparent via-orange-400/70 to-transparent"
                         layoutId="activeUnderline"
                         initial={false}
                         animate={{

@@ -4,8 +4,8 @@ import ThemeProvider from '@/app/(app)/themeProvider';
 import ProgressBarProvider from '@/app/(app)/progressBarProvider';
 import {Slider} from '@/components/Sidebar';
 import {Footer} from '@/components/Footer';
-import {Background} from '@/components/Background';
-import {DesktopHeader} from '@/components/layout';
+import {Background} from '@/components/layout/Background';
+import {DesktopHeader} from '@/components/home';
 
 import {BASIC_CONFIG} from '@/config/basic';
 

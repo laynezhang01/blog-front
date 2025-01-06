@@ -1,6 +1,6 @@
 import React from 'react';
 import {NextPage} from 'next';
-import {Banner} from '@/components/Banner';
+import {Banner} from '@/components/home';
 import {PostList} from '@/components/Post';
 import {getAllPosts} from '@/libs/post';
 import {CommonWrapper} from '@/components/CommonWrapper';
