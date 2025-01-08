@@ -28,7 +28,7 @@ export const Banner: React.FC = () => {
                             </span>
                             👋.
                             <br />
-                            一名Web开发工程师
+                            一名Web前端开发工程师
                         </h1>
                     </AnimatedSession>
                     <AnimatedSession>
