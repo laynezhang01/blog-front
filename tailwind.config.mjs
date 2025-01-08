@@ -8,15 +8,19 @@ export default {
     theme: {
         extend: {
             colors: {
-                background: 'var(--background)',
+                root: 'rgba(var(--root), <alpha-value>)',
+                primary: 'rgba(var(--primary), <alpha-value>)',
+                accent: 'rgba(var(--accent), <alpha-value>)',
+                nav: {
+                    DEFAULT: 'rgba(var(--nav), <alpha-value>)',
+                    shadow: 'rgba(var(--nav-shadow), <alpha-value>)',
+                    ring: 'rgba(var(--nav-ring), <alpha-value>)'
+                },
                 card: {
                     DEFAULT: 'var(--card)',
                     border: 'var(--card-border)',
                     shadow: 'var(--card-shadow)',
                     light: 'rgb(255, 255, 255)'
-                },
-                primary: {
-                    DEFAULT: 'var(--primary)'
                 },
                 line1: {
                     DEFAULT: 'var(--line1)'
@@ -29,10 +33,6 @@ export default {
                 },
                 muted: {
                     DEFAULT: 'var(--muted)'
-                },
-                accent: {
-                    DEFAULT: 'var(--accent)',
-                    hover: 'var(--accent-hover)'
                 },
                 border: 'var(--border)'
             },

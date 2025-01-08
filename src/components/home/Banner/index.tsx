@@ -28,7 +28,7 @@ export const Banner: React.FC = () => {
                             </span>
                             👋.
                             <br />
-                            一名 &lt;Front-End &#47;&gt; 开发工程师
+                            一名Web开发工程师
                         </h1>
                     </AnimatedSession>
                     <AnimatedSession>
@@ -52,7 +52,9 @@ export const Banner: React.FC = () => {
             </div>
             <div className="inset-x-0 bottom-0 mt-10 flex flex-col items-center lg:absolute lg:mt-0">
                 <AnimatedSession>
-                    <p className="text-secondary-foreground text-balance text-center text-xs">{BASIC_CONFIG.banner.text}</p>
+                    <p className="text-secondary-foreground text-balance text-center text-xs">
+                        {BASIC_CONFIG.banner.text}
+                    </p>
                 </AnimatedSession>
                 <div className="mt-7 animate-bounce text-xl">
                     <ArrowDropDownIcon />

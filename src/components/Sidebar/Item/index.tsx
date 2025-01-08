@@ -26,7 +26,7 @@ const SideItem: React.FC<PropsWithChildren<ISideItem>> = props => {
                 <a
                     className={clsx(
                         'hover:text-primary-foreground/70 relative flex h-full w-full items-center justify-center',
-                        'text-xl text-secondary hover:text-accent-hover'
+                        'hover:text-accent-hover text-xl text-secondary'
                     )}
                     onClick={handleClick}
                 >

@@ -5,7 +5,27 @@ const nextConfig: NextConfig = {
     webpack(config) {
         config.module.rules.push({
             test: /\.svg$/,
-            use: ['@svgr/webpack']
+            use: [
+                {
+                    loader: '@svgr/webpack',
+                    options: {
+                        svgo: true,
+                        svgoConfig: {
+                            plugins: [
+                                {
+                                    name: 'preset-default',
+                                    params: {
+                                        overrides: {
+                                            // 禁用移除 viewBox 的默认行为
+                                            removeViewBox: false
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
         });
 
         return config;

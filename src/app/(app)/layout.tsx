@@ -2,6 +2,7 @@ import React, {PropsWithChildren} from 'react';
 import {Metadata} from 'next';
 import ThemeProvider from '@/app/(app)/themeProvider';
 import ProgressBarProvider from '@/app/(app)/progressBarProvider';
+import GlobalProvider from '@/app/(app)/globalProvider';
 import {Slider} from '@/components/Sidebar';
 import {Footer} from '@/components/Footer';
 import {Background} from '@/components/layout/Background';
@@ -46,13 +47,15 @@ const RootLayout: React.FC<PropsWithChildren> = ({children}) => {
             <body>
                 <ThemeProvider>
                     <ProgressBarProvider>
-                        <DesktopHeader />
-                        <main>
-                            <Background />
-                            {children}
-                        </main>
-                        <Slider />
-                        <Footer />
+                        <GlobalProvider>
+                            <DesktopHeader />
+                            <main>
+                                <Background />
+                                {children}
+                            </main>
+                            <Slider />
+                            <Footer />
+                        </GlobalProvider>
                     </ProgressBarProvider>
                 </ThemeProvider>
             </body>

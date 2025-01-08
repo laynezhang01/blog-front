@@ -16,16 +16,18 @@
 }
 
 :root {
-    --background: #f9fafb;
-    --primary: #343434;
+    --root: 249, 250, 251;
+    --primary: 52, 52, 52;
+    --accent: 236, 136, 29;
+    --nav-shadow: 0, 0, 0;
+    --nav-ring: 15, 15, 15;
+    --nav: 255, 255, 255;
     --line1: #d5d3d4;
-    --orange: #e3881d;
+    --secondary: #615f61;
     --card: #fff;
     --card-border: #e5e7eb;
     --card-shadow: rgba(0, 0, 0, 0.1);
-    --secondary: #4b5563;
     --muted: #6b7280;
-    --accent: #3b52f6;
     --accent-hover: #2563eb;
     --border: #e5e7eb;
     --color-pink: #ff6f91;
@@ -72,15 +74,18 @@
 
 @layer base {
     .dark {
-        --background: #0f0f0f;
-        --primary: #f9f9f9;
+        --root: 15, 15, 15;
+        --primary: 216, 216, 216;
+        --accent: 226, 94, 29;
+        --nav-shadow: 0, 0, 0;
+        --nav-ring: 15, 15, 15;
+        --nav: 45, 44, 39;
         --line1: #d5d3d4;
         --card: #374151;
         --card-border: #4b5563;
         --card-shadow: rgba(0, 0, 0, 0.7);
         --secondary: #d1d5db;
         --muted: #9ca3af;
-        --accent: #3b52f6;
         --accent-hover: #2563eb;
         --border: #4b5563;
 
@@ -129,6 +134,6 @@
     }
 
     body {
-        @apply bg-background text-secondary transition-[background] delay-75 ease-linear;
+        @apply bg-root text-primary transition-[background] delay-75 ease-linear;
     }
 }
