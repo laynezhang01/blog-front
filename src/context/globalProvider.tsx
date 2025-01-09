@@ -1,6 +1,6 @@
 'use client';
 
-import React, {createContext, PropsWithChildren, useCallback, useEffect, useState} from 'react';
+import React, {createContext, PropsWithChildren, useEffect, useState} from 'react';
 import {useScroll} from 'ahooks';
 
 export const NAVIGATION_SCROLL_POINT = 10;
@@ -14,27 +14,16 @@ export const GlobalContext = createContext<IGlobalContext>({} as IGlobalContext)
 
 const GlobalProvider: React.FC<PropsWithChildren> = ({children}) => {
     const scrollData = useScroll();
-    const [data, setData] = useState<IGlobalContext>({
-        scrollY: 0,
-        navTrigger: false
-    });
-
-    const updateData = useCallback(
-        (params: Partial<IGlobalContext>) => {
-            setData({
-                ...data,
-                ...params
-            });
-        },
-        [setData, data]
-    );
+    const [scrollY, setScrollY] = useState<number>(0);
+    const [navTrigger, setNavTrigger] = useState<boolean>(false);
 
     useEffect(() => {
         const {top = 0} = scrollData ?? {};
-        updateData({scrollY: top, navTrigger: top > NAVIGATION_SCROLL_POINT});
-    }, [scrollData, updateData]);
+        setNavTrigger(top > NAVIGATION_SCROLL_POINT);
+        setScrollY(top);
+    }, [scrollData]);
 
-    return <GlobalContext.Provider value={data}>{children}</GlobalContext.Provider>;
+    return <GlobalContext.Provider value={{scrollY, navTrigger}}>{children}</GlobalContext.Provider>;
 };
 
 export default GlobalProvider;
