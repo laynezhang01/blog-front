@@ -5,7 +5,7 @@ import {readingTime} from 'reading-time-estimator';
 
 import {IconText} from '@/components/IconText';
 import {Tag} from '@/components/Tag';
-import LazyImage from '@/components/LazyImage';
+import LazyImage from '../../features/LazyImage';
 
 import {TMetaData} from '@/libs/post/type';
 import {timeFormat} from '@/utils/time';

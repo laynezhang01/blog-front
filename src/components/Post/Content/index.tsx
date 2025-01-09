@@ -1,6 +1,6 @@
 import React from 'react';
 // import {timeFormat} from '@/utils/time';
-import {MDXBody} from '@/components/Mdx';
+import {MDXBody} from '../../features/Mdx';
 import {TPost} from '@/libs/post/type';
 
 // import VisibilityIcon from '/assets/icons/visibility.svg';

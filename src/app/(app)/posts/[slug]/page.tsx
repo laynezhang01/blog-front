@@ -2,7 +2,7 @@ import NotFound from 'next/dist/client/components/not-found-error';
 import type {Metadata} from 'next';
 import {getPostBySlug} from '@/libs/post';
 import {PostContent} from '@/components/Post';
-import {CommonWrapper} from '@/components/CommonWrapper';
+import {CommonWrapper} from '@/components/layout/wrapper';
 // import {Comment} from '@/components/Comment';
 import {Toc} from '@/components/Post/Toc';
 import {redis} from '@/db/redis';

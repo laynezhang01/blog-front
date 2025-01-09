@@ -1,9 +1,9 @@
 import React from 'react';
 import {NextPage} from 'next';
-import {Banner} from '@/components/home';
+import {Banner} from '@/components/pages/home/banner';
 import {PostList} from '@/components/Post';
 import {getAllPosts} from '@/libs/post';
-import {CommonWrapper} from '@/components/CommonWrapper';
+import {CommonWrapper} from '@/components/layout/wrapper';
 
 const HomePage: NextPage = () => {
     const posts = getAllPosts({dir: 'posts'});

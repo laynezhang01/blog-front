@@ -26,13 +26,13 @@ const GlobalProvider: React.FC<PropsWithChildren> = ({children}) => {
                 ...params
             });
         },
-        [setData]
+        [setData, data]
     );
 
     useEffect(() => {
         const {top = 0} = scrollData ?? {};
         updateData({scrollY: top, navTrigger: top > NAVIGATION_SCROLL_POINT});
-    }, [scrollData]);
+    }, [scrollData, updateData]);
 
     return <GlobalContext.Provider value={data}>{children}</GlobalContext.Provider>;
 };

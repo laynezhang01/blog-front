@@ -1,7 +1,7 @@
 import React from 'react';
 import {MDXRemote} from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
-import {mdxComponents} from '@/components/Mdx/components';
+import {mdxComponents} from '@/components/features/Mdx/components';
 import {MDXComponents} from 'mdx/types';
 
 import './mdx.css';

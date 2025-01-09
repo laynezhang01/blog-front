@@ -5,14 +5,14 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import {motion, useMotionTemplate, useMotionValue} from 'motion/react';
 import {usePathname} from 'next/navigation';
-import {GlobalContext} from '@/app/(app)/globalProvider';
+import {GlobalContext} from '@/context/globalProvider';
 import {NAVIGATION_ITEMS} from '@/config/nav';
 
-export interface INaveItemProps {
+export interface IHeaderNavItemProps {
     path: string;
 }
 
-export const NaveItem: React.FC<PropsWithChildren<INaveItemProps>> = ({path, children}) => {
+export const HeaderNavItem: React.FC<PropsWithChildren<IHeaderNavItemProps>> = ({path, children}) => {
     const activePath = usePathname();
     const isActive = path === activePath;
     return (
@@ -39,7 +39,7 @@ export const NaveItem: React.FC<PropsWithChildren<INaveItemProps>> = ({path, chi
     );
 };
 
-export const DesktopNavbar: React.FC = () => {
+export const HeaderNavbar: React.FC = () => {
     const {navTrigger} = useContext(GlobalContext);
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
@@ -78,9 +78,9 @@ export const DesktopNavbar: React.FC = () => {
             />
             <ul className={clsx('relative flex h-[40px] overflow-hidden px-8')}>
                 {NAVIGATION_ITEMS.map(nav => (
-                    <NaveItem key={nav.path} path={nav.path}>
+                    <HeaderNavItem key={nav.path} path={nav.path}>
                         {nav.title}
-                    </NaveItem>
+                    </HeaderNavItem>
                 ))}
             </ul>
         </nav>

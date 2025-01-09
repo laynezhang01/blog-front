@@ -1,8 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
-import {Avatar} from '@/components/home/Avatar';
+import {Avatar, SocialProfile} from '@/components/pages/home/banner/index';
 import {AnimatedSession} from '@/components/layout/AnimatedSession';
-import {SocialProfile} from '@/components/home/SocialProfile';
 import {BASIC_CONFIG} from '@/config/basic';
 
 import ArrowDropDownIcon from '/assets/icons/arrowDropDown.svg';

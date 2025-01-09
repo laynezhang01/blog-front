@@ -3,8 +3,8 @@ import dayjs from 'dayjs';
 import clsx from 'clsx';
 import Link from 'next/link';
 import {BASIC_CONFIG} from '@/config/basic';
-import TotalPageViews from '@/components/Footer/TotalPageViews';
-import LastVisitorInfo from '@/components/Footer/LastVisitorInfo';
+import TotalPageViews from '@/components/layout/footer/TotalPageViews';
+import LastVisitorInfo from '@/components/layout/footer/LastVisitorInfo';
 
 export async function Footer() {
     let dateStr: string | number;
