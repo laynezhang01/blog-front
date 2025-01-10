@@ -1,48 +1,34 @@
 'use client';
 
 import Link from 'next/link';
-import React, {useEffect, useState, useContext} from 'react';
+import React, {useState, useContext, useMemo} from 'react';
 import clsx from 'clsx';
 import {GlobalContext} from '@/context/globalProvider';
 import {HeaderNavbar, HeaderDrawer, HeaderMenu} from '@/components/layout/header';
+import {Container} from '@/components/layout/wrapper';
 import {BASIC_CONFIG} from '@/config/basic';
 import Logo from '@/assets/svgs/logo.svg';
 import MenuIcon from '@/assets/svgs/icons/menu.svg';
 
 export const Header: React.FC = () => {
-    const {scrollY, navTrigger} = useContext(GlobalContext);
-    const [prevScrollY, setPrevScrollY] = useState(0);
-    const [isHidden, setIsHidden] = useState(false);
+    const {scrollY} = useContext(GlobalContext);
     const [showSlideUpPanel, setShowSlideUpPanel] = useState(false);
 
-    useEffect(() => {
-        if (!scrollY) {
-            return;
-        }
-
-        if (scrollY > prevScrollY && scrollY > 100) {
-            setIsHidden(true);
-        } else if (scrollY < prevScrollY) {
-            setIsHidden(false);
-        }
-
-        setPrevScrollY(scrollY);
-    }, [scrollY, prevScrollY, setPrevScrollY]);
+    const isSticky = useMemo(() => scrollY > 10, [scrollY]);
 
     return (
         <>
             <header
                 className={clsx(
-                    'sticky top-0 z-30 flex justify-center transition-all duration-300',
-                    navTrigger ? 'h-[3.375rem]' : 'h-[4rem]',
-                    isHidden ? '-translate-y-full' : 'translate-y-[0.625rem] max-md:translate-y-0'
+                    'sticky top-0 z-30 flex h-[4rem] justify-center transition-all duration-300',
+                    isSticky ? 'h-[3rem] translate-y-[10px]' : 'h-[4rem]'
                 )}
             >
-                <div
-                    className={clsx(
-                        'mx-0 flex h-full w-full items-center justify-between overflow-hidden rounded-xl px-8',
+                <Container
+                    innerClassName={clsx(
+                        'flex items-center justify-between overflow-hidden rounded-xl',
                         'border-card-border md:mx-8 xl:max-w-[75rem]',
-                        navTrigger && 'bg-nav/70 shadow-md backdrop-blur-md'
+                        isSticky && 'bg-nav/80 shadow-md backdrop-blur-lg'
                     )}
                 >
                     <div className="flex h-full">
@@ -56,12 +42,12 @@ export const Header: React.FC = () => {
                         </Link>
                     </div>
                     <div className="mr-10 hidden justify-end md:flex">
-                        <HeaderNavbar />
+                        <HeaderNavbar isSticky={isSticky} />
                     </div>
                     <div className="block md:hidden">
                         <HeaderMenu icon={<MenuIcon />} onClick={() => setShowSlideUpPanel(true)} />
                     </div>
-                </div>
+                </Container>
             </header>
             <HeaderDrawer open={showSlideUpPanel} onChangeStatus={setShowSlideUpPanel} />
         </>

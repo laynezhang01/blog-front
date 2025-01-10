@@ -1,11 +1,10 @@
 'use client';
 
-import React, {PropsWithChildren, useCallback, useContext} from 'react';
+import React, {PropsWithChildren, useCallback} from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
 import {motion, useMotionTemplate, useMotionValue} from 'motion/react';
 import {usePathname} from 'next/navigation';
-import {GlobalContext} from '@/context/globalProvider';
 import {NAVIGATION_ITEMS} from '@/config/nav';
 
 export interface IHeaderNavItemProps {
@@ -39,8 +38,7 @@ export const HeaderNavItem: React.FC<PropsWithChildren<IHeaderNavItemProps>> = (
     );
 };
 
-export const HeaderNavbar: React.FC = () => {
-    const {navTrigger} = useContext(GlobalContext);
+export const HeaderNavbar: React.FC<{isSticky: boolean}> = ({isSticky}) => {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
     const radius = useMotionValue(0);
@@ -64,7 +62,7 @@ export const HeaderNavbar: React.FC = () => {
             onMouseMove={handleMouseMove}
             className={clsx(
                 'group relative',
-                !navTrigger && 'rounded-full bg-card shadow-[0_0px_10px_1px_rgba(0,0,0,.1)] backdrop-blur-md',
+                !isSticky && 'rounded-full bg-card shadow-[0_0px_10px_1px_rgba(0,0,0,.1)] backdrop-blur-md',
                 '[--spotlight-color:rgb(236_136_29_/_0.1)] dark:[--spotlight-color:rgb(226_94_29_/_0.07)]'
             )}
         >

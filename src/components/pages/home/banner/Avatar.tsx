@@ -24,7 +24,7 @@ export const Avatar: React.FC<IAvatar> = ({className}) => {
                 width={224}
                 height={224}
                 className={clsx(
-                    'dark:bg-theme-root-dark h-56 w-56 rounded-full bg-zinc-100 object-cover max-md:h-28 max-md:w-28',
+                    'dark:bg-theme-root-dark h-full w-full rounded-full bg-zinc-100 object-cover',
                     'transition ease-linear hover:scale-110'
                 )}
             />

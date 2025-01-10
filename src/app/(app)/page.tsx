@@ -3,14 +3,14 @@ import {NextPage} from 'next';
 import {Banner} from '@/components/pages/home/banner';
 import {PostList} from '@/components/Post';
 import {getAllPosts} from '@/libs/post';
-import {CommonWrapper} from '@/components/layout/wrapper';
+import {Container} from '@/components/layout/wrapper';
 
 const HomePage: NextPage = () => {
     const posts = getAllPosts({dir: 'posts'});
     return (
-        <CommonWrapper>
-            <div className="flex flex-col gap-8">
-                <Banner />
+        <>
+            <Banner />
+            <Container>
                 <div className="flex h-[1000px] gap-8">
                     <div className="flex-1">
                         <PostList posts={posts.list} />
@@ -20,8 +20,8 @@ const HomePage: NextPage = () => {
                         <div className="rounded-[8px] bg-card p-8 shadow-xl">小组件2</div>
                     </div>
                 </div>
-            </div>
-        </CommonWrapper>
+            </Container>
+        </>
     );
 };
 

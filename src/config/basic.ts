@@ -5,7 +5,7 @@ export const BASIC_CONFIG = {
         text: '我不害怕明天，因為我經歷過昨天，也熱愛今天 '
     },
     seo: {
-        title: 'Echoes of Lin',
+        title: '阿林的博客',
         titleDes: '相聚有時，後會無期',
         description:
             '人生这趟旅途中总是在相遇，也总是在分离。以前年轻，最怕分离。可是时光荏苒，也到了而立之年，接受分离的同时也逐渐接受了自己。',

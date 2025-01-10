@@ -15,6 +15,18 @@ export const NAVIGATION_ITEMS: INavItem[] = [
         title: '文章'
     },
     {
+        path: '/talking',
+        title: '碎碎念'
+    },
+    {
+        path: '/archives',
+        title: '归档'
+    },
+    {
+        path: '/photo',
+        title: '相册'
+    },
+    {
         path: '/about',
         title: '关于'
     }
