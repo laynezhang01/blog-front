@@ -21,13 +21,14 @@ export const Header: React.FC = () => {
             <header
                 className={clsx(
                     'sticky top-0 z-30 flex h-[4rem] justify-center transition-all duration-300',
-                    isSticky ? 'h-[3rem] translate-y-[10px]' : 'h-[4rem]'
+                    isSticky && 'translate-y-[0]'
                 )}
             >
                 <Container
+                    outerClassName="h-[3rem]"
                     innerClassName={clsx(
                         'flex items-center justify-between overflow-hidden rounded-xl',
-                        'border-card-border md:mx-8 xl:max-w-[75rem]',
+                        'border-card-border',
                         isSticky && 'bg-nav/80 shadow-md backdrop-blur-lg'
                     )}
                 >
@@ -41,7 +42,7 @@ export const Header: React.FC = () => {
                             </h1>
                         </Link>
                     </div>
-                    <div className="mr-10 hidden justify-end md:flex">
+                    <div className="mr-10 hidden h-[35px] justify-end md:flex">
                         <HeaderNavbar isSticky={isSticky} />
                     </div>
                     <div className="block md:hidden">

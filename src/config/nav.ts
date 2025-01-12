@@ -1,33 +1,35 @@
 export interface INavItem {
-    path: string;
+    href: string;
     title: string;
 }
 
-// const navs = ['首页', '笔记', '碎碎念', '相簿', '读书', '观影', '关于', '留言'];
-
 export const NAVIGATION_ITEMS: INavItem[] = [
     {
-        path: '/',
+        href: '/',
         title: '首页'
     },
+    // {
+    //     href: '/talking',
+    //     title: '碎碎念'
+    // },
     {
-        path: '/posts',
-        title: '文章'
-    },
-    {
-        path: '/talking',
-        title: '碎碎念'
-    },
-    {
-        path: '/archives',
-        title: '归档'
-    },
-    {
-        path: '/photo',
-        title: '相册'
-    },
-    {
-        path: '/about',
-        title: '关于'
+        href: '/posts',
+        title: '文稿'
     }
+    // {
+    //     href: '/archives',
+    //     title: '归档'
+    // },
+    // {
+    //     href: '/photo',
+    //     title: '相册'
+    // },
+    // {
+    //     href: '/book',
+    //     title: '书籍'
+    // },
+    // {
+    //     href: '/about',
+    //     title: '关于'
+    // }
 ];

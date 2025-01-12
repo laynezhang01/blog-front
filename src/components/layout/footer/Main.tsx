@@ -16,7 +16,7 @@ export async function Footer() {
 
     return (
         <footer className="bg-white text-xs text-secondary">
-            <div className="flex h-16 items-center justify-center gap-8 shadow-sm">
+            <div className="flex h-20 items-center justify-center gap-8 shadow-sm">
                 {SOCIAL_ITEMS.map(social => (
                     <Social key={social.href} icon={social.icon} title={social.title} href={social.href} />
                 ))}

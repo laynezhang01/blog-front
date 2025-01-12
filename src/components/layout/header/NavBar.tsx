@@ -18,7 +18,7 @@ export const HeaderNavItem: React.FC<PropsWithChildren<IHeaderNavItemProps>> = (
         <li className="group relative h-full cursor-pointer">
             <Link
                 className={clsx(
-                    'relative inline-flex h-full items-center px-2 text-sm hover:text-accent/70',
+                    'relative inline-flex h-full items-center px-3 text-sm hover:text-accent/70',
                     isActive && 'font-bold text-accent'
                 )}
                 href={path}
@@ -61,8 +61,8 @@ export const HeaderNavbar: React.FC<{isSticky: boolean}> = ({isSticky}) => {
         <nav
             onMouseMove={handleMouseMove}
             className={clsx(
-                'group relative',
-                !isSticky && 'rounded-full bg-card shadow-[0_0px_10px_1px_rgba(0,0,0,.1)] backdrop-blur-md',
+                'group relative rounded-full backdrop-blur-md',
+                isSticky && 'rounded-none shadow-none ring-0 backdrop-blur-none',
                 '[--spotlight-color:rgb(236_136_29_/_0.1)] dark:[--spotlight-color:rgb(226_94_29_/_0.07)]'
             )}
         >
@@ -74,9 +74,9 @@ export const HeaderNavbar: React.FC<{isSticky: boolean}> = ({isSticky}) => {
                 style={{background}}
                 aria-hidden="true"
             />
-            <ul className={clsx('relative flex h-[40px] overflow-hidden px-8')}>
+            <ul className={clsx('relative flex h-full overflow-hidden px-8')}>
                 {NAVIGATION_ITEMS.map(nav => (
-                    <HeaderNavItem key={nav.path} path={nav.path}>
+                    <HeaderNavItem key={nav.href} path={nav.href}>
                         {nav.title}
                     </HeaderNavItem>
                 ))}

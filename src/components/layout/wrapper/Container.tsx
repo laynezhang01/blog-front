@@ -8,8 +8,8 @@ export interface IContainerProps {
 
 export const Container: React.FC<PropsWithChildren<IContainerProps>> = ({outerClassName, innerClassName, children}) => {
     return (
-        <div className={clsx(outerClassName, 'm-auto flex w-full justify-center xl:max-w-[75rem]')}>
-            <div className={clsx(innerClassName, 'flex-1 px-8 md:mx-8')}>{children}</div>
+        <div className={clsx(outerClassName, 'm-auto flex w-full max-w-[75rem] justify-center')}>
+            <div className={clsx(innerClassName, 'flex-1 px-4')}>{children}</div>
         </div>
     );
 };

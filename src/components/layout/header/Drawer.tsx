@@ -31,7 +31,7 @@ export const HeaderDrawer: React.FC<ISlideUpPanelProps> = props => {
                     <div className="h-full bg-white p-4">
                         <ul className={clsx('relative flex h-[40px] overflow-hidden px-8')}>
                             {NAVIGATION_ITEMS.map(nav => (
-                                <HeaderNavItem key={nav.path} path={nav.path}>
+                                <HeaderNavItem key={nav.href} path={nav.href}>
                                     {nav.title}
                                 </HeaderNavItem>
                             ))}

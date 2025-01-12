@@ -1,13 +1,17 @@
 import React from 'react';
-import {ISocial} from '@/config/social';
+import clsx from 'clsx';
 import NextLink from 'next/link';
+import {ISocial} from '@/config/social';
 
 export const Social: React.FC<ISocial> = props => {
     const {icon, title, href} = props;
 
     return (
         <NextLink
-            className="flex h-[30px] w-[30px] items-center justify-center rounded-full bg-black text-white"
+            className={clsx(
+                'flex h-[40px] w-[40px] items-center justify-center rounded-full bg-black text-white hover:scale-125',
+                'text-lg transition-all ease-linear'
+            )}
             href={href}
             title={title}
         >
