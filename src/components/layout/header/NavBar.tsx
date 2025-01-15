@@ -61,8 +61,8 @@ export const HeaderNavbar: React.FC<{isSticky: boolean}> = ({isSticky}) => {
         <nav
             onMouseMove={handleMouseMove}
             className={clsx(
-                'group relative rounded-full backdrop-blur-md',
-                isSticky && 'rounded-none shadow-none ring-0 backdrop-blur-none',
+                'group relative',
+                isSticky ? '' : 'rounded-full bg-white/20 shadow-nav-shadow',
                 '[--spotlight-color:rgb(236_136_29_/_0.1)] dark:[--spotlight-color:rgb(226_94_29_/_0.07)]'
             )}
         >

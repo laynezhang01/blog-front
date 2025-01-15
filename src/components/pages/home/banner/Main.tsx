@@ -1,78 +1,84 @@
 import React from 'react';
 import clsx from 'clsx';
-import {Avatar, SocialProfile} from '@/components/pages/home/banner/index';
+import {Avatar} from '@/components/pages/home/banner/index';
 import {AnimatedSession} from '@/components/layout/AnimatedSession';
-import {BASIC_CONFIG} from '@/config/basic';
-
-import ArrowDropDownIcon from '/assets/icons/arrowDropDown.svg';
-import XIcon from '/assets/icons/x.svg';
-import GithubIcon from '/assets/icons/github.svg';
-import MainIcon from '/assets/icons/mail.svg';
 import {Container} from '@/components/layout/wrapper';
+
+import ArrowDropDownIcon from '../../../../../public/svgs/icons/arrowDropDown.svg';
 
 export const Banner: React.FC = () => {
     return (
-        <Container outerClassName="" innerClassName="flex items-center">
-            <div className="flexflex-col flex-1 justify-center gap-10 py-10">
-                {/*<Avatar className="w-[120px] h-[120px]" />*/}
+        <div
+            className={clsx(
+                'relative flex h-[400px] flex-col items-center justify-between bg-center',
+                'before:absolute before:inset-0 before:bg-black before:opacity-20 before:content-[""]'
+            )}
+            style={{backgroundImage: `url(/api/bing)`}}
+        >
+            <Container
+                outerClassName="relative"
+                innerClassName={clsx(
+                    'flex-1 flex items-center justify-center gap-16 w-full transition-all duration-300',
+                    'max-md:flex-col max-md:gap-4 text-white'
+                )}
+            >
                 <AnimatedSession>
-                    <h2>长风破浪会有时，直挂云帆济沧海</h2>
+                    <div className="h-28 w-28">
+                        <Avatar className="m-auto" />
+                    </div>
                 </AnimatedSession>
-            </div>
-        </Container>
-    );
+                {/*<div*/}
+                {/*    className={clsx(*/}
+                {/*        'flex flex-col gap-2',*/}
+                {/*        'before:-z-1 relative font-bold before:absolute before:left-0 before:content-[""]',*/}
+                {/*        'before:-left-[5%] before:top-[20%] before:h-[60%] before:w-[110%] before:-rotate-3 before:bg-orange-300/30'*/}
+                {/*    )}*/}
+                {/*>*/}
+                {/*    <AnimatedSession>*/}
+                {/*        <div className="">Hi, I'm Layne. 一名前端开发工程师</div>*/}
+                {/*    </AnimatedSession>*/}
+                {/*    <AnimatedSession>*/}
+                {/*        <div className="">业余摄影爱好者, 宅, 夜猫子.</div>*/}
+                {/*    </AnimatedSession>*/}
+                {/*</div>*/}
+            </Container>
 
-    return (
-        <Container>
-            <div className={clsx('relative min-h-[420px] overflow-hidden rounded-xl max-md:-mx-4', 'flex flex-col')}>
-                <div className="grid flex-1 grid-cols-3 items-center px-10 max-md:grid-cols-1 max-md:grid-rows-3">
-                    <div className="col-span-2 max-md:row-span-2">
-                        <AnimatedSession>
-                            <h1 className="text-balance text-center text-3xl font-bold max-md:text-2xl lg:text-left">
-                                Hi, 我是
-                                <span
-                                    className={clsx(
-                                        'before:-z-1 relative font-bold before:absolute before:left-0 before:content-[""]',
-                                        'before:top-[30%] before:h-[40%] before:w-full before:-rotate-3 before:bg-orange-300/30'
-                                    )}
-                                >
-                                    阿林
-                                </span>
-                                👋.
-                                <br />
-                                一名Web前端开发工程师
-                            </h1>
-                        </AnimatedSession>
-                        <AnimatedSession>
-                            <div className="text-secondary-foreground mt-6 text-center text-sm lg:text-left">
-                                业余摄影爱好者, 宅, 夜猫子.
-                            </div>
-                        </AnimatedSession>
-                        <AnimatedSession>
-                            <div className="mt-16 flex items-center gap-6 text-xl text-white max-md:justify-center">
-                                <SocialProfile icon={<GithubIcon />} href="https://github.com/laynezhang01" />
-                                <SocialProfile icon={<XIcon />} href="" />
-                                <SocialProfile icon={<MainIcon />} href="mailto:hi@linzip.com" className="bg-red-400" />
-                            </div>
-                        </AnimatedSession>
-                    </div>
-                    <AnimatedSession>
-                        <div className="col-span-1 flex max-md:row-span-1">
-                            <Avatar className="m-auto" />
-                        </div>
-                    </AnimatedSession>
-                </div>
-                <div className="inset-x-0 bottom-0 mt-10 flex flex-col items-center lg:absolute lg:mt-0">
-                    <AnimatedSession>
-                        <p className="text-secondary-foreground text-balance text-center text-xs">
-                            {BASIC_CONFIG.banner.text}
-                        </p>
-                    </AnimatedSession>
-                    <div className="mt-7 animate-bounce text-xl">
-                        <ArrowDropDownIcon />
-                    </div>
-                </div>
+            {/*<Container outerClassName="relative h-full" innerClassName="flex h-full items-center justify-center">*/}
+            {/*    <div>*/}
+            {/*        sas*/}
+            {/*    </div>*/}
+            {/*    <div className="flex-1 flex flex-col gap-4 justify-center items-center text-white">*/}
+            {/*        <AnimatedSession>*/}
+            {/*            <div className="w-28 h-28">*/}
+            {/*                <Avatar className="m-auto" />*/}
+            {/*            </div>*/}
+            {/*        </AnimatedSession>*/}
+            {/*        <AnimatedSession>*/}
+            {/*            <h1 className="text-balance text-center text-3xl font-bold max-md:text-2xl lg:text-left">*/}
+            {/*                Hi, 我是*/}
+            {/*                <span*/}
+            {/*                    className={clsx(*/}
+            {/*                        'before:-z-1 relative font-bold before:absolute before:left-0 before:content-[""]',*/}
+            {/*                        'before:top-[30%] before:h-[40%] before:w-full before:-rotate-3 before:bg-orange-300/30'*/}
+            {/*                    )}*/}
+            {/*                >*/}
+            {/*                        阿林*/}
+            {/*                    </span>*/}
+            {/*                👋.*/}
+            {/*                <br />*/}
+            {/*                一名Web前端开发工程师*/}
+            {/*            </h1>*/}
+            {/*        </AnimatedSession>*/}
+            {/*        <AnimatedSession>*/}
+            {/*            <div className="text-secondary-foreground mt-6 text-center text-sm lg:text-left">*/}
+            {/*                业余摄影爱好者, 宅, 夜猫子.*/}
+            {/*            </div>*/}
+            {/*        </AnimatedSession>*/}
+            {/*    </div>*/}
+            {/*</Container>*/}
+            <div className="mt-7 animate-bounce text-xl text-white">
+                <ArrowDropDownIcon />
             </div>
-        </Container>
+        </div>
     );
 };

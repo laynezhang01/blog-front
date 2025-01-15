@@ -14,7 +14,7 @@ export const Avatar: React.FC<IAvatar> = ({className}) => {
             href="/"
             className={clsx(
                 'pointer-events-auto inline-flex items-center justify-center rounded-full bg-white p-2',
-                'shadow-xl',
+                'h-full w-full shadow-xl',
                 className
             )}
         >

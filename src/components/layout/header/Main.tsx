@@ -7,8 +7,8 @@ import {GlobalContext} from '@/context/globalProvider';
 import {HeaderNavbar, HeaderDrawer, HeaderMenu} from '@/components/layout/header';
 import {Container} from '@/components/layout/wrapper';
 import {BASIC_CONFIG} from '@/config/basic';
-import Logo from '@/assets/svgs/logo.svg';
-import MenuIcon from '@/assets/svgs/icons/menu.svg';
+import Logo from '../../../../public/svgs/logo.svg';
+import MenuIcon from '../../../../public/svgs/icons/menu.svg';
 
 export const Header: React.FC = () => {
     const {scrollY} = useContext(GlobalContext);
@@ -20,16 +20,15 @@ export const Header: React.FC = () => {
         <>
             <header
                 className={clsx(
-                    'sticky top-0 z-30 flex h-[4rem] justify-center transition-all duration-300',
-                    isSticky && 'translate-y-[0]'
+                    'sticky top-0 z-30 flex h-[3rem] w-full justify-center text-primary transition-all duration-300',
+                    isSticky && 'translate-y-[0] bg-nav/80 shadow-md shadow-nav-shadow/10 backdrop-blur-xl'
+                    // isSticky ? 'h-[3rem]' : 'h-[4rem]'
                 )}
             >
                 <Container
-                    outerClassName="h-[3rem]"
                     innerClassName={clsx(
                         'flex items-center justify-between overflow-hidden rounded-xl',
-                        'border-card-border',
-                        isSticky && 'bg-nav/80 shadow-md backdrop-blur-lg'
+                        'border-card-border'
                     )}
                 >
                     <div className="flex h-full">

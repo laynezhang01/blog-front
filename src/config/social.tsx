@@ -1,9 +1,9 @@
 import React from 'react';
-import WeiboIcon from '@/assets/svgs/icons/sina.svg';
-import GithubIcon from '@/assets/svgs/icons/github.svg';
-import XIcon from '@/assets/svgs/icons/x.svg';
-import RssIcon from '@/assets/svgs/icons/rss.svg';
-import MailIcon from '@/assets/svgs/icons/mail.svg';
+import WeiboIcon from '../../public/svgs/icons/sina.svg';
+import GithubIcon from '../../public/svgs/icons/github.svg';
+import XIcon from '../../public/svgs/icons/x.svg';
+import RssIcon from '../../public/svgs/icons/rss.svg';
+import MailIcon from '../../public/svgs/icons/mail.svg';
 
 export interface ISocial {
     icon: React.ReactNode;

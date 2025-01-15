@@ -13,7 +13,7 @@ export const IconText: React.FC<IconTextProps> = ({icon, text, className}) => {
     }
 
     return (
-        <div className={clsx('flex items-center justify-center gap-2', className)}>
+        <div className={clsx('flex items-center justify-center gap-2 text-[12px]', className)}>
             {icon && icon}
             {text}
         </div>
