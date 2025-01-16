@@ -3,18 +3,18 @@ import clsx from 'clsx';
 import {Avatar} from '@/components/pages/home/banner/index';
 import {AnimatedSession} from '@/components/layout/AnimatedSession';
 import {Container} from '@/components/layout/wrapper';
-
-import ArrowDropDownIcon from '../../../../../public/svgs/icons/arrowDropDown.svg';
+import {Wave} from '@/components/animation/Wave';
 
 export const Banner: React.FC = () => {
     return (
         <div
             className={clsx(
-                'relative flex h-[400px] flex-col items-center justify-between bg-center',
-                'before:absolute before:inset-0 before:bg-black before:opacity-20 before:content-[""]'
+                'relative flex h-[500px] flex-col items-center justify-between bg-center'
+                // 'before:absolute before:inset-0 before:bg-black before:opacity-30 before:content-[""]',
             )}
             style={{backgroundImage: `url(/api/bing)`}}
         >
+            <Wave />
             <Container
                 outerClassName="relative"
                 innerClassName={clsx(
@@ -76,9 +76,9 @@ export const Banner: React.FC = () => {
             {/*        </AnimatedSession>*/}
             {/*    </div>*/}
             {/*</Container>*/}
-            <div className="mt-7 animate-bounce text-xl text-white">
-                <ArrowDropDownIcon />
-            </div>
+            {/*<div className="mt-7 animate-bounce text-xl text-white">*/}
+            {/*    <ArrowDropDownIcon />*/}
+            {/*</div>*/}
         </div>
     );
 };

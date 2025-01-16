@@ -16,7 +16,7 @@
 }
 
 :root {
-    --root: 249, 250, 251;
+    --root: #f9fafb;
     --primary: 52, 52, 52;
     --accent: 236, 136, 29;
     --nav-shadow: 0, 0, 0;
@@ -74,7 +74,7 @@
 
 @layer base {
     .dark {
-        --root: 15, 15, 15;
+        --root: #0f0f0f;
         --primary: 216, 216, 216;
         --accent: 226, 94, 29;
         --nav-shadow: 0, 0, 0;

@@ -20,8 +20,8 @@ export const Header: React.FC = () => {
         <>
             <header
                 className={clsx(
-                    'sticky top-0 z-30 flex h-[3rem] w-full justify-center text-primary transition-all duration-300',
-                    isSticky && 'translate-y-[0] bg-nav/80 shadow-md shadow-nav-shadow/10 backdrop-blur-xl'
+                    'fixed top-0 z-30 flex h-[3rem] w-full justify-center text-primary transition-all duration-300',
+                    isSticky && 'translate-y-[0] bg-root shadow-md shadow-nav-shadow/10 backdrop-blur-xl'
                     // isSticky ? 'h-[3rem]' : 'h-[4rem]'
                 )}
             >

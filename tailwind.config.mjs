@@ -8,7 +8,8 @@ export default {
     theme: {
         extend: {
             colors: {
-                root: 'rgba(var(--root), <alpha-value>)',
+                // root: 'rgba(var(--root), <alpha-value>)',
+                root: 'var(--root)',
                 primary: 'rgba(var(--primary), <alpha-value>)',
                 accent: 'rgba(var(--accent), <alpha-value>)',
                 nav: {
@@ -59,6 +60,14 @@ export default {
                     '50%': {
                         transform: 'none',
                         animationTimingFunction: 'cubic-bezier(0, 0, .2, 1)'
+                    }
+                },
+                spin: {
+                    '0%': {
+                        transform: 'rotate(0deg)'
+                    },
+                    '100%': {
+                        transform: 'rotate(0.5turn)'
                     }
                 }
             }

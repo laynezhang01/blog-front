@@ -3,10 +3,9 @@ import {Metadata} from 'next';
 import ThemeProvider from '@/context/themeProvider';
 import ProgressBarProvider from '@/context/progressBarProvider';
 import GlobalProvider from '@/context/globalProvider';
-import {Slider} from '@/components/Sidebar';
-import {Footer} from '../../components/layout/footer';
-import {Background} from '@/components/layout/Background';
 import {Header} from '@/components/layout/header';
+import {Footer} from '@/components/layout/footer';
+import {Slide} from '@/components/layout/Slide';
 
 import {BASIC_CONFIG} from '@/config/basic';
 
@@ -50,10 +49,10 @@ const RootLayout: React.FC<PropsWithChildren> = ({children}) => {
                         <GlobalProvider>
                             <Header />
                             <main>
-                                <Background />
+                                {/*<Background />*/}
                                 {children}
                             </main>
-                            <Slider />
+                            <Slide />
                             <Footer />
                         </GlobalProvider>
                     </ProgressBarProvider>

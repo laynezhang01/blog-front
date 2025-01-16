@@ -1,8 +1,8 @@
 module.exports = {
     extends: ['next/core-web-vitals', 'next/typescript', 'prettier', 'plugin:prettier/recommended'],
     rules: {
-        "no-unused-vars": "off",
-        "@typescript-eslint/no-explicit-any": "off",
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
         'no-alert': 0, //禁止使用alert confirm prompt
         // 'no-console': 2, // 禁止使用console
         camelcase: 2, //强制驼峰法命名
