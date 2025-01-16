@@ -6,7 +6,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(60deg, rgba(20, 20, 20, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
+        /*background: linear-gradient(60deg, rgba(20, 20, 20, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);*/
         opacity: 0.8;
     }
 }
@@ -44,7 +44,7 @@
 }
 
 .parallaxUse4 {
-    fill: rgba(255, 255, 255, 1);
+    fill: #f9fafb;
     animation-delay: -5s;
     animation-duration: 20s;
 }

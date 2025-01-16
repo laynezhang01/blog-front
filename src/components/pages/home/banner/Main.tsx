@@ -12,7 +12,8 @@ export const Banner: React.FC = () => {
                 'relative flex h-[500px] flex-col items-center justify-between bg-center'
                 // 'before:absolute before:inset-0 before:bg-black before:opacity-30 before:content-[""]',
             )}
-            style={{backgroundImage: `url(/api/bing)`}}
+            style={{backgroundImage: 'linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%)'}}
+            // style={{backgroundImage: `url(/api/bing)`}}
         >
             <Wave />
             <Container
