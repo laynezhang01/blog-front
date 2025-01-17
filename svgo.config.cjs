@@ -8,16 +8,16 @@ module.exports = {
                     removeViewBox: false,
                     // customize the params of a default plugin
                     inlineStyles: {
-                        onlyMatchedOnce: false
-                    }
-                }
-            }
+                        onlyMatchedOnce: false,
+                    },
+                },
+            },
         },
         {
             name: 'convertColors',
             params: {
-                currentColor: true
-            }
+                currentColor: true,
+            },
         },
         'removeDimensions',
         {
@@ -29,10 +29,10 @@ module.exports = {
                         stroke: 'none',
                         fill: 'currentColor',
                         width: '1em',
-                        height: '1em'
-                    }
-                ]
-            }
-        }
-    ]
+                        height: '1em',
+                    },
+                ],
+            },
+        },
+    ],
 };

@@ -1,14 +1,15 @@
 'use client';
 
+import clsx from 'clsx';
 import Link from 'next/link';
 import React, {useState, useContext, useMemo} from 'react';
-import clsx from 'clsx';
-import {GlobalContext} from '@/context/globalProvider';
+
 import {HeaderNavbar, HeaderDrawer, HeaderMenu} from '@/components/layout/header';
 import {Container} from '@/components/layout/wrapper';
 import {BASIC_CONFIG} from '@/config/basic';
-import Logo from '../../../../public/svgs/logo.svg';
-import MenuIcon from '../../../../public/svgs/icons/menu.svg';
+import {GlobalContext} from '@/context/globalProvider';
+import MenuIcon from '@/public/svgs/icons/menu.svg';
+import Logo from '@/public/svgs/logo.svg';
 
 export const Header: React.FC = () => {
     const {scrollY} = useContext(GlobalContext);
@@ -21,7 +22,8 @@ export const Header: React.FC = () => {
             <header
                 className={clsx(
                     'fixed top-0 z-30 flex h-[3rem] w-full justify-center text-primary transition-all duration-300',
-                    isSticky && 'translate-y-[0] bg-root shadow-md shadow-nav-shadow/10 backdrop-blur-xl'
+                    isSticky &&
+                        'translate-y-[0] bg-header-bg/70 shadow-md shadow-nav-shadow/10 backdrop-blur-xl'
                     // isSticky ? 'h-[3rem]' : 'h-[4rem]'
                 )}
             >

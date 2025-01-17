@@ -1,7 +1,7 @@
 'use client';
 
-import React, {useEffect, useRef} from 'react';
 import {type WalineInstance, type WalineInitOptions, init} from '@waline/client';
+import React, {useEffect, useRef} from 'react';
 
 import '@waline/client/meta';
 import '@waline/client/style';
@@ -17,7 +17,7 @@ export const Waline = (props: Omit<WalineOptions, 'path'>) => {
             ...props,
             path: window.location.pathname.replace(/\/$/, ''),
             el: containerRef.current,
-            dark: 'html[data-theme="dark"]'
+            dark: 'html[data-theme="dark"]',
         });
 
         return () => walineInstanceRef.current?.destroy();

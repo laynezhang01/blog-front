@@ -1,10 +1,11 @@
 'use client';
 
+import clsx from 'clsx';
 import React from 'react';
 import {Drawer} from 'vaul';
-import clsx from 'clsx';
-import {NAVIGATION_ITEMS} from '@/config/nav';
+
 import {HeaderNavItem} from '@/components/layout/header';
+import {NAVIGATION_ITEMS} from '@/config/nav';
 const {Root, Portal, Content, Title, Overlay} = Drawer;
 
 interface ISlideUpPanelProps {
@@ -16,11 +17,16 @@ interface ISlideUpPanelProps {
     onChangeStatus: (open: boolean) => void;
 }
 
-export const HeaderDrawer: React.FC<ISlideUpPanelProps> = props => {
+export const HeaderDrawer: React.FC<ISlideUpPanelProps> = (props) => {
     const {dismissible = true, title, defaultOpen = false, open, onChangeStatus} = props;
 
     return (
-        <Root dismissible={dismissible} defaultOpen={defaultOpen} open={open} onOpenChange={onChangeStatus}>
+        <Root
+            dismissible={dismissible}
+            defaultOpen={defaultOpen}
+            open={open}
+            onOpenChange={onChangeStatus}
+        >
             <Portal>
                 <Overlay className="fixed inset-0 z-[888] bg-black bg-opacity-30 backdrop-blur-md" />
                 <Content className="fixed bottom-0 left-0 z-[999] h-[70vh] w-full bg-card outline-none">
@@ -30,7 +36,7 @@ export const HeaderDrawer: React.FC<ISlideUpPanelProps> = props => {
                     <Title className={clsx(!title && 'hidden')}>{title}</Title>
                     <div className="h-full bg-white p-4">
                         <ul className={clsx('relative flex h-[40px] overflow-hidden px-8')}>
-                            {NAVIGATION_ITEMS.map(nav => (
+                            {NAVIGATION_ITEMS.map((nav) => (
                                 <HeaderNavItem key={nav.href} path={nav.href}>
                                     {nav.title}
                                 </HeaderNavItem>

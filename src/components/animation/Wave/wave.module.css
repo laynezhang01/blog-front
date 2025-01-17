@@ -26,25 +26,21 @@
 }
 
 .parallaxUse1 {
-    fill: rgba(255, 255, 255, 0.7);
     animation-delay: -2s;
     animation-duration: 7s;
 }
 
 .parallaxUse2 {
-    fill: rgba(255, 255, 255, 0.5);
     animation-delay: -3s;
     animation-duration: 10s;
 }
 
 .parallaxUse3 {
-    fill: rgba(255, 255, 255, 0.3);
     animation-delay: -4s;
     animation-duration: 13s;
 }
 
 .parallaxUse4 {
-    fill: #f9fafb;
     animation-delay: -5s;
     animation-duration: 20s;
 }

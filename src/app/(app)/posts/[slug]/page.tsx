@@ -1,31 +1,32 @@
-import NotFound from 'next/dist/client/components/not-found-error';
 import type {Metadata} from 'next';
-import {getPostBySlug} from '@/libs/post';
-import {PostContent} from '@/components/Post';
+import NotFound from 'next/dist/client/components/not-found-error';
+
 import {CommonWrapper} from '@/components/layout/wrapper';
+import {PostContent} from '@/components/Post';
 // import {Comment} from '@/components/Comment';
 import {Toc} from '@/components/Post/Toc';
-import {redis} from '@/db/redis';
 import {BASIC_CONFIG} from '@/config/basic';
 import {REDIS_KEYS} from '@/config/redisKeys';
+import {redis} from '@/db/redis';
+import {getPostBySlug} from '@/libs/post';
 
 type TParams = Promise<{slug: string}>;
 
 export async function generateMetadata(props: {params: TParams}): Promise<Metadata | undefined> {
     const {slug} = await props.params;
-    let post = await getPostBySlug('posts', slug);
+    const post = await getPostBySlug('posts', slug);
     if (!post) {
         return;
     }
     return {
         title: `${post.data.title} - ${BASIC_CONFIG.seo.title}`,
-        keywords: post.data.tags.map(item => item.label) ?? ''
+        keywords: post.data.tags.map((item) => item.label) ?? '',
     };
 }
 
 export default async function PostPage(props: {params: TParams}) {
     const {slug} = await props.params;
-    let post = await getPostBySlug('posts', slug);
+    const post = await getPostBySlug('posts', slug);
 
     const views =
         process.env.NODE_ENV === 'production'

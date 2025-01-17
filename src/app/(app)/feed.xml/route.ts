@@ -1,7 +1,8 @@
 import RSS from 'rss';
+import {ItemOptions} from 'rss';
+
 import {BASIC_CONFIG} from '@/config/basic';
 import {getAllPosts} from '@/libs/post';
-import {ItemOptions} from 'rss';
 
 const {seo, avatar} = BASIC_CONFIG;
 
@@ -17,7 +18,7 @@ export async function GET() {
         image_url: avatar,
         /* eslint-disable camelcase */
         language: 'zh-CN',
-        generator: 'NodeJS'
+        generator: 'NodeJS',
     });
 
     const data = await getAllPosts({dir: 'posts'});
@@ -33,14 +34,14 @@ export async function GET() {
             description: data.description,
             date: new Date(data.publishedAt),
             enclosure: {
-                url: data.coverImage ?? ''
-            }
+                url: data.coverImage ?? '',
+            },
         } as ItemOptions);
     });
 
     return new Response(feed.xml(), {
         headers: {
-            'content-type': 'application/xml'
-        }
+            'content-type': 'application/xml',
+        },
     });
 }

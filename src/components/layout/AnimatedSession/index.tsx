@@ -1,7 +1,7 @@
 'use client';
 
-import React, {PropsWithChildren, useEffect, useRef, useState} from 'react';
 import {motion} from 'motion/react';
+import React, {PropsWithChildren, useEffect, useRef, useState} from 'react';
 
 export const AnimatedSession: React.FC<PropsWithChildren> = ({children}) => {
     const ref = useRef<HTMLDivElement | null>(null);
@@ -25,7 +25,7 @@ export const AnimatedSession: React.FC<PropsWithChildren> = ({children}) => {
 
     const variants = {
         hidden: {opacity: 0, y: 50},
-        visible: {opacity: 1, y: 0}
+        visible: {opacity: 1, y: 0},
     };
 
     return (

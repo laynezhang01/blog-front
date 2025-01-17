@@ -1,6 +1,7 @@
 import React from 'react';
+
 // import {timeFormat} from '@/utils/time';
-import {MDXBody} from '../../features/Mdx';
+import {MDXBody} from '@/components/features';
 import {TPost} from '@/libs/post/type';
 
 // import VisibilityIcon from '/assets/icons/visibility.svg';
@@ -18,7 +19,7 @@ export interface IPostContentProps {
     className?: string;
 }
 
-export const PostContent: React.FC<IPostContentProps> = props => {
+export const PostContent: React.FC<IPostContentProps> = (props) => {
     // const {data, views, ...rest} = props;
     const {data} = props;
     // const readTime = readingTime(data?.content ?? '', 200, 'cn');

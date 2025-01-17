@@ -1,43 +1,65 @@
-import React, {PropsWithChildren, useMemo} from 'react';
+'use client';
+
 import clsx from 'clsx';
+import React, {useImperativeHandle, forwardRef, useState} from 'react';
 
 import {Popover, PopoverContent, PopoverTrigger} from '@/components/ui/Popover';
 
 export interface ISlideItemProps {
     icon: React.ReactNode;
     spin?: boolean;
-    onCLick: () => void;
-    visible?: boolean;
+    onCLick?: () => void;
+    className?: string;
+    children?: React.ReactNode;
 }
 
-export const SlideItem: React.FC<PropsWithChildren<ISlideItemProps>> = props => {
-    const {icon, spin = false, visible = true, children, onCLick} = props;
+export interface SlideItemRef {
+    closePopover: () => void;
+}
 
-    const trigger = useMemo(() => {
-        return (
-            <div
-                className={clsx(
-                    'relative flex items-center justify-center rounded bg-black p-1 text-sm text-white',
-                    'hover:bg-green-300/60',
-                    !visible && 'hidden'
-                )}
-                onClick={onCLick}
-            >
-                <span className={clsx(spin && 'animate-spin')}>{icon}</span>
-            </div>
-        );
-    }, [visible, onCLick, icon, spin]);
+export const SlideItem = forwardRef<SlideItemRef, ISlideItemProps>((props, ref) => {
+    const {icon, spin = false, className, children, onCLick} = props;
+    const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+
+    useImperativeHandle(ref, () => ({
+        closePopover: () => setIsPopoverOpen(false),
+    }));
+
+    const handleClick = () => {
+        setIsPopoverOpen((prev) => !prev);
+        onCLick?.();
+    };
+
+    // 渲染按钮
+    const button = (
+        <button
+            className={clsx(
+                className,
+                'mb-2 flex items-center justify-center rounded bg-card p-[6px] text-[16px] text-primary ring-1 ring-primary/10',
+                'transition-all duration-300 ease-in-out hover:bg-green-300/60'
+            )}
+            onClick={handleClick}
+        >
+            <span className={clsx(spin && 'animate-spin')}>{icon}</span>
+        </button>
+    );
 
     if (!children) {
-        return trigger;
+        return button;
     }
 
     return (
-        <Popover>
-            <PopoverTrigger>{trigger}</PopoverTrigger>
+        <Popover open={isPopoverOpen} onOpenChange={setIsPopoverOpen}>
+            <PopoverTrigger asChild>
+                <div className="relative">{button}</div>
+            </PopoverTrigger>
             <PopoverContent align="start" side="right">
                 {children}
             </PopoverContent>
         </Popover>
     );
-};
+});
+
+SlideItem.displayName = 'SlideItem';
+
+export default SlideItem;

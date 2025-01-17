@@ -1,5 +1,5 @@
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
 
 export interface ISocialProfileProps {
     icon: React.ReactNode;
@@ -7,7 +7,7 @@ export interface ISocialProfileProps {
     className?: string;
 }
 
-export const SocialProfile: React.FC<ISocialProfileProps> = props => {
+export const SocialProfile: React.FC<ISocialProfileProps> = (props) => {
     const {icon, href, className} = props;
 
     return (

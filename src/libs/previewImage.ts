@@ -3,8 +3,10 @@
  */
 
 import {Buffer} from 'buffer';
-import {getPlaiceholder} from 'plaiceholder';
+
 import normalizeUrl from 'normalize-url';
+import {getPlaiceholder} from 'plaiceholder';
+
 import {redis} from '@/db/redis';
 
 export interface IPreviewImage {
@@ -32,7 +34,7 @@ export const getPreviewImage = async (url: string): Promise<IPreviewImage | null
         const previewImage: IPreviewImage = {
             originalWidth: result.metadata.width,
             originalHeight: result.metadata.height,
-            dataURIBase64: result.base64
+            dataURIBase64: result.base64,
         };
 
         // 设置redis缓存
@@ -49,7 +51,7 @@ export const getPreviewImage = async (url: string): Promise<IPreviewImage | null
         return {
             originalWidth: 0,
             originalHeight: 0,
-            dataURIBase64: ''
+            dataURIBase64: '',
         };
     }
 };

@@ -1,0 +1,3 @@
+src/app/api/ipv4/route.ts
+src/app/api/bing/route.ts
+src/hooks/usePerformanceMetrics.tsx

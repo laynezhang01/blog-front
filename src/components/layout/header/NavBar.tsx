@@ -1,17 +1,21 @@
 'use client';
 
-import React, {PropsWithChildren, useCallback} from 'react';
 import clsx from 'clsx';
-import Link from 'next/link';
 import {motion, useMotionTemplate, useMotionValue} from 'motion/react';
+import Link from 'next/link';
 import {usePathname} from 'next/navigation';
+import React, {PropsWithChildren, useCallback} from 'react';
+
 import {NAVIGATION_ITEMS} from '@/config/nav';
 
 export interface IHeaderNavItemProps {
     path: string;
 }
 
-export const HeaderNavItem: React.FC<PropsWithChildren<IHeaderNavItemProps>> = ({path, children}) => {
+export const HeaderNavItem: React.FC<PropsWithChildren<IHeaderNavItemProps>> = ({
+    path,
+    children,
+}) => {
     const activePath = usePathname();
     const isActive = path === activePath;
     return (
@@ -75,7 +79,7 @@ export const HeaderNavbar: React.FC<{isSticky: boolean}> = ({isSticky}) => {
                 aria-hidden="true"
             />
             <ul className={clsx('relative flex h-full overflow-hidden px-8')}>
-                {NAVIGATION_ITEMS.map(nav => (
+                {NAVIGATION_ITEMS.map((nav) => (
                     <HeaderNavItem key={nav.href} path={nav.href}>
                         {nav.title}
                     </HeaderNavItem>

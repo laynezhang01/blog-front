@@ -1,4 +1,5 @@
 import NextImage, {ImageProps} from 'next/image';
+
 import {getPreviewImage} from '@/libs/previewImage';
 
 export default async function Image(props: ImageProps) {
@@ -10,7 +11,7 @@ export default async function Image(props: ImageProps) {
             {...props}
             style={{
                 width: '100%',
-                height: 'auto'
+                height: 'auto',
             }}
             placeholder="blur"
             blurDataURL={previewImage?.dataURIBase64 ?? ''}

@@ -1,7 +1,8 @@
-import {type NextRequest, userAgent} from 'next/server';
 import {geolocation, ipAddress} from '@vercel/functions';
-import {BASIC_CONFIG} from '@/config/basic';
+import {type NextRequest, userAgent} from 'next/server';
+
 import {IpInfoRes} from '@/app/api/ipv4/route';
+import {BASIC_CONFIG} from '@/config/basic';
 
 export interface IVisitorInfo {
     browserName?: string;
@@ -31,7 +32,7 @@ export async function getVisitorInfo(request: Request | NextRequest): Promise<IV
             osVersion: ua.os.version,
             flag: ipInfo.flag,
             city: ipInfo.city,
-            country: ipInfo.country
+            country: ipInfo.country,
         };
     }
 
@@ -42,6 +43,6 @@ export async function getVisitorInfo(request: Request | NextRequest): Promise<IV
         osVersion: ua.os.version,
         flag: location.flag,
         city: location.city,
-        country: location.country
+        country: location.country,
     };
 }

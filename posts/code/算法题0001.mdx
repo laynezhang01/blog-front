@@ -30,7 +30,7 @@ console.log(sorted);
 
 ```js
 // 未考虑修改原数组
-const sort = arr => {
+const sort = (arr) => {
     for (let i = 0; i < arr.length; i++) {
         for (let j = i + 1; j < arr.length; j++) {
             const cur1 = arr[i];
@@ -53,15 +53,15 @@ const sort = arr => {
 取出一个中间值然后左右分割，递归。这种方式优于冒泡。
 
 ```js
-const quickSort = arr => {
+const quickSort = (arr) => {
     if (arr.length <= 1) {
         return arr;
     }
 
     const p = arr[Math.floor(arr.length / 2)];
-    const left = arr.filter(x => x < p);
-    const right = arr.filter(x => x > p);
-    const mid = arr.filter(x => x === p);
+    const left = arr.filter((x) => x < p);
+    const right = arr.filter((x) => x > p);
+    const mid = arr.filter((x) => x === p);
 
     return [...quickSort(left), ...mid, ...quickSort(right)];
 };
@@ -138,7 +138,7 @@ A表示1，一直到Z表示26，AA表示27，AB表示28，依次类推，实现�
 比较简单的一道题，但是做的时候有点紧张，从新做了一遍...
 
 ```js
-const getValue = str => {
+const getValue = (str) => {
     if (!str) {
         return str;
     }
@@ -254,7 +254,7 @@ console.log(fn(arr, 6)); // 15
 输入: s = "pwwkew" 输出: 3 解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。 请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
 
 ```js
-const foo = str => {
+const foo = (str) => {
     const set = new Set();
     let maxLen = 0;
     let start = 0;

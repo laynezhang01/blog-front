@@ -1,22 +1,23 @@
 import {createElement, DetailedHTMLProps, HTMLAttributes} from 'react';
+
 import {slugify} from '@/utils/mark';
 
 export default function createTitle(level: number) {
     return (props: DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>) => {
         const {children} = props;
-        let slug = slugify(children);
+        const slug = slugify(children);
         const ele = createElement(
             `h${level}`,
             {
                 id: slug,
-                className: 'scroll-mt-16'
+                className: 'scroll-mt-16',
             },
             [
                 createElement('a', {
                     href: `#${slug}`,
                     key: `link-${slug}`,
-                    className: 'anchor'
-                })
+                    className: 'anchor',
+                }),
             ],
             children
         );

@@ -1,7 +1,8 @@
-import React from 'react';
-import Link from 'next/link';
 import clsx from 'clsx';
 import NextImage from 'next/image';
+import Link from 'next/link';
+import React from 'react';
+
 import {BASIC_CONFIG} from '@/config/basic';
 
 export interface IAvatar {

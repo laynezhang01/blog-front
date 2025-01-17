@@ -17,15 +17,15 @@ const nextConfig: NextConfig = {
                                     params: {
                                         overrides: {
                                             // 禁用移除 viewBox 的默认行为
-                                            removeViewBox: false
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                }
-            ]
+                                            removeViewBox: false,
+                                        },
+                                    },
+                                },
+                            ],
+                        },
+                    },
+                },
+            ],
         });
 
         return config;
@@ -35,32 +35,32 @@ const nextConfig: NextConfig = {
             {
                 protocol: 'https',
                 hostname: 'img.linzip.com',
-                pathname: '**'
+                pathname: '**',
             },
             {
                 protocol: 'https',
                 hostname: 'cdn.jsdelivr.net',
-                pathname: '**'
-            }
+                pathname: '**',
+            },
         ],
-        formats: ['image/avif', 'image/webp']
+        formats: ['image/avif', 'image/webp'],
     },
     async rewrites() {
         return [
             {
                 source: '/feed',
-                destination: '/feed.xml'
+                destination: '/feed.xml',
             },
             {
                 source: '/rss',
-                destination: '/feed.xml'
+                destination: '/feed.xml',
             },
             {
                 source: '/rss.xml',
-                destination: '/feed.xml'
-            }
+                destination: '/feed.xml',
+            },
         ];
-    }
+    },
 };
 
 export default nextConfig;

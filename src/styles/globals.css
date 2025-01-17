@@ -2,21 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 滚动条样式 */
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 5px; /* 滚动条宽度 */
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: rgba(130, 130, 130, 0.5);
+    border-radius: 4px; /* 滑块圆角 */
+    background-color: var(--scrollbar-thumb-color); /* 使用 CSS 变量 */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #f15b6c;
+    background-color: var(--scrollbar-thumb-hover-color); /* 使用 CSS 变量 */
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 3px; /* 轨道圆角 */
+    background: var(--scrollbar-track-color); /* 使用 CSS 变量 */
+}
+
+@layer base {
+    * {
+        @apply border-border focus-visible:outline-0;
+    }
+
+    html,
+    body {
+        overscroll-behavior-y: contain;
+    }
+
+    body {
+        @apply bg-root text-primary transition-[background] delay-75 ease-linear;
+    }
 }
 
 :root {
-    --root: #f9fafb;
+    --root: 250, 250, 250;
+    --header-bg: 255, 255, 255;
     --primary: 52, 52, 52;
     --accent: 236, 136, 29;
     --nav-shadow: 0, 0, 0;
@@ -66,74 +88,78 @@
     --prose-table-bg: #ffffff; /* 表格背景 */
     --prose-th: #111827; /* 表头文字 */
     --prose-td: #4b5563; /* 表格单元格文字 */
-}
-::-webkit-scrollbar-track {
-    border-radius: 3px;
-    background: transparent;
-}
 
-@layer base {
-    .dark {
-        --root: #0f0f0f;
-        --primary: 216, 216, 216;
-        --accent: 226, 94, 29;
-        --nav-shadow: 0, 0, 0;
-        --nav-ring: 15, 15, 15;
-        --nav: 45, 44, 39;
-        --line1: #d5d3d4;
-        --card: #374151;
-        --card-border: #4b5563;
-        --card-shadow: rgba(0, 0, 0, 0.7);
-        --secondary: #d1d5db;
-        --muted: #9ca3af;
-        --accent-hover: #2563eb;
-        --border: #4b5563;
+    /*--scrollbar-thumb-color: #1e3a5f; !* 亮色模式滚动条滑块颜色（黛蓝色） *!*/
+    /*--scrollbar-thumb-hover-color: #2a4d3d; !* 亮色模式滚动条滑块悬停颜色（墨绿色） *!*/
+    /*--scrollbar-track-color: #f0f2f5; !* 亮色模式滚动条轨道颜色（浅灰色） *!*/
 
-        --sh-background: #1f2937; /* 背景 */
-        --sh-text: #f3f4f6; /* 默认文字颜色 */
-        --sh-class: #60a5fa; /* 类名 */
-        --sh-identifier: #d1d5db; /* 标识符 */
-        --sh-keyword: #fb7185; /* 关键字 */
-        --sh-string: #38bdf8; /* 字符串 */
-        --sh-comment: #6b7280; /* 注释 */
-        --sh-property: #c084fc; /* 对象属性 */
-        --sh-entity: #4ade80; /* 实体名 */
-        --sh-sign: #f87171; /* 运算符或符号 */
-        --sh-jsxliterals: #f472b6; /* JSX 字面量 */
-        --sh-number: #facc15; /* 数字 */
-        --sh-function: #93c5fd; /* 函数 */
+    --banner-gradient-start: #425066;
+    --banner-gradient-end: #426666;
 
-        --prose-headings: #f3f4f6; /* 标题 */
-        --prose-text: #d1d5db; /* 正文 */
-        --prose-links: #60a5fa; /* 链接 */
-        --prose-links-hover: #3b82f6; /* 链接悬停 */
-        --prose-code: #c084fc; /* 行内代码 */
-        --prose-code-bg: #374151; /* 行内代码背景 */
-        --prose-code-block: #1e293b; /* 代码块背景 */
-        --prose-code-border: #4b5563; /* 代码块边框 */
-        --prose-code-text: #f3f4f6; /* 代码块文字 */
-        --prose-quote: #9ca3af; /* 引用文字 */
-        --prose-quote-border: #6b7280; /* 引用左侧边框 */
-        --prose-hr: #4b5563; /* 分割线 */
-        --prose-list: #d1d5db; /* 列表项 */
-        --prose-table-border: #4b5563; /* 表格边框 */
-        --prose-table-bg: #374151; /* 表格背景 */
-        --prose-th: #f3f4f6; /* 表头文字 */
-        --prose-td: #d1d5db; /* 表格单元格文字 */
-    }
+    --banner-wave-1: rgba(250, 250, 250, 0.7);
+    --banner-wave-2: rgba(250, 250, 250, 0.5);
+    --banner-wave-3: rgba(250, 250, 250, 0.3);
+    --banner-wave-4: rgba(250, 250, 250, 0.9);
 }
 
-@layer base {
-    * {
-        @apply border-border focus-visible:outline-0;
-    }
+.dark {
+    --root: 15, 15, 15;
+    --header-bg: 0, 0, 0;
+    --primary: 216, 216, 216;
+    --accent: 226, 94, 29;
+    --nav-shadow: 0, 0, 0;
+    --nav-ring: 15, 15, 15;
+    --nav: 45, 44, 39;
+    --line1: #d5d3d4;
+    --card: #374151;
+    --card-border: #4b5563;
+    --card-shadow: rgba(0, 0, 0, 0.7);
+    --secondary: #d1d5db;
+    --muted: #9ca3af;
+    --accent-hover: #2563eb;
+    --border: #4b5563;
 
-    html,
-    body {
-        overscroll-behavior-y: contain;
-    }
+    --sh-background: #1f2937; /* 背景 */
+    --sh-text: #f3f4f6; /* 默认文字颜色 */
+    --sh-class: #60a5fa; /* 类名 */
+    --sh-identifier: #d1d5db; /* 标识符 */
+    --sh-keyword: #fb7185; /* 关键字 */
+    --sh-string: #38bdf8; /* 字符串 */
+    --sh-comment: #6b7280; /* 注释 */
+    --sh-property: #c084fc; /* 对象属性 */
+    --sh-entity: #4ade80; /* 实体名 */
+    --sh-sign: #f87171; /* 运算符或符号 */
+    --sh-jsxliterals: #f472b6; /* JSX 字面量 */
+    --sh-number: #facc15; /* 数字 */
+    --sh-function: #93c5fd; /* 函数 */
 
-    body {
-        @apply bg-root text-primary transition-[background] delay-75 ease-linear;
-    }
+    --prose-headings: #f3f4f6; /* 标题 */
+    --prose-text: #d1d5db; /* 正文 */
+    --prose-links: #60a5fa; /* 链接 */
+    --prose-links-hover: #3b82f6; /* 链接悬停 */
+    --prose-code: #c084fc; /* 行内代码 */
+    --prose-code-bg: #374151; /* 行内代码背景 */
+    --prose-code-block: #1e293b; /* 代码块背景 */
+    --prose-code-border: #4b5563; /* 代码块边框 */
+    --prose-code-text: #f3f4f6; /* 代码块文字 */
+    --prose-quote: #9ca3af; /* 引用文字 */
+    --prose-quote-border: #6b7280; /* 引用左侧边框 */
+    --prose-hr: #4b5563; /* 分割线 */
+    --prose-list: #d1d5db; /* 列表项 */
+    --prose-table-border: #4b5563; /* 表格边框 */
+    --prose-table-bg: #374151; /* 表格背景 */
+    --prose-th: #f3f4f6; /* 表头文字 */
+    --prose-td: #d1d5db; /* 表格单元格文字 */
+
+    /*--scrollbar-thumb-color: #0a1a2a; !* 暗色模式滚动条滑块颜色（深黛蓝色） *!*/
+    /*--scrollbar-thumb-hover-color: #1a3a2a; !* 暗色模式滚动条滑块悬停颜色（深墨绿色） *!*/
+    /*--scrollbar-track-color: #1a1a1a; !* 暗色模式滚动条轨道颜色（深灰色） *!*/
+
+    --banner-gradient-start: #191f27;
+    --banner-gradient-end: #121b1b;
+
+    --banner-wave-1: rgba(15, 15, 15, 0.7);
+    --banner-wave-2: rgba(15, 15, 15, 0.5);
+    --banner-wave-3: rgba(15, 15, 15, 0.3);
+    --banner-wave-4: rgba(15, 15, 15, 0.9);
 }

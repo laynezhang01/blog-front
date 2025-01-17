@@ -1,13 +1,14 @@
-import React from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
+import React from 'react';
+import {readingTime} from 'reading-time-estimator';
+
+import {FontIcon} from '@/components/pages/home/post/FontIcon';
 import {IPostItemProps} from '@/components/pages/home/post/Item';
 import {PostItemWrapper} from '@/components/pages/home/post/Wrapper';
-import {FontIcon} from '@/components/pages/home/post/FontIcon';
-import CalendarIcon from '../../../../../public/svgs/icons/calendar.svg';
+import CalendarIcon from '@/public/svgs/icons/calendar.svg';
+import ClockIcon from '@/public/svgs/icons/clock.svg';
 import {timeFormat} from '@/utils/time';
-import ClockIcon from '../../../../../public/svgs/icons/clock.svg';
-import {readingTime} from 'reading-time-estimator';
 
 export const NoCoverItem: React.FC<IPostItemProps> = ({post}) => {
     const {data, content} = post;

@@ -1,12 +1,16 @@
-import React, {PropsWithChildren} from 'react';
 import clsx from 'clsx';
+import React, {PropsWithChildren} from 'react';
 
 export interface IContainerProps {
     outerClassName?: string;
     innerClassName?: string;
 }
 
-export const Container: React.FC<PropsWithChildren<IContainerProps>> = ({outerClassName, innerClassName, children}) => {
+export const Container: React.FC<PropsWithChildren<IContainerProps>> = ({
+    outerClassName,
+    innerClassName,
+    children,
+}) => {
     return (
         <div
             className={clsx(

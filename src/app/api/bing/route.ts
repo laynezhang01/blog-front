@@ -1,5 +1,5 @@
-import {NextResponse, NextRequest} from 'next/server';
 import axios, {AxiosResponse} from 'axios';
+import {NextResponse, NextRequest} from 'next/server';
 
 export interface IBingRes {
     images: Image[];
@@ -47,11 +47,13 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
         const url = `https://cn.bing.com/${data.images[0].url}`;
 
         // 获取图片流
-        const imageResponse: AxiosResponse<Buffer> = await axios.get(url, {responseType: 'arraybuffer'});
+        const imageResponse: AxiosResponse<Buffer> = await axios.get(url, {
+            responseType: 'arraybuffer',
+        });
 
         const headers = {
             'Content-Type': imageResponse.headers['content-type'] || 'image/jpeg',
-            'Cache-Control': 'public, max-age=86400'
+            'Cache-Control': 'public, max-age=86400',
         };
 
         // 返回响应
@@ -59,7 +61,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     } catch (e) {
         console.error(`Error fetching Bing wallpaper: ${e}`);
         return NextResponse.json({
-            error: 'Error fetching Bing wallpaper'
+            error: 'Error fetching Bing wallpaper',
         });
     }
 }

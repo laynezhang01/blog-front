@@ -1,24 +1,33 @@
-import React, {Suspense} from 'react';
 import dayjs from 'dayjs';
 import Link from 'next/link';
-import {BASIC_CONFIG} from '@/config/basic';
-import TotalPageViews from '@/components/layout/footer/TotalPageViews';
+import React, {Suspense} from 'react';
+
 import LastVisitorInfo from '@/components/layout/footer/LastVisitorInfo';
-import {Container} from '@/components/layout/wrapper';
-import {SOCIAL_ITEMS} from '@/config/social';
 import {Social} from '@/components/layout/footer/Social';
+import TotalPageViews from '@/components/layout/footer/TotalPageViews';
+import {Container} from '@/components/layout/wrapper';
+import {BASIC_CONFIG} from '@/config/basic';
+import {SOCIAL_ITEMS} from '@/config/social';
 
 export async function Footer() {
-    let dateStr: string | number;
+    // let dateStr: string | number;
+    // const now = dayjs().year();
+    // const createDate = dayjs(BASIC_CONFIG.createDate).year();
+    // dateStr = now === createDate ? createDate : `${createDate}-${now}`;
     const now = dayjs().year();
     const createDate = dayjs(BASIC_CONFIG.createDate).year();
-    dateStr = now === createDate ? createDate : `${createDate}-${now}`;
+    const dateStr = now === createDate ? createDate.toString() : `${createDate}-${now}`;
 
     return (
         <footer className="bg-white text-xs text-secondary">
             <div className="flex h-20 items-center justify-center gap-8 shadow-sm">
-                {SOCIAL_ITEMS.map(social => (
-                    <Social key={social.href} icon={social.icon} title={social.title} href={social.href} />
+                {SOCIAL_ITEMS.map((social) => (
+                    <Social
+                        key={social.href}
+                        icon={social.icon}
+                        title={social.title}
+                        href={social.href}
+                    />
                 ))}
             </div>
             <Container innerClassName="flex flex-col gap-10 py-10">

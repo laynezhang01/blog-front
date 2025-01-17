@@ -1,5 +1,5 @@
-import React, {PropsWithChildren} from 'react';
 import {ThemeProvider as NextThemeProvider} from 'next-themes';
+import React, {PropsWithChildren} from 'react';
 
 const ThemeProvider: React.FC<PropsWithChildren> = ({children}) => {
     return (

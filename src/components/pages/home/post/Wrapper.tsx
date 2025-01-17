@@ -1,11 +1,14 @@
-import React, {PropsWithChildren} from 'react';
 import clsx from 'clsx';
+import React, {PropsWithChildren} from 'react';
 
 export interface IPostItemWrapperProps {
     className?: string;
 }
 
-export const PostItemWrapper: React.FC<PropsWithChildren<IPostItemWrapperProps>> = ({className, children}) => {
+export const PostItemWrapper: React.FC<PropsWithChildren<IPostItemWrapperProps>> = ({
+    className,
+    children,
+}) => {
     return (
         <div
             className={clsx(

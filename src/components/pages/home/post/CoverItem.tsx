@@ -1,15 +1,14 @@
-import React from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
+import React from 'react';
 import {readingTime} from 'reading-time-estimator';
+
 import LazyImage from '@/components/features/LazyImage';
 import {PostItemWrapper, FontIcon, IPostItemProps} from '@/components/pages/home/post';
-import {timeFormat} from '@/utils/time';
-
 import cls from '@/components/pages/home/post/item.module.css';
-
-import CalendarIcon from '../../../../../public/svgs/icons/calendar.svg';
-import ClockIcon from '../../../../../public/svgs/icons/clock.svg';
+import CalendarIcon from '@/public/svgs/icons/calendar.svg';
+import ClockIcon from '@/public/svgs/icons/clock.svg';
+import {timeFormat} from '@/utils/time';
 
 export const CoverItem: React.FC<IPostItemProps> = ({post}) => {
     const {data, content} = post;
@@ -21,7 +20,11 @@ export const CoverItem: React.FC<IPostItemProps> = ({post}) => {
     return (
         <PostItemWrapper>
             <div className="group flex h-full flex-col">
-                <div className={clsx('group relative inline-flex w-full flex-[0_0_250px] overflow-hidden')}>
+                <div
+                    className={clsx(
+                        'group relative inline-flex w-full flex-[0_0_250px] overflow-hidden'
+                    )}
+                >
                     <LazyImage
                         className="transition-all duration-300 group-hover:scale-125 group-hover:blur-sm"
                         style={{minHeight: '100%', minWidth: '100%'}}
@@ -47,7 +50,7 @@ export const CoverItem: React.FC<IPostItemProps> = ({post}) => {
                         </h2>
                     </Link>
                     <div>
-                        {tagData.map(tag => (
+                        {tagData.map((tag) => (
                             <span key={tag.value} className="text-xs">
                                 #{tag.label}
                             </span>

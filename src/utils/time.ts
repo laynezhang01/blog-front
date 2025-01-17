@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
-import isYesterday from 'dayjs/plugin/isYesterday';
 import isBetween from 'dayjs/plugin/isBetween';
+import isYesterday from 'dayjs/plugin/isYesterday';
 dayjs.extend(isYesterday);
 dayjs.extend(isBetween);
 
@@ -32,17 +32,32 @@ export const timeFormat = (time: number | string | Date) => {
         return '昨天';
     }
 
-    const dayOfTwoDays = timeForDayjs.isBetween(now.subtract(2, 'day').startOf('day'), now, 'ms', '[]');
+    const dayOfTwoDays = timeForDayjs.isBetween(
+        now.subtract(2, 'day').startOf('day'),
+        now,
+        'ms',
+        '[]'
+    );
     if (dayOfTwoDays) {
         return '前天';
     }
 
-    const dayOfOneMonth = timeForDayjs.isBetween(now.subtract(1, 'month').startOf('day'), now, 'ms', '[]');
+    const dayOfOneMonth = timeForDayjs.isBetween(
+        now.subtract(1, 'month').startOf('day'),
+        now,
+        'ms',
+        '[]'
+    );
     if (dayOfOneMonth) {
         return now.diff(timeForDayjs, 'day') + '天前';
     }
 
-    const dayOfYear = timeForDayjs.isBetween(now.subtract(12, 'year').startOf('day'), now, 'ms', '[]');
+    const dayOfYear = timeForDayjs.isBetween(
+        now.subtract(12, 'year').startOf('day'),
+        now,
+        'ms',
+        '[]'
+    );
     if (dayOfYear) {
         return now.diff(timeForDayjs, 'month') + '个月前';
     }

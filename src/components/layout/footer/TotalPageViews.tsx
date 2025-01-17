@@ -1,6 +1,7 @@
 import React from 'react';
-import {redis} from '@/db/redis';
+
 import {REDIS_KEYS} from '@/config/redisKeys';
+import {redis} from '@/db/redis';
 import {prettifyNumber} from '@/libs/math';
 
 export default async function TotalPageViews() {

@@ -1,9 +1,10 @@
-import React from 'react';
 import clsx from 'clsx';
 import NextLink from 'next/link';
+import React from 'react';
+
 import {ISocial} from '@/config/social';
 
-export const Social: React.FC<ISocial> = props => {
+export const Social: React.FC<ISocial> = (props) => {
     const {icon, title, href} = props;
 
     return (

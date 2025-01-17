@@ -1,7 +1,9 @@
-import {AnchorHTMLAttributes, DetailedHTMLProps} from 'react';
 import NextLink from 'next/link';
+import {AnchorHTMLAttributes, DetailedHTMLProps} from 'react';
 
-export default function Link(props: DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>) {
+export default function Link(
+    props: DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>
+) {
     const href = props.href ?? '';
 
     if (href.startsWith('/')) {

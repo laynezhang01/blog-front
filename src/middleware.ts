@@ -1,6 +1,7 @@
 import {NextRequest, NextResponse} from 'next/server';
-import {redis} from '@/db/redis';
+
 import {REDIS_KEYS} from '@/config/redisKeys';
+import {redis} from '@/db/redis';
 import {getVisitorInfo} from '@/libs/visitor';
 
 const middleware = async (request: NextRequest) => {
@@ -17,7 +18,7 @@ const middleware = async (request: NextRequest) => {
 };
 
 export const config = {
-    matcher: ['/((?!_next|.*\\..*).*)']
+    matcher: ['/((?!_next|.*\\..*).*)'],
 };
 
 export default middleware;

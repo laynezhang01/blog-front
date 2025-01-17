@@ -1,6 +1,6 @@
-import React from 'react';
-// import WaveSvg from '@/public/svgs/background/wave.svg';
 import clsx from 'clsx';
+import React from 'react';
+
 import cls from './wave.module.css';
 
 export interface IWaveProps {
@@ -25,10 +25,30 @@ export const Wave: React.FC<IWaveProps> = ({classNames}) => {
                     />
                 </defs>
                 <g>
-                    <use xlinkHref="#gentle-wave" x="48" y="0" className={`${cls.parallaxUse} ${cls.parallaxUse1}`} />
-                    <use xlinkHref="#gentle-wave" x="48" y="3" className={`${cls.parallaxUse} ${cls.parallaxUse2}`} />
-                    <use xlinkHref="#gentle-wave" x="48" y="5" className={`${cls.parallaxUse} ${cls.parallaxUse3}`} />
-                    <use xlinkHref="#gentle-wave" x="48" y="7" className={`${cls.parallaxUse} ${cls.parallaxUse4}`} />
+                    <use
+                        xlinkHref="#gentle-wave"
+                        x="48"
+                        y="0"
+                        className={`${cls.parallaxUse} ${cls.parallaxUse1} fill-banner-wave1`}
+                    />
+                    <use
+                        xlinkHref="#gentle-wave"
+                        x="48"
+                        y="3"
+                        className={`${cls.parallaxUse} ${cls.parallaxUse2} fill-banner-wave2`}
+                    />
+                    <use
+                        xlinkHref="#gentle-wave"
+                        x="48"
+                        y="5"
+                        className={`${cls.parallaxUse} ${cls.parallaxUse3} fill-banner-wave3`}
+                    />
+                    <use
+                        xlinkHref="#gentle-wave"
+                        x="48"
+                        y="7"
+                        className={`${cls.parallaxUse} ${cls.parallaxUse4} fill-banner-wave4`}
+                    />
                 </g>
             </svg>
         </div>

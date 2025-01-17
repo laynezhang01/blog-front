@@ -1,4 +1,5 @@
 import NextImage, {ImageProps} from 'next/image';
+
 import {getPreviewImage} from '@/libs/previewImage';
 
 export interface LazyImageProps extends Omit<ImageProps, 'width' | 'height'> {

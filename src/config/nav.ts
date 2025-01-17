@@ -6,7 +6,7 @@ export interface INavItem {
 export const NAVIGATION_ITEMS: INavItem[] = [
     {
         href: '/',
-        title: '首页'
+        title: '首页',
     },
     // {
     //     href: '/talking',
@@ -14,8 +14,8 @@ export const NAVIGATION_ITEMS: INavItem[] = [
     // },
     {
         href: '/posts',
-        title: '文稿'
-    }
+        title: '文稿',
+    },
     // {
     //     href: '/archives',
     //     title: '归档'

@@ -1,8 +1,8 @@
-import createTitle from '@/components/features/Mdx/components/Title';
-import Link from '@/components/features/Mdx/components/Link';
 import Callout from '@/components/features/Mdx/components/Callout';
 import Code from '@/components/features/Mdx/components/Code';
 import Image from '@/components/features/Mdx/components/Image';
+import Link from '@/components/features/Mdx/components/Link';
+import createTitle from '@/components/features/Mdx/components/Title';
 
 export const mdxComponents = {
     h1: createTitle(1),
@@ -15,5 +15,5 @@ export const mdxComponents = {
     code: Code,
     Callout,
     Image,
-    img: Image
+    img: Image,
 };

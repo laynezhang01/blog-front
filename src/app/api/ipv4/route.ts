@@ -1,5 +1,5 @@
-import {NextResponse, NextRequest} from 'next/server';
 import countryCodeToFlagEmoji from 'country-code-to-flag-emoji';
+import {NextResponse, NextRequest} from 'next/server';
 
 export interface IGetIpRes {
     query: string;
@@ -34,6 +34,6 @@ export async function GET(req: NextRequest): Promise<NextResponse<IpInfoRes | nu
 
     return NextResponse.json({
         ...res,
-        flag: countryCodeToFlagEmoji(res.countryCode) ?? ''
+        flag: countryCodeToFlagEmoji(res.countryCode) ?? '',
     });
 }

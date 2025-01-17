@@ -1,7 +1,8 @@
 'use client';
 
 import React, {createContext, PropsWithChildren, useEffect, useState} from 'react';
-import {useScroll} from 'ahooks';
+
+import {useScrollPosition} from '@/hooks/useScrollPosition';
 
 interface IGlobalContext {
     scrollY: number;
@@ -10,13 +11,13 @@ interface IGlobalContext {
 export const GlobalContext = createContext<IGlobalContext>({} as IGlobalContext);
 
 const GlobalProvider: React.FC<PropsWithChildren> = ({children}) => {
-    const scrollData = useScroll();
+    const scroll = useScrollPosition();
     const [scrollY, setScrollY] = useState<number>(0);
 
     useEffect(() => {
-        const {top = 0} = scrollData ?? {};
-        setScrollY(top);
-    }, [scrollData]);
+        const {y} = scroll ?? {};
+        setScrollY(y);
+    }, [scroll]);
 
     return <GlobalContext.Provider value={{scrollY}}>{children}</GlobalContext.Provider>;
 };

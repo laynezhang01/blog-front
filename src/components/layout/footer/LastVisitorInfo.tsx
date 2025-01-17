@@ -1,22 +1,25 @@
 import React from 'react';
-import {redis} from '@/db/redis';
+
 import {REDIS_KEYS} from '@/config/redisKeys';
+import {redis} from '@/db/redis';
 import {IVisitorInfo} from '@/libs/visitor';
 
 export default async function LastVisitorInfo() {
-    let lastVisitor: IVisitorInfo | undefined;
-    const [lv, cv] = await redis.mget<IVisitorInfo[]>(REDIS_KEYS.LAST_VISITOR, REDIS_KEYS.CURRENT_VISITOR);
+    const [lv, cv] = await redis.mget<IVisitorInfo[]>(
+        REDIS_KEYS.LAST_VISITOR,
+        REDIS_KEYS.CURRENT_VISITOR
+    );
     if (process.env.NODE_ENV === 'production') {
         try {
             await redis.set(REDIS_KEYS.LAST_VISITOR, cv);
         } catch (e) {
-            console.log(e);
+            console.error(e);
         }
     }
 
-    lastVisitor = lv;
+    const lastVisitor = lv;
 
-    if (!lastVisitor) {
+    if (!lv) {
         return 'redis可能挂了...';
     }
 
@@ -27,7 +30,9 @@ export default async function LastVisitorInfo() {
                 {lastVisitor?.city}
             </span>
             <span className="font-medium">{lastVisitor?.flag}</span>
-            <span className="font-medium">{[lastVisitor.os, lastVisitor.browserName].filter(Boolean).join(', ')}</span>
+            <span className="font-medium">
+                {[lastVisitor.os, lastVisitor.browserName].filter(Boolean).join(', ')}
+            </span>
         </span>
     );
 }

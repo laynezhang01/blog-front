@@ -1,12 +1,13 @@
-import React from 'react';
-import {TAGS_MAP} from '@/constants/tag';
 import Link from 'next/link';
+import React from 'react';
+
+import {TAGS_MAP} from '@/constants/tag';
 
 interface ITagProps {
     value: string;
 }
 
-export const Tag: React.FC<ITagProps> = props => {
+export const Tag: React.FC<ITagProps> = (props) => {
     const {value} = props;
     const tagData = TAGS_MAP.get(value);
 

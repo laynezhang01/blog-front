@@ -1,8 +1,10 @@
 import fs, {readFileSync} from 'fs';
 import path from 'path';
+
 import matter from 'gray-matter';
-import {visit} from 'unist-util-visit';
 import {remark} from 'remark';
+import {visit} from 'unist-util-visit';
+
 import {IGetAllPostsParams, IMDFile, IHeading, TPostListData, TPost} from '@/libs/post/type';
 import {slugify} from '@/utils/mark';
 
@@ -17,7 +19,7 @@ const getAllMdFilePath = (dir: string = ''): string[] => {
         const fullDirPath = getFullPath(dir);
         const files = fs.readdirSync(fullDirPath);
         const mdFileList: string[] = [];
-        files.forEach(file => {
+        files.forEach((file) => {
             const fullPath = path.join(fullDirPath, file);
             if (fs.statSync(fullPath).isFile() && path.extname(file) === '.md') {
                 mdFileList.push(fullPath);
@@ -35,7 +37,7 @@ const parseMdFile = (filePath: string) => {
     const {content, data} = matter(fileContent) as unknown as IMDFile;
     return {
         content,
-        data
+        data,
     };
 };
 
@@ -43,7 +45,7 @@ export const getAllPosts = (params: IGetAllPostsParams): TPostListData => {
     const {dir, pageSize = 999, pageNum = 1} = params;
 
     const mdFilePathList = getAllMdFilePath(dir);
-    const posts: IMDFile[] = mdFilePathList.map(filePath => parseMdFile(filePath));
+    const posts: IMDFile[] = mdFilePathList.map((filePath) => parseMdFile(filePath));
 
     const sortPosts = posts.sort((a, b) => {
         const timeA = +a.data.publishedAt;
@@ -53,7 +55,7 @@ export const getAllPosts = (params: IGetAllPostsParams): TPostListData => {
 
     return {
         list: sortPosts.slice(pageSize * (pageNum - 1), pageSize * pageNum),
-        count: sortPosts.length
+        count: sortPosts.length,
     };
 };
 
@@ -65,11 +67,11 @@ export const getAllPosts = (params: IGetAllPostsParams): TPostListData => {
 const getHeadings = (content: string, limit = 3) => {
     const headings: IHeading[] = [];
     remark()
-        .use(() => tree => {
-            visit(tree, 'heading', node => {
+        .use(() => (tree) => {
+            visit(tree, 'heading', (node) => {
                 if (node['depth'] > 1 && node['depth'] <= limit) {
                     /* @ts-expect-error 这里的类型找不到 先跳过 */
-                    const text = node.children.map(child => child.value).join('');
+                    const text = node.children.map((child) => child.value).join('');
                     headings.push({text, id: slugify(text), depth: node['depth']});
                 }
             });
@@ -81,13 +83,13 @@ const getHeadings = (content: string, limit = 3) => {
 
 export const getPostBySlug = (dir = 'posts', slug: string): TPost => {
     const allMdxFiles = getAllPosts({dir});
-    const file = allMdxFiles.list.find(cur => cur.data.slug === slug);
+    const file = allMdxFiles.list.find((cur) => cur.data.slug === slug);
     if (!file) {
         throw new Error('post is not found');
     }
     const headings: IHeading[] = getHeadings(file.content);
     return {
         ...file,
-        headings
+        headings,
     };
 };

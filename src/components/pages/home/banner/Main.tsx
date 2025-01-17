@@ -1,18 +1,18 @@
-import React from 'react';
 import clsx from 'clsx';
-import {Avatar} from '@/components/pages/home/banner/index';
+import React from 'react';
+
+import {Wave} from '@/components/animation/Wave';
 import {AnimatedSession} from '@/components/layout/AnimatedSession';
 import {Container} from '@/components/layout/wrapper';
-import {Wave} from '@/components/animation/Wave';
+import {Avatar} from '@/components/pages/home/banner/index';
 
 export const Banner: React.FC = () => {
     return (
         <div
             className={clsx(
-                'relative flex h-[500px] flex-col items-center justify-between bg-center'
+                'relative flex h-[500px] flex-col items-center justify-between bg-banner-gradient bg-center'
                 // 'before:absolute before:inset-0 before:bg-black before:opacity-30 before:content-[""]',
             )}
-            style={{backgroundImage: 'linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%)'}}
             // style={{backgroundImage: `url(/api/bing)`}}
         >
             <Wave />
