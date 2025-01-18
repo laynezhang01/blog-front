@@ -9,7 +9,7 @@ export interface IWaveProps {
 
 export const Wave: React.FC<IWaveProps> = ({classNames}) => {
     return (
-        <div className={clsx(cls.waveWrapper, '-z-1 absolute inset-0', classNames)}>
+        <div className={clsx('-z-1 absolute inset-0', classNames)}>
             <svg
                 className={cls.waves}
                 xmlns="http://www.w3.org/2000/svg"
@@ -51,6 +51,7 @@ export const Wave: React.FC<IWaveProps> = ({classNames}) => {
                     />
                 </g>
             </svg>
+            <div className={cls.halo} />
         </div>
     );
 };

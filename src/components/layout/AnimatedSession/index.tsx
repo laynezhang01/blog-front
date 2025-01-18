@@ -1,9 +1,17 @@
 'use client';
 
+import clsx from 'clsx';
 import {motion} from 'motion/react';
 import React, {PropsWithChildren, useEffect, useRef, useState} from 'react';
 
-export const AnimatedSession: React.FC<PropsWithChildren> = ({children}) => {
+export interface IAnimatedSessionProps {
+    className?: string;
+}
+
+export const AnimatedSession: React.FC<PropsWithChildren<IAnimatedSessionProps>> = ({
+    className,
+    children,
+}) => {
     const ref = useRef<HTMLDivElement | null>(null);
     const [isVisible, setIsVisible] = useState(false);
 
@@ -30,6 +38,7 @@ export const AnimatedSession: React.FC<PropsWithChildren> = ({children}) => {
 
     return (
         <motion.div
+            className={clsx(className)}
             ref={ref}
             initial="hidden"
             animate={isVisible ? 'visible' : 'hidden'}

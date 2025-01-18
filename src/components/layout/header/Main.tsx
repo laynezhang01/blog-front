@@ -9,7 +9,7 @@ import {Container} from '@/components/layout/wrapper';
 import {BASIC_CONFIG} from '@/config/basic';
 import {GlobalContext} from '@/context/globalProvider';
 import MenuIcon from '@/public/svgs/icons/menu.svg';
-import Logo from '@/public/svgs/logo.svg';
+// import Logo from '@/public/svgs/logo.svg';
 
 export const Header: React.FC = () => {
     const {scrollY} = useContext(GlobalContext);
@@ -21,10 +21,10 @@ export const Header: React.FC = () => {
         <>
             <header
                 className={clsx(
-                    'fixed top-0 z-30 flex h-[3rem] w-full justify-center text-primary transition-all duration-300',
-                    isSticky &&
-                        'translate-y-[0] bg-header-bg/70 shadow-md shadow-nav-shadow/10 backdrop-blur-xl'
-                    // isSticky ? 'h-[3rem]' : 'h-[4rem]'
+                    'fixed top-0 z-30 flex h-[3rem] w-full justify-center transition-all duration-300',
+                    isSticky
+                        ? 'translate-y-[0] bg-root text-primary shadow-md shadow-nav-shadow/10 backdrop-blur-xl'
+                        : 'text-white'
                 )}
             >
                 <Container
@@ -34,11 +34,13 @@ export const Header: React.FC = () => {
                     )}
                 >
                     <div className="flex h-full">
-                        <Link href="/">
-                            <h1 className="text-md flex h-full items-center gap-2 font-bold">
-                                <span className="inline-flex w-[2.25rem] lg:w-[3.125rem]">
-                                    <Logo />
-                                </span>
+                        <Link href="/" className={clsx(isSticky ? 'text-primary' : 'text-white')}>
+                            <h1
+                                className={clsx('text-md flex h-full items-center gap-2 font-bold')}
+                            >
+                                {/*<span className="inline-flex w-[2.25rem] lg:w-[3.125rem]">*/}
+                                {/*    <Logo />*/}
+                                {/*</span>*/}
                                 <span>{BASIC_CONFIG.seo.title}</span>
                             </h1>
                         </Link>

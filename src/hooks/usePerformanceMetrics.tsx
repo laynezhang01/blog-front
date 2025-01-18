@@ -4,18 +4,23 @@ import {useEffect} from 'react';
 
 export const usePerformanceLogger = () => {
     useEffect(() => {
-        const getPerformanceMetrics = () => {
-            const {timing} = performance;
-            if (!timing) {
-                console.warn('Performance timing is not supported in this environment.');
-                return null;
-            }
+        if (typeof window === 'undefined' || typeof performance === 'undefined') {
+            console.warn('⚠️ 性能监控只能在客户端环境运行');
+            return;
+        }
 
-            // 基础性能指标
+        const logPerformanceMetrics = () => {
+            // 兼容旧版性能 API
+            const timing = performance.timing;
+
             const navigationStart = timing.navigationStart;
-            const loadTime = timing.loadEventEnd - navigationStart || performance.now();
-            const domContentLoadedTime = timing.domContentLoadedEventEnd - navigationStart;
-            const ttfb = timing.responseStart - timing.requestStart; // TTFB
+            const loadTime =
+                timing.loadEventEnd > 0 ? timing.loadEventEnd - navigationStart : performance.now();
+            const domContentLoadedTime =
+                timing.domContentLoadedEventEnd > 0
+                    ? timing.domContentLoadedEventEnd - navigationStart
+                    : 0;
+            const ttfb = timing.responseStart > 0 ? timing.responseStart - timing.requestStart : 0;
 
             // 现代性能指标（如果支持）
             const paintEntries = performance.getEntriesByType('paint');
@@ -25,59 +30,43 @@ export const usePerformanceLogger = () => {
             const lcpEntry = performance.getEntriesByName('largest-contentful-paint').pop();
             const lcp = lcpEntry ? lcpEntry.startTime : 0;
 
-            return {
-                loadTime,
-                domContentLoadedTime,
-                ttfb,
-                fcp,
-                lcp,
-            };
-        };
-
-        const logPerformanceMetrics = () => {
-            const metrics = getPerformanceMetrics();
-            if (!metrics) return;
-
-            const {loadTime, domContentLoadedTime, ttfb, fcp, lcp} = metrics;
-
-            const styleTitle = `
-        background: linear-gradient(90deg, #ff7f50, #ff4500);
-        color: #ffffff;
-        font-size: 12px;
-        font-weight: bold;
-        padding: 4px 8px;
-        border-radius: 4px;
-      `;
-            const styleBody = `
-        color: #e0e0e0;
-        font-size: 12px;
-        padding: 2px 4px;
-      `;
-            const styleValue = `
-        color: #4caf50;
-        font-weight: bold;
-        font-size: 12px;
-      `;
-
-            console.group('%c📊 性能监控', styleTitle);
-            console.log(`%c⏱️ TTFB: %c${ttfb.toFixed(2)} ms`, styleBody, styleValue);
+            console.group('%c📊 性能监控', 'background: #007acc; color: #fff; padding: 4px;');
             console.log(
-                `%c⏱️ DOM加载: %c${domContentLoadedTime.toFixed(2)} ms`,
-                styleBody,
-                styleValue
+                `%c⏱️ 页面加载时间: %c${loadTime.toFixed(2)} ms`,
+                'color: gray;',
+                'color: green; font-weight: bold;'
             );
-            console.log(`%c⏱️ 页面加载: %c${loadTime.toFixed(2)} ms`, styleBody, styleValue);
-            console.log(`%c🎨 FCP: %c${fcp.toFixed(2)} ms`, styleBody, styleValue);
-            console.log(`%c🎨 LCP: %c${lcp.toFixed(2)} ms`, styleBody, styleValue);
+            console.log(
+                `%c⏱️ DOM 加载时间: %c${domContentLoadedTime.toFixed(2)} ms`,
+                'color: gray;',
+                'color: green; font-weight: bold;'
+            );
+            console.log(
+                `%c⏱️ TTFB: %c${ttfb.toFixed(2)} ms`,
+                'color: gray;',
+                'color: green; font-weight: bold;'
+            );
+            console.log(
+                `%c🎨 FCP: %c${fcp.toFixed(2)} ms`,
+                'color: gray;',
+                'color: green; font-weight: bold;'
+            );
+            console.log(
+                `%c🎨 LCP: %c${lcp.toFixed(2)} ms`,
+                'color: gray;',
+                'color: green; font-weight: bold;'
+            );
             console.groupEnd();
         };
 
         const handleLoad = () => {
+            console.log('📄 页面加载完成，记录性能日志...');
             logPerformanceMetrics();
-            window.removeEventListener('load', handleLoad);
         };
 
+        // 检测页面加载状态
         if (document.readyState === 'complete') {
+            console.log('📄 页面已完全加载，直接记录性能日志...');
             logPerformanceMetrics();
         } else {
             window.addEventListener('load', handleLoad);

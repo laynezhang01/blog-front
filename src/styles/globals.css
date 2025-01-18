@@ -38,8 +38,9 @@
 
 :root {
     --root: 250, 250, 250;
+    --header-font: 255, 255, 255;
     --header-bg: 255, 255, 255;
-    --primary: 52, 52, 52;
+    --primary: 23, 42, 58;
     --accent: 236, 136, 29;
     --nav-shadow: 0, 0, 0;
     --nav-ring: 15, 15, 15;
@@ -93,19 +94,24 @@
     /*--scrollbar-thumb-hover-color: #2a4d3d; !* 亮色模式滚动条滑块悬停颜色（墨绿色） *!*/
     /*--scrollbar-track-color: #f0f2f5; !* 亮色模式滚动条轨道颜色（浅灰色） *!*/
 
-    --banner-gradient-start: #425066;
-    --banner-gradient-end: #426666;
+    --banner-bg: #243346;
 
     --banner-wave-1: rgba(250, 250, 250, 0.7);
     --banner-wave-2: rgba(250, 250, 250, 0.5);
     --banner-wave-3: rgba(250, 250, 250, 0.3);
     --banner-wave-4: rgba(250, 250, 250, 0.9);
+
+    --font-roboto: ${roboto.style.fontFamily};
+    --font-noto-sans-sc: ${notoSansSC.style.fontFamily};
+    --font-fira-code: ${firaCode.style.fontFamily};
 }
 
 .dark {
-    --root: 15, 15, 15;
+    --root: 40, 40, 40;
+    --header-font: 255, 255, 255;
     --header-bg: 0, 0, 0;
-    --primary: 216, 216, 216;
+    /*--heder*/
+    --primary: 220, 220, 220;
     --accent: 226, 94, 29;
     --nav-shadow: 0, 0, 0;
     --nav-ring: 15, 15, 15;
@@ -155,11 +161,41 @@
     /*--scrollbar-thumb-hover-color: #1a3a2a; !* 暗色模式滚动条滑块悬停颜色（深墨绿色） *!*/
     /*--scrollbar-track-color: #1a1a1a; !* 暗色模式滚动条轨道颜色（深灰色） *!*/
 
-    --banner-gradient-start: #191f27;
-    --banner-gradient-end: #121b1b;
+    --banner-bg: #191f27;
 
     --banner-wave-1: rgba(15, 15, 15, 0.7);
     --banner-wave-2: rgba(15, 15, 15, 0.5);
     --banner-wave-3: rgba(15, 15, 15, 0.3);
     --banner-wave-4: rgba(15, 15, 15, 0.9);
 }
+
+/*!* 简体中文字体（Unicode 范围） *!*/
+/*@font-face {*/
+/*    font-family: 'GenYoGothicCN';*/
+/*    src: url('https://cdn.jsdelivr.net/gh/ButTaiwan/genyo-fonts/GenYoGothicCN/woff2/GenYoGothicCN-Regular.woff2') format('woff2');*/
+/*    unicode-range: U+4E00-9FFF; !* CJK Unified Ideographs *!*/
+/*}*/
+
+/*!* 繁体中文字体（Unicode 范围） *!*/
+/*@font-face {*/
+/*    font-family: 'GenYoGothicTW';*/
+/*    src: url('https://font.linzip.com/genyogothictw-regular.woff') format('woff2');*/
+/*    unicode-range: U+4E00-9FFF, U+3400-4DBF; !* CJK Ideographs Extension A *!*/
+/*}*/
+
+/*!* 英文字体（ASCII 范围） *!*/
+/*@font-face {*/
+/*    font-family: 'Roboto';*/
+/*    src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');*/
+/*    unicode-range: U+0000-007F; !* Basic Latin *!*/
+/*}*/
+
+/*!* 代码字体 *!*/
+/*@font-face {*/
+/*    font-family: 'Fira Code';*/
+/*    src: url('https://cdn.jsdelivr.net/gh/tonsky/FiraCode/distr/woff2/FiraCode-Regular.woff2') format('woff2');*/
+/*}*/
+
+/*body {*/
+/*    font-family: 'GenYoGothicCN', 'GenYoGothicTW', 'Roboto', 'Fira Code', sans-serif;*/
+/*}*/

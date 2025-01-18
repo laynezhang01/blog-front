@@ -7,12 +7,13 @@ export default {
     ],
     theme: {
         extend: {
-            backgroundImage: {
-                'banner-gradient': `linear-gradient(60deg, var(--banner-gradient-start), var(--banner-gradient-end))`,
-            },
+            // backgroundImage: {
+            //     'banner-gradient': `linear-gradient(60deg, var(--banner-gradient-start), var(--banner-gradient-end))`,
+            // },
             colors: {
                 root: 'rgba(var(--root), <alpha-value>)',
                 header: {
+                    font: 'rgba(var(--header-font), <alpha-value>)',
                     bg: 'rgba(var(--header-bg), <alpha-value>)',
                 },
                 // root: 'var(--root)',
@@ -30,6 +31,7 @@ export default {
                     light: 'rgb(255, 255, 255)',
                 },
                 banner: {
+                    bg: 'var(--banner-bg)',
                     wave1: 'var(--banner-wave-1)',
                     wave2: 'var(--banner-wave-2)',
                     wave3: 'var(--banner-wave-3)',
@@ -83,6 +85,12 @@ export default {
                     },
                 },
             },
+            // fontFamily: {
+            //     chinese: ['GenYoGothicCN', 'Noto Sans SC', 'sans-serif'],
+            //     chineseTraditional: ['GenYoGothicTW', 'Noto Sans TC', 'sans-serif'],
+            //     english: ['Roboto', 'Arial', 'sans-serif'],
+            //     code: ['Fira Code', 'Courier New', 'monospace'],
+            // },
         },
     },
     plugins: [require('tailwindcss-animate')],
