@@ -1,22 +1,22 @@
 import clsx from 'clsx';
-import React, {PropsWithChildren} from 'react';
+import React, { PropsWithChildren } from 'react';
 
 export interface IPostItemWrapperProps {
-    className?: string;
+  className?: string;
 }
 
 export const PostItemWrapper: React.FC<PropsWithChildren<IPostItemWrapperProps>> = ({
-    className,
-    children,
+  className,
+  children,
 }) => {
-    return (
-        <div
-            className={clsx(
-                className,
-                'relative h-[24rem] overflow-hidden rounded-lg bg-card shadow-md hover:shadow-xl'
-            )}
-        >
-            {children}
-        </div>
-    );
+  return (
+    <div
+      className={clsx(
+        className,
+        'relative h-[24rem] overflow-hidden rounded-lg bg-card-bg shadow shadow-card-shadow hover:shadow-xl'
+      )}
+    >
+      {children}
+    </div>
+  );
 };

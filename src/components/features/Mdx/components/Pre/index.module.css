@@ -1,0 +1,14 @@
+.preWrapper {
+  &::before {
+    @apply absolute left-3 top-3 inline-flex;
+    content: '';
+    background-size: 40px;
+    border-radius: 50%;
+    background: #ff0800 no-repeat 10px 10px;
+    width: 12px;
+    height: 12px;
+    box-shadow:
+      20px 0 #fdbc40,
+      40px 0 #35cd4b;
+  }
+}

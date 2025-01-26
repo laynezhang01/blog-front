@@ -31,19 +31,19 @@ console.log(sorted);
 ```js
 // 未考虑修改原数组
 const sort = (arr) => {
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = i + 1; j < arr.length; j++) {
-            const cur1 = arr[i];
-            const cur2 = arr[j];
-            if (cur1 > cur2) {
-                // ES6写法
-                // [arr[i], arr[j]] = [arr[j], arr[i]];
-                const temp = cur1;
-                arr[i] = cur2;
-                arr[j] = temp;
-            }
-        }
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      const cur1 = arr[i];
+      const cur2 = arr[j];
+      if (cur1 > cur2) {
+        // ES6写法
+        // [arr[i], arr[j]] = [arr[j], arr[i]];
+        const temp = cur1;
+        arr[i] = cur2;
+        arr[j] = temp;
+      }
     }
+  }
 };
 // [1, 17, 23, 33, 65, 88, 99, 111]
 ```
@@ -54,16 +54,16 @@ const sort = (arr) => {
 
 ```js
 const quickSort = (arr) => {
-    if (arr.length <= 1) {
-        return arr;
-    }
+  if (arr.length <= 1) {
+    return arr;
+  }
 
-    const p = arr[Math.floor(arr.length / 2)];
-    const left = arr.filter((x) => x < p);
-    const right = arr.filter((x) => x > p);
-    const mid = arr.filter((x) => x === p);
+  const p = arr[Math.floor(arr.length / 2)];
+  const left = arr.filter((x) => x < p);
+  const right = arr.filter((x) => x > p);
+  const mid = arr.filter((x) => x === p);
 
-    return [...quickSort(left), ...mid, ...quickSort(right)];
+  return [...quickSort(left), ...mid, ...quickSort(right)];
 };
 ```
 
@@ -79,20 +79,20 @@ const quickSort = (arr) => {
 
 ```js
 const versionSort = (v1, v2) => {
-    const v1Arr = v1.split('.').map(Number);
-    const v2Arr = v2.split('.').map(Number);
-    const maxLen = Math.max(v1Arr.length, v2Arr.length);
+  const v1Arr = v1.split('.').map(Number);
+  const v2Arr = v2.split('.').map(Number);
+  const maxLen = Math.max(v1Arr.length, v2Arr.length);
 
-    for (let i = 0; i < maxLen; i++) {
-        const cur1 = v1Arr[i] ?? 0;
-        const cur2 = v2Arr[i] ?? 0;
-        if (cur1 < cur2) {
-            return -1;
-        } else if (cur1 > cur2) {
-            return 1;
-        }
+  for (let i = 0; i < maxLen; i++) {
+    const cur1 = v1Arr[i] ?? 0;
+    const cur2 = v2Arr[i] ?? 0;
+    if (cur1 < cur2) {
+      return -1;
+    } else if (cur1 > cur2) {
+      return 1;
     }
-    return 0;
+  }
+  return 0;
 };
 
 console.log(versions.sort(versionSort));
@@ -139,21 +139,21 @@ A表示1，一直到Z表示26，AA表示27，AB表示28，依次类推，实现�
 
 ```js
 const getValue = (str) => {
-    if (!str) {
-        return str;
+  if (!str) {
+    return str;
+  }
+  const map = { A: 1, B: 2, C: 3, D: 4, E: 5 };
+  const sArr = str.split('');
+  if (sArr.length <= 1) {
+    return map[str] ?? 0;
+  }
+  const len = sArr.length;
+  return sArr.reduce((prev, cur, idx) => {
+    if (idx !== len - 1) {
+      return (map[cur] % 26) * (idx + 1) * 26;
     }
-    const map = {A: 1, B: 2, C: 3, D: 4, E: 5};
-    const sArr = str.split('');
-    if (sArr.length <= 1) {
-        return map[str] ?? 0;
-    }
-    const len = sArr.length;
-    return sArr.reduce((prev, cur, idx) => {
-        if (idx !== len - 1) {
-            return (map[cur] % 26) * (idx + 1) * 26;
-        }
-        return prev + map[cur];
-    }, 0);
+    return prev + map[cur];
+  }, 0);
 };
 ```
 
@@ -168,40 +168,40 @@ const getValue = (str) => {
 ```js
 // pairs 一对
 const maxPairs = (arr, k) => {
-    // map比对象好 对象会给数字转成字符串
-    const count = new Map();
-    // 次数
-    let pairs = 0;
+  // map比对象好 对象会给数字转成字符串
+  const count = new Map();
+  // 次数
+  let pairs = 0;
 
-    // 取出每个数字出现的次数
-    for (const num of arr) {
-        // 第一次是0
-        count.set(num, (count.get(num) ?? 0) + 1);
-    }
+  // 取出每个数字出现的次数
+  for (const num of arr) {
+    // 第一次是0
+    count.set(num, (count.get(num) ?? 0) + 1);
+  }
 
-    for (const [num, freq] of count.entries()) {
-        const y = k - num;
-        if (count.has(y)) {
-            if (num === y) {
-                // 如果与自身相等 取自己的一半取整 比如五个三 只有2对可以组成6
-                const p = Math.floor(freq / 2);
-                // 增加次数
-                pairs += p;
-                // 删除字典里的次数
-                count.set(num, freq - p * 2);
-            } else {
-                // 取出能够组成的次数 最小值 很容易理解
-                const p = Math.min(freq, count.get(y));
-                // 增加次数
-                pairs += p;
-                // 删除字典中num的次数 这里可能是负数
-                count.set(num, freq - p);
-                // 删除字典中y的次数 这里也可能是负数
-                count.set(y, count.get(y) - p);
-            }
-        }
+  for (const [num, freq] of count.entries()) {
+    const y = k - num;
+    if (count.has(y)) {
+      if (num === y) {
+        // 如果与自身相等 取自己的一半取整 比如五个三 只有2对可以组成6
+        const p = Math.floor(freq / 2);
+        // 增加次数
+        pairs += p;
+        // 删除字典里的次数
+        count.set(num, freq - p * 2);
+      } else {
+        // 取出能够组成的次数 最小值 很容易理解
+        const p = Math.min(freq, count.get(y));
+        // 增加次数
+        pairs += p;
+        // 删除字典中num的次数 这里可能是负数
+        count.set(num, freq - p);
+        // 删除字典中y的次数 这里也可能是负数
+        count.set(y, count.get(y) - p);
+      }
     }
-    return pairs;
+  }
+  return pairs;
 };
 console.log(fn(arr, 6));
 // 6
@@ -211,31 +211,31 @@ console.log(fn(arr, 6));
 
 ```js
 const maxPairs = (arr, k) => {
-    // map比对象好 对象会给数字转成字符串
-    const count = new Map();
-    // 次数
-    let pairs = 0;
+  // map比对象好 对象会给数字转成字符串
+  const count = new Map();
+  // 次数
+  let pairs = 0;
 
-    // 取出每个数字出现的次数
-    for (const num of arr) {
-        // 第一次是0
-        count.set(num, (count.get(num) ?? 0) + 1);
-    }
+  // 取出每个数字出现的次数
+  for (const num of arr) {
+    // 第一次是0
+    count.set(num, (count.get(num) ?? 0) + 1);
+  }
 
-    for (const [num, freq] of count.entries()) {
-        const y = k - num;
-        if (count.has(y)) {
-            // 如果与自身相等 取自己的一半去整
-            if (num === y) {
-                pairs += Math.floor(freq / 2);
-            }
-            // 小于是为了往下避免重复情况
-            else if (num < y) {
-                pairs += freq * count.get(y);
-            }
-        }
+  for (const [num, freq] of count.entries()) {
+    const y = k - num;
+    if (count.has(y)) {
+      // 如果与自身相等 取自己的一半去整
+      if (num === y) {
+        pairs += Math.floor(freq / 2);
+      }
+      // 小于是为了往下避免重复情况
+      else if (num < y) {
+        pairs += freq * count.get(y);
+      }
     }
-    return pairs;
+  }
+  return pairs;
 };
 
 console.log(fn(arr, 6)); // 15
@@ -255,25 +255,25 @@ console.log(fn(arr, 6)); // 15
 
 ```js
 const foo = (str) => {
-    const set = new Set();
-    let maxLen = 0;
-    let start = 0;
-    let text = '';
+  const set = new Set();
+  let maxLen = 0;
+  let start = 0;
+  let text = '';
 
-    for (let i = 0; i < str.length; i++) {
-        while (set.has(str[i])) {
-            set.delete(str[start]);
-            start++;
-        }
-        set.add(str[i]);
-
-        // 遍历是从0开始的要加1
-        if (i + 1 - start > maxLen) {
-            maxLen = i + 1 - start;
-            text = str.slice(start, i + 1);
-        }
+  for (let i = 0; i < str.length; i++) {
+    while (set.has(str[i])) {
+      set.delete(str[start]);
+      start++;
     }
-    return {maxLen, text};
+    set.add(str[i]);
+
+    // 遍历是从0开始的要加1
+    if (i + 1 - start > maxLen) {
+      maxLen = i + 1 - start;
+      text = str.slice(start, i + 1);
+    }
+  }
+  return { maxLen, text };
 };
 
 console.log(foo('pwwkew')); // { maxLen: 3, text: 'wke' }
@@ -286,20 +286,20 @@ console.log(foo('pwwkew')); // { maxLen: 3, text: 'wke' }
 
 ```javascript
 var addTwoNumbers = function (l1, l2) {
-    const maxLen = Math.max(l1.length, l2.length);
-    let res = 0;
+  const maxLen = Math.max(l1.length, l2.length);
+  let res = 0;
 
-    for (let i = maxLen - 1; i >= 0; i--) {
-        const n1 = parseInt(l1[i] ?? 0);
-        const n2 = parseInt(l2[i] ?? 0);
-        if (i !== 0) {
-            const unit = Number('1' + '0'.repeat(i));
-            res += n1 * unit + n2 * unit;
-            continue;
-        }
-        res += n1 + n2;
+  for (let i = maxLen - 1; i >= 0; i--) {
+    const n1 = parseInt(l1[i] ?? 0);
+    const n2 = parseInt(l2[i] ?? 0);
+    if (i !== 0) {
+      const unit = Number('1' + '0'.repeat(i));
+      res += n1 * unit + n2 * unit;
+      continue;
     }
-    return res.toString().split('').map(Number).reverse();
+    res += n1 + n2;
+  }
+  return res.toString().split('').map(Number).reverse();
 };
 
 console.log(addTwoNumbers([9, 9, 9, 9, 9, 9, 9], [9, 9, 9, 9])); // [8, 9, 9, 9, 0, 0, 0, 1]
@@ -312,9 +312,9 @@ console.log(addTwoNumbers([9, 9, 9, 9, 9, 9, 9], [9, 9, 9, 9])); // [8, 9, 9, 9,
 
 ```javascript
 var isPalindrome = function (x) {
-    const str = x.toString();
-    const strReversed = str.split('').reverse().join('');
-    return str === strReversed;
+  const str = x.toString();
+  const strReversed = str.split('').reverse().join('');
+  return str === strReversed;
 };
 ```
 
@@ -322,20 +322,20 @@ var isPalindrome = function (x) {
 
 ```javascript
 var isPalindrome = function (x) {
-    // 负数不是回文数 0结尾的数字肯定不是回文数字
-    if (x < 0 || (x % 10 === 0 && x !== 0)) {
-        return false;
-    }
-    // 定义翻转值
-    let reversed = 0;
-    // 只取到一半的时候 就可以
-    while (x > reversed) {
-        // reversed * 10是进位， x % 10是剩余数字，依次填入翻转值里
-        reversed = reversed * 10 + (x % 10);
-        // 添加后就要改变x的值了 每次除以10取整
-        x = Math.floor(x / 10);
-    }
-    // 奇数个数字的时候 中间数字并不影响 所以翻转过来的数字最后一个就是那个中间数字 这里就干掉他
-    return x === reversed || x === Math.floor(reversed / 10);
+  // 负数不是回文数 0结尾的数字肯定不是回文数字
+  if (x < 0 || (x % 10 === 0 && x !== 0)) {
+    return false;
+  }
+  // 定义翻转值
+  let reversed = 0;
+  // 只取到一半的时候 就可以
+  while (x > reversed) {
+    // reversed * 10是进位， x % 10是剩余数字，依次填入翻转值里
+    reversed = reversed * 10 + (x % 10);
+    // 添加后就要改变x的值了 每次除以10取整
+    x = Math.floor(x / 10);
+  }
+  // 奇数个数字的时候 中间数字并不影响 所以翻转过来的数字最后一个就是那个中间数字 这里就干掉他
+  return x === reversed || x === Math.floor(reversed / 10);
 };
 ```

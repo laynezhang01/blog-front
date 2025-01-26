@@ -1,0 +1,82 @@
+{
+  "basic": {
+    "avatar": "https://assets.linzip.com/avatar.webp",
+    "banner": {
+      "url": "https://img.linzip.com/banner.webp",
+      "text": "我不害怕明天，因為我經歷過昨天，也熱愛今天"
+    },
+    "createDate": "2024-11-20"
+  },
+  "seo": {
+    "title": "阿林的博客",
+    "titleDes": "相聚有時，後會無期",
+    "description": "人生这趟旅途中总是在相遇，也总是在分离。以前年轻，最怕分离。可是时光荏苒，也到了而立之年，接受分离的同时也逐渐接受了自己。",
+    "url": "https://linzip.com",
+    "keywords": "linus zhang,阿林,博客,个人记录,独立博客,blog,技术博客,前端,个人生活,nextjs,node,code"
+  },
+  "navigation": [
+    {
+      "href": "/posts",
+      "title": "文章",
+      "key": "posts",
+      "subItems": [
+        {
+          "href": "/category",
+          "title": "分类",
+          "key": "category"
+        },
+        {
+          "href": "/tags",
+          "title": "标签",
+          "key": "tags"
+        },
+        {
+          "href": "/archives",
+          "title": "归档",
+          "key": "archives"
+        }
+      ]
+    },
+    {
+      "href": "/diary",
+      "title": "动态",
+      "key": "diary"
+    },
+    {
+      "href": "/comment",
+      "title": "留言",
+      "key": "comment"
+    },
+    {
+      "title": "聚合",
+      "subItems": [
+        {
+          "href": "/photos",
+          "title": "图记",
+          "key": "photos"
+        },
+        {
+          "href": "/books",
+          "title": "阅读",
+          "key": "books"
+        },
+        {
+          "href": "/movies",
+          "title": "观影",
+          "key": "movies"
+        }
+      ]
+    },
+    {
+      "href": "/about",
+      "title": "关于",
+      "key": "about"
+    }
+  ],
+  "redisKey": {
+    "TOTAL_VIEWS": "total_views",
+    "LAST_VISITOR": "last_visitor",
+    "CURRENT_VISITOR": "current_visitor",
+    "POST_VIEWS_PREFIX": "post:views:"
+  }
+}

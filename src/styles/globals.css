@@ -4,55 +4,78 @@
 
 /* 滚动条样式 */
 ::-webkit-scrollbar {
-    width: 5px; /* 滚动条宽度 */
+  width: 5px; /* 滚动条宽度 */
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 4px; /* 滑块圆角 */
-    background-color: var(--scrollbar-thumb-color); /* 使用 CSS 变量 */
+  border-radius: 4px; /* 滑块圆角 */
+  background-color: var(--scrollbar-thumb-color); /* 使用 CSS 变量 */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--scrollbar-thumb-hover-color); /* 使用 CSS 变量 */
+  background-color: var(--scrollbar-thumb-hover-color); /* 使用 CSS 变量 */
 }
 
 ::-webkit-scrollbar-track {
-    border-radius: 3px; /* 轨道圆角 */
-    background: var(--scrollbar-track-color); /* 使用 CSS 变量 */
+  border-radius: 3px; /* 轨道圆角 */
+  background: var(--scrollbar-track-color); /* 使用 CSS 变量 */
 }
 
 @layer base {
-    * {
-        @apply border-border focus-visible:outline-0;
-    }
+  * {
+    @apply border-border focus-visible:outline-0;
+  }
 
-    html,
-    body {
-        overscroll-behavior-y: contain;
-    }
+  html,
+  body {
+    overscroll-behavior-y: contain;
+  }
 
-    body {
-        @apply bg-root text-primary transition-[background] delay-75 ease-linear;
-    }
-}
+  body {
+    @apply bg-main text-primary transition-[background] delay-75 ease-linear;
+  }
+  :root {
+    /* 背景与卡片 */
+    --background: 246, 246, 246; /* 页面背景色 */
+    --card-background: 255, 255, 255; /* 卡片背景色 */
+    --card-background-foreground: 6, 68, 112;
+    --card-shadow: 0, 4, 6, 0.1; /* 卡片阴影 */
+    --header-background: 241, 241, 241; /* 头部背景色 */
 
-:root {
-    --root: 250, 250, 250;
+    /* 文字颜色 */
+    --primary: 220.9 39.3% 11%; /* 主要文字色 */
+    --secondary: 220 14.3% 95.9%; /* 次要文字色 */
+    --tertiary: 169, 169, 169; /* 第三级文字色（比如辅助文字） */
+
+    /* 标签与信息 */
+    --tag: 75, 155, 155; /* 标签文字色 */
+    --date: 169, 169, 169; /* 发布日期文字色 */
+    --author: 119, 119, 119; /* 作者名字文字色 */
+
+    /* 按钮与链接 */
+    --button-primary: 191, 31, 39; /* 按钮主色 */
+    --button-secondary: 75, 155, 155; /* 按钮次色 */
+    --link: 191, 31, 39; /* 链接颜色 */
+
+    /* 边框与分隔线 */
+    --border: 220 13% 91%; /* 边框色 */
+    --divider: 230, 230, 230; /* 分隔线色 */
+
+    /* 标题 */
+    --title: 51, 51, 51; /* 标题文字色 */
+    --heading: 51, 51, 51; /* 大标题文字色 */
+
     --header-font: 255, 255, 255;
     --header-bg: 255, 255, 255;
-    --primary: 23, 42, 58;
-    --accent: 236, 136, 29;
+    --accent: 220 14.3% 95.9%;
     --nav-shadow: 0, 0, 0;
     --nav-ring: 15, 15, 15;
     --nav: 255, 255, 255;
     --line1: #d5d3d4;
-    --secondary: #615f61;
-    --card: #fff;
+    --card: 0 0% 100%;
     --card-border: #e5e7eb;
-    --card-shadow: rgba(0, 0, 0, 0.1);
-    --muted: #6b7280;
+    --muted: 220 14.3% 95.9%;
     --accent-hover: #2563eb;
-    --border: #e5e7eb;
     --color-pink: #ff6f91;
     --color-orange: #ff9671;
     --color-blue: #5bc5fa;
@@ -96,77 +119,144 @@
 
     --banner-bg: #243346;
 
-    --banner-wave-1: rgba(250, 250, 250, 0.7);
-    --banner-wave-2: rgba(250, 250, 250, 0.5);
-    --banner-wave-3: rgba(250, 250, 250, 0.3);
-    --banner-wave-4: rgba(250, 250, 250, 0.9);
+    --banner-wave-1: rgba(70, 130, 180, 0.3); /* 蓝色系波浪，柔和 */
+    --banner-wave-2: rgba(250, 250, 250, 0.4); /* 页面背景色的轻微白色 */
+    --banner-wave-3: rgba(230, 230, 230, 0.5); /* 浅灰色，与背景色一致 */
+    --banner-wave-4: rgba(255, 255, 255, 0.6); /* 白色，过渡效果 */
 
     --font-roboto: ${roboto.style.fontFamily};
     --font-noto-sans-sc: ${notoSansSC.style.fontFamily};
     --font-fira-code: ${firaCode.style.fontFamily};
+    --foreground: 224 71.4% 4.1%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary-foreground: 210 20% 98%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --input: 220 13% 91%;
+    --ring: 224 71.4% 4.1%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 210 20% 98%;
+    --primary-foreground: 220.9 39.3% 11%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 216 12.2% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
 }
 
 .dark {
-    --root: 40, 40, 40;
-    --header-font: 255, 255, 255;
-    --header-bg: 0, 0, 0;
-    /*--heder*/
-    --primary: 220, 220, 220;
-    --accent: 226, 94, 29;
-    --nav-shadow: 0, 0, 0;
-    --nav-ring: 15, 15, 15;
-    --nav: 45, 44, 39;
-    --line1: #d5d3d4;
-    --card: #374151;
-    --card-border: #4b5563;
-    --card-shadow: rgba(0, 0, 0, 0.7);
-    --secondary: #d1d5db;
-    --muted: #9ca3af;
-    --accent-hover: #2563eb;
-    --border: #4b5563;
+  /* 背景与卡片 */
+  --background: 28, 28, 28; /* 页面背景色 */
+  --card-background: 40, 40, 40; /* 卡片背景色 */
+  --card-shadow: 0, 4, 6, 0.3; /* 卡片阴影 */
+  --header-background: 34, 34, 34; /* 头部背景色 */
 
-    --sh-background: #1f2937; /* 背景 */
-    --sh-text: #f3f4f6; /* 默认文字颜色 */
-    --sh-class: #60a5fa; /* 类名 */
-    --sh-identifier: #d1d5db; /* 标识符 */
-    --sh-keyword: #fb7185; /* 关键字 */
-    --sh-string: #38bdf8; /* 字符串 */
-    --sh-comment: #6b7280; /* 注释 */
-    --sh-property: #c084fc; /* 对象属性 */
-    --sh-entity: #4ade80; /* 实体名 */
-    --sh-sign: #f87171; /* 运算符或符号 */
-    --sh-jsxliterals: #f472b6; /* JSX 字面量 */
-    --sh-number: #facc15; /* 数字 */
-    --sh-function: #93c5fd; /* 函数 */
+  /* 文字颜色 */
+  --primary: 224, 224, 224; /* 主要文字色 */
+  --secondary: 176, 176, 176; /* 次要文字色 */
+  --tertiary: 169, 169, 169; /* 第三级文字色（比如辅助文字） */
 
-    --prose-headings: #f3f4f6; /* 标题 */
-    --prose-text: #d1d5db; /* 正文 */
-    --prose-links: #60a5fa; /* 链接 */
-    --prose-links-hover: #3b82f6; /* 链接悬停 */
-    --prose-code: #c084fc; /* 行内代码 */
-    --prose-code-bg: #374151; /* 行内代码背景 */
-    --prose-code-block: #1e293b; /* 代码块背景 */
-    --prose-code-border: #4b5563; /* 代码块边框 */
-    --prose-code-text: #f3f4f6; /* 代码块文字 */
-    --prose-quote: #9ca3af; /* 引用文字 */
-    --prose-quote-border: #6b7280; /* 引用左侧边框 */
-    --prose-hr: #4b5563; /* 分割线 */
-    --prose-list: #d1d5db; /* 列表项 */
-    --prose-table-border: #4b5563; /* 表格边框 */
-    --prose-table-bg: #374151; /* 表格背景 */
-    --prose-th: #f3f4f6; /* 表头文字 */
-    --prose-td: #d1d5db; /* 表格单元格文字 */
+  /* 标签与信息 */
+  --tag: 164, 212, 212; /* 标签文字色 */
+  --date: 169, 169, 169; /* 发布日期文字色 */
+  --author: 176, 176, 176; /* 作者名字文字色 */
 
-    /*--scrollbar-thumb-color: #0a1a2a; !* 暗色模式滚动条滑块颜色（深黛蓝色） *!*/
-    /*--scrollbar-thumb-hover-color: #1a3a2a; !* 暗色模式滚动条滑块悬停颜色（深墨绿色） *!*/
-    /*--scrollbar-track-color: #1a1a1a; !* 暗色模式滚动条轨道颜色（深灰色） *!*/
+  /* 按钮与链接 */
+  --button-primary: 191, 31, 39; /* 按钮主色 */
+  --button-secondary: 75, 155, 155; /* 按钮次色 */
+  --link: 191, 31, 39; /* 链接颜色 */
 
-    --banner-bg: #191f27;
+  /* 边框与分隔线 */
+  --border: 60, 60, 60; /* 边框色 */
+  --divider: 60, 60, 60; /* 分隔线色 */
 
-    --banner-wave-1: rgba(15, 15, 15, 0.7);
-    --banner-wave-2: rgba(15, 15, 15, 0.5);
-    --banner-wave-3: rgba(15, 15, 15, 0.3);
-    --banner-wave-4: rgba(15, 15, 15, 0.9);
+  /* 标题 */
+  --title: 224, 224, 224; /* 标题文字色 */
+  --heading: 224, 224, 224; /* 大标题文字色 */
+
+  --accent: 226, 94, 29;
+  --nav-shadow: 0, 0, 0;
+  --nav-ring: 15, 15, 15;
+  --nav: 45, 44, 39;
+  --line1: #d5d3d4;
+  --card: #374151;
+  --card-border: #4b5563;
+
+  --muted: #9ca3af;
+  --accent-hover: #2563eb;
+
+  --sh-background: #1f2937; /* 背景 */
+  --sh-text: #f3f4f6; /* 默认文字颜色 */
+  --sh-class: #60a5fa; /* 类名 */
+  --sh-identifier: #d1d5db; /* 标识符 */
+  --sh-keyword: #fb7185; /* 关键字 */
+  --sh-string: #38bdf8; /* 字符串 */
+  --sh-comment: #6b7280; /* 注释 */
+  --sh-property: #c084fc; /* 对象属性 */
+  --sh-entity: #4ade80; /* 实体名 */
+  --sh-sign: #f87171; /* 运算符或符号 */
+  --sh-jsxliterals: #f472b6; /* JSX 字面量 */
+  --sh-number: #facc15; /* 数字 */
+  --sh-function: #93c5fd; /* 函数 */
+
+  --prose-headings: #f3f4f6; /* 标题 */
+  --prose-text: #d1d5db; /* 正文 */
+  --prose-links: #60a5fa; /* 链接 */
+  --prose-links-hover: #3b82f6; /* 链接悬停 */
+  --prose-code: #c084fc; /* 行内代码 */
+  --prose-code-bg: #374151; /* 行内代码背景 */
+  --prose-code-block: #1e293b; /* 代码块背景 */
+  --prose-code-border: #4b5563; /* 代码块边框 */
+  --prose-code-text: #f3f4f6; /* 代码块文字 */
+  --prose-quote: #9ca3af; /* 引用文字 */
+  --prose-quote-border: #6b7280; /* 引用左侧边框 */
+  --prose-hr: #4b5563; /* 分割线 */
+  --prose-list: #d1d5db; /* 列表项 */
+  --prose-table-border: #4b5563; /* 表格边框 */
+  --prose-table-bg: #374151; /* 表格背景 */
+  --prose-th: #f3f4f6; /* 表头文字 */
+  --prose-td: #d1d5db; /* 表格单元格文字 */
+
+  /*--scrollbar-thumb-color: #0a1a2a; !* 暗色模式滚动条滑块颜色（深黛蓝色） *!*/
+  /*--scrollbar-thumb-hover-color: #1a3a2a; !* 暗色模式滚动条滑块悬停颜色（深墨绿色） *!*/
+  /*--scrollbar-track-color: #1a1a1a; !* 暗色模式滚动条轨道颜色（深灰色） *!*/
+
+  --banner-bg: #191f27;
+
+  --banner-wave-1: rgba(50, 50, 50, 0.6); /* 深灰色 */
+  --banner-wave-2: rgba(30, 30, 30, 0.7); /* 更深灰色 */
+  --banner-wave-3: rgba(60, 60, 60, 0.5); /* 中灰色 */
+  --banner-wave-4: rgba(30, 30, 30, 0.8); /* 更深灰色 */
 }
 
 /*!* 简体中文字体（Unicode 范围） *!*/
@@ -199,3 +289,11 @@
 /*body {*/
 /*    font-family: 'GenYoGothicCN', 'GenYoGothicTW', 'Roboto', 'Fira Code', sans-serif;*/
 /*}*/
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

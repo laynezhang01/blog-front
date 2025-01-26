@@ -1,20 +1,23 @@
-import NextImage, {ImageProps} from 'next/image';
+import NextImage, { ImageProps } from 'next/image';
+import { getPreviewImage } from '@/libs/previewImage';
+import { LazyImage } from '@/components/features';
 
-import {getPreviewImage} from '@/libs/previewImage';
+type CustomImageProps = Omit<ImageProps, 'src'> & {
+  src: string;
+};
 
-export default async function Image(props: ImageProps) {
-    const previewImage = await getPreviewImage((props.src as string) ?? '');
+export default async function Image(props: CustomImageProps) {
+  const { src, alt, className = '', ...restProps } = props;
 
-    return (
-        <NextImage
-            className="max-w-full rounded-xl"
-            {...props}
-            style={{
-                width: '100%',
-                height: 'auto',
-            }}
-            placeholder="blur"
-            blurDataURL={previewImage?.dataURIBase64 ?? ''}
-        />
-    );
+  // 获取预览图
+  const previewImage = await getPreviewImage(src);
+
+  return (
+    <LazyImage
+      src={src}
+      alt={alt}
+      className={`max-w-full rounded-xl ${className}`} // 合并 className
+      {...restProps} // 保留其他 props
+    />
+  );
 }

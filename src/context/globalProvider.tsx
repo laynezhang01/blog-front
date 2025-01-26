@@ -1,25 +1,34 @@
 'use client';
 
-import React, {createContext, PropsWithChildren, useEffect, useState} from 'react';
+import React, { createContext, PropsWithChildren, useEffect, useMemo, useState } from 'react';
 
-import {useScrollPosition} from '@/hooks/useScrollPosition';
+import { useScrollPosition } from '@/hooks/useScrollPosition';
 
 interface IGlobalContext {
-    scrollY: number;
+  scrollY: number;
+  headerIsFixed: boolean;
 }
 
-export const GlobalContext = createContext<IGlobalContext>({} as IGlobalContext);
+export namespace NGlobalContext {
+  export const HEADER_FIXED_Y = 10;
+}
 
-const GlobalProvider: React.FC<PropsWithChildren> = ({children}) => {
-    const scroll = useScrollPosition();
-    const [scrollY, setScrollY] = useState<number>(0);
+export const GlobalContext = createContext<IGlobalContext>({
+  scrollY: 0,
+  headerIsFixed: false,
+});
 
-    useEffect(() => {
-        const {y} = scroll ?? {};
-        setScrollY(y);
-    }, [scroll]);
+const GlobalProvider: React.FC<PropsWithChildren> = ({ children }) => {
+  const { y: scrollY } = useScrollPosition();
 
-    return <GlobalContext.Provider value={{scrollY}}>{children}</GlobalContext.Provider>;
+  const data = useMemo<IGlobalContext>(() => {
+    return {
+      scrollY,
+      headerIsFixed: scrollY >= NGlobalContext.HEADER_FIXED_Y,
+    };
+  }, [scrollY]);
+
+  return <GlobalContext.Provider value={data}>{children}</GlobalContext.Provider>;
 };
 
 export default GlobalProvider;

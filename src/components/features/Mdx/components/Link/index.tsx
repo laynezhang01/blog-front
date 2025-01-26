@@ -1,22 +1,31 @@
 import NextLink from 'next/link';
-import {AnchorHTMLAttributes, DetailedHTMLProps} from 'react';
+import { AnchorHTMLAttributes, DetailedHTMLProps, ReactNode } from 'react';
 
-export default function Link(
-    props: DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>
-) {
-    const href = props.href ?? '';
+type LinkProps = DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
 
-    if (href.startsWith('/')) {
-        return (
-            <NextLink href={href} {...props}>
-                {props.children}
-            </NextLink>
-        );
-    }
+export default function Link(props: LinkProps) {
+  const { href = '', children, ...restProps } = props;
 
-    if (href.startsWith('#')) {
-        return <a {...props} />;
-    }
+  // 内部路由
+  if (href.startsWith('/')) {
+    return (
+      <NextLink href={href} passHref legacyBehavior>
+        <a {...restProps}>{children}</a>
+      </NextLink>
+    );
+  }
 
-    return <a target="_blank" rel="noopener noreferrer" {...props} />;
+  if (href.startsWith('#')) {
+    return (
+      <a href={href} {...restProps}>
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" {...restProps}>
+      {children}
+    </a>
+  );
 }

@@ -13,8 +13,8 @@
 // };
 
 export const POST_DEFAULT_COVER_MAP: Record<string, string> = {
-    travel: 'https://img.linzip.com/travel.jpg',
-    diary: 'https://img.linzip.com/diary.jpg',
-    photography: 'https://img.linzip.com/photography.jpg',
-    code: 'https://img.linzip.com/code.jpg',
+  travel: 'https://img.linzip.com/travel.jpg',
+  diary: 'https://img.linzip.com/diary.jpg',
+  photography: 'https://img.linzip.com/photography.jpg',
+  code: 'https://img.linzip.com/code.jpg',
 };

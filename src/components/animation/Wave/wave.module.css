@@ -1,86 +1,43 @@
-.halo {
-    border-radius: 50%;
-    -webkit-filter: blur(150px);
-    filter: blur(150px);
-    height: 800px;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    top: -360px;
-    width: 800px;
-    --conic-rotate: 45deg;
-
-    &::after {
-        --conic-opacity: 0.3;
-        background-image: conic-gradient(
-            from 45deg at 50% 50%,
-            var(--color-orange),
-            var(--color-pink),
-            var(--color-pink),
-            var(--color-blue),
-            var(--color-blue),
-            var(--color-purple),
-            var(--color-purple),
-            var(--color-orange)
-        );
-        border-radius: 50%;
-        content: '';
-        display: block;
-        height: 1140px;
-        opacity: var(--conic-opacity, 0.7);
-        overflow: hidden;
-        transform: rotate(var(--conic-rotate, 0deg));
-        width: 1140px;
-        will-change: transform;
-    }
-}
-
-.waves {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 15vh;
-    margin-bottom: -7px; /* Fix for Safari gap */
-    min-height: 100px;
-    max-height: 150px;
-}
-
 .parallaxUse {
-    animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
 }
 
 .parallaxUse1 {
-    animation-delay: -2s;
-    animation-duration: 7s;
+  animation-delay: -2s;
+  animation-duration: 7s;
+  fill: var(--banner-wave-1);
 }
 
 .parallaxUse2 {
-    animation-delay: -3s;
-    animation-duration: 10s;
+  animation-delay: -3s;
+  animation-duration: 10s;
+  fill: var(--banner-wave-2);
 }
 
 .parallaxUse3 {
-    animation-delay: -4s;
-    animation-duration: 13s;
+  animation-delay: -4s;
+  animation-duration: 13s;
+  fill: var(--banner-wave-3);
 }
 
 .parallaxUse4 {
-    animation-delay: -5s;
-    animation-duration: 20s;
+  animation-delay: -5s;
+  animation-duration: 20s;
+  fill: var(--banner-wave-4);
 }
 
 @keyframes move-forever {
-    0% {
-        transform: translate3d(-90px, 0, 0);
-    }
-    100% {
-        transform: translate3d(85px, 0, 0);
-    }
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
 }
 
 @media (max-width: 768px) {
-    .waves {
-        height: 40px;
-        min-height: 40px;
-    }
+  .waves {
+    height: 40px;
+    min-height: 40px;
+  }
 }

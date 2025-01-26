@@ -1,20 +1,20 @@
 .slant {
-    content: '';
-    position: absolute;
-    z-index: 0;
-    right: 0;
-    bottom: -79px;
-    left: 0;
-    width: 110%;
-    min-height: 100px;
-    transform: rotate(7deg) translate(-10px, 0);
-    background-color: #fff;
+  content: '';
+  position: absolute;
+  z-index: 0;
+  right: 0;
+  bottom: -79px;
+  left: 0;
+  width: 110%;
+  min-height: 100px;
+  transform: rotate(7deg) translate(-10px, 0);
+  background-color: #fff;
 }
 
 .reverse {
-    transform: rotate(-10deg) translate(10px, -10px);
-    opacity: 0.7;
-    background-color: #f68e5f;
-    box-shadow: none;
-    background-color: rgba(0, 0, 0, 0.5) !important;
+  transform: rotate(-10deg) translate(10px, -10px);
+  opacity: 0.7;
+  background-color: #f68e5f;
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0.5) !important;
 }
